@@ -5,18 +5,18 @@
  */
 
 module.exports = {
-	id: "devtools",
+  id: 'devtools',
 
-	/**
-	 * @description Executes when the button with ID "devtools" is clicked.
-	 * @author Felix
-	 * @param {Object} interaction The Interaction Object of the command.
-	 */
+  /**
+   * @description Executes when the button with ID "devtools" is clicked.
+   * @author Felix
+   * @param {Object} interaction The Interaction Object of the command.
+   */
 
-	async execute(interaction) {
-		await interaction.reply({
-			content: "This was a reply from button handler!",
-		});
-		return;
-	},
-};
+  async execute(interaction) {
+    await interaction.reply({
+      content: 'This was a reply from button handler!',
+    })
+    return
+  },
+}

@@ -3,19 +3,17 @@
  * @author Felix
  * @since 1.0.0
  */
-
-const { prefix } = require("../config.json");
+require('dotenv').config()
+const { prefix } = process.env.prefix
 
 module.exports = {
-	/**
-	 * @description Executes when the bot is pinged.
-	 * @author Felix
-	 * @param {Object} message The Message Object of the command.
-	 */
+  /**
+   * @description Executes when the bot is pinged.
+   * @author Felix
+   * @param {Object} message The Message Object of the command.
+   */
 
-	async execute(message) {
-		return message.channel.send(
-			`Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`
-		);
-	},
-};
+  async execute(message) {
+    return message.channel.send(`Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`)
+  },
+}
