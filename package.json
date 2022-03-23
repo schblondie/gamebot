@@ -1,0 +1,50 @@
+{
+	"name": "discordbot-template",
+	"version": "3.0.1",
+	"description": "A modified template based on discordjs.guide to create your own discord-js based bot!",
+	"main": "bot.js",
+	"scripts": {
+		"start": "node bot.js",
+		"dev": "nodemon bot.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/NamVr/DiscordBot-Template.git"
+	},
+	"keywords": [
+		"discord-js"
+	],
+	"author": "Naman Vrati",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/NamVr/DiscordBot-Template/issues"
+	},
+	"homepage": "https://github.com/NamVr/DiscordBot-Template#readme",
+	"dependencies": {
+		"@discordjs/builders": "^0.6.0",
+		"@discordjs/rest": "^0.1.0-canary.0",
+		"@discordjs/voice": "^0.8.0",
+		"discord-api-types": "^0.22.0",
+		"discord-xp": "^1.1.16",
+		"discord.js": "^13.6.0",
+		"dotenv": "^16.0.0",
+		"ejs": "^3.1.6",
+		"express": "^4.17.3",
+		"express-session": "^1.17.2",
+		"moment": "^2.29.1",
+		"mongoose": "^6.2.0",
+		"passport": "^0.5.2",
+		"passport-discord.js": "^0.0.6",
+		"sequelize": "^6.15.0",
+		"socket.io": "^4.4.1",
+		"sqlite": "^4.0.23",
+		"sqlite3": "^4.2.0",
+		"trello-node-api": "^0.0.9"
+	},
+	"devDependencies": {
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^2.0.12",
+		"prettier": "2.6.0"
+	}
+}

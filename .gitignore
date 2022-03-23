@@ -1,0 +1,7 @@
+.eslintignore
+.eslintrc
+.prettierrc
+.env
+node_modules
+.github
+.vscode
