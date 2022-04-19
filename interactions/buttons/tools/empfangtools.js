@@ -24,13 +24,13 @@ module.exports = {
         .setPlaceholder('Nothing selected')
         .addOptions([
           {
-            label: 'Probemitglieder',
-            value: 'probemitglieder',
+            label: 'Tourist',
+            value: 'tourist',
           },
           {
-            label: 'Mitglieder',
-            description: 'Ändert auch Probemitglieder',
-            value: 'mitglieder',
+            label: 'Einwohner:in',
+            description: 'Ändert auch Tourist',
+            value: 'einwohner',
           },
           {
             label: 'Verifizierungsebene',
@@ -41,11 +41,11 @@ module.exports = {
         .setMaxValues(1),
     )
     addthis = []
-    if (target.roles.cache.some((role) => role.name === 'Probemitglieder')) {
-      addthis.push('Probemitglieder')
+    if (target.roles.cache.some((role) => role.name === 'Tourist')) {
+      addthis.push('Tourist')
     }
-    if (target.roles.cache.some((role) => role.name === 'Mitglieder')) {
-      addthis.push('Mitglieder')
+    if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
+      addthis.push('Einwohner:in')
     }
     if (target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')) {
       addthis.push('Verifizierungsebene 2')

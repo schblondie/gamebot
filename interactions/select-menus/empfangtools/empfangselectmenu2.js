@@ -21,50 +21,50 @@ module.exports = {
     const prev = imp.prev
     const target = interaction.guild.members.cache.get(member.id)
     const empfangslog = prev.member.guild.channels.cache.find((channel) => channel.name === 'e-log') || prev.member.guild.channels.cache.get('265121467421818881')
-    if (interaction.values.includes('probemitglieder')) {
-      var role = prev.member.guild.roles.cache.find((role) => role.name === 'Probemitglieder')
-      if (target.roles.cache.some((role) => role.name === 'Probemitglieder')) {
+    if (interaction.values.includes('tourist')) {
+      var role = prev.member.guild.roles.cache.find((role) => role.name === 'Tourist')
+      if (target.roles.cache.some((role) => role.name === 'Tourist')) {
         target.roles.remove(role)
         interaction.reply({
-          content: '`Probemitglieder` entfernt',
+          content: '`Tourist` entfernt',
           ephemeral: true,
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Probemitglieder\` entfernt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` entfernt`,
         })
       } else {
         target.roles.add(role)
         interaction.reply({
-          content: '`Probemitglieder` hinzugefügt',
+          content: '`Tourist` hinzugefügt',
           ephemeral: true,
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Probemitglieder\` hinzugefügt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` hinzugefügt`,
         })
       }
     }
-    if (interaction.values.includes('mitglieder')) {
+    if (interaction.values.includes('einwohner')) {
       var role = prev.member.guild.roles.cache.find((role) => role.name === 'Mitglieder')
-      var role2 = prev.member.guild.roles.cache.find((role) => role.name === 'Probemitglieder')
+      var role2 = prev.member.guild.roles.cache.find((role) => role.name === 'Einwohner:in')
       if (target.roles.cache.some((role) => role.name === 'Mitglieder')) {
         target.roles.remove(role)
         target.roles.remove(role2)
         interaction.reply({
-          content: '`Probemitglieder & Mitglieder` entfernt',
+          content: '`Tourist & Einwohner:in` entfernt',
           ephemeral: true,
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Probemitglieder & Mitglieder\` entfernt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` entfernt`,
         })
       } else {
         target.roles.add(role)
         target.roles.add(role2)
         interaction.reply({
-          content: '`Probemitglieder & Mitglieder` hinzugefügt',
+          content: '`Tourist & Einwohner:in` hinzugefügt',
           ephemeral: true,
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Probemitglieder & Mitglieder\` hinzugefügt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` hinzugefügt`,
         })
       }
     }
