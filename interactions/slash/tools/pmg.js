@@ -15,7 +15,7 @@ module.exports = {
   async execute(interaction) {
     let member = interaction.options.getUser('user')
     const target = interaction.guild.members.cache.get(member.id)
-    if (interaction.member.roles.cache.some((role) => role.name === 'Empfangspersonal') || interaction.member.roles.cache.some((role) => role.name === 'Mädchen für Alles')) {
+    if (interaction.member.roles.cache.some((role) => role.name === 'Einwohnermeldeamt') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekräter:in')) {
       const row1 = new MessageActionRow().addComponents(
         new MessageSelectMenu()
           .setCustomId('empfangselect2')
