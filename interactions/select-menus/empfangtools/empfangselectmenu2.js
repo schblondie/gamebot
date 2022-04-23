@@ -44,9 +44,9 @@ module.exports = {
       }
     }
     if (interaction.values.includes('einwohner')) {
-      var role = prev.member.guild.roles.cache.find((role) => role.name === 'Mitglieder')
+      var role = prev.member.guild.roles.cache.find((role) => role.name === 'Tourist')
       var role2 = prev.member.guild.roles.cache.find((role) => role.name === 'Einwohner:in')
-      if (target.roles.cache.some((role) => role.name === 'Mitglieder')) {
+      if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
         target.roles.remove(role)
         target.roles.remove(role2)
         interaction.reply({
