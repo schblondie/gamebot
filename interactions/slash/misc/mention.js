@@ -22,7 +22,7 @@ module.exports = {
    */
 
   async execute(interaction) {
-    if (interaction.member.roles.cache.some((role) => role.name === 'Developer') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekräter:in')) {
+    if (interaction.member.roles.cache.some((role) => role.name === 'Developer') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekretär:in')) {
       let member = interaction.options.getUser('user')
       interaction.reply({
         content: member.toString(),
