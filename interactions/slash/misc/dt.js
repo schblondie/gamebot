@@ -58,15 +58,12 @@ module.exports = {
     // Get ID of activity
     const activityID = interaction.options.getString('activity')
     // Create invite for activity
-    const invite = await interaction.client.guilds.cache
-      .get(interaction.guildId)
-      .members.cache.get(interaction.member.user.id)
-      .voice.channel.createInvite({
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-        maxUses: 100,
-        targetType: 2,
-        targetApplication: activityID,
-      })
+    const invite = await interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice.channel.createInvite({
+      maxAge: 604799, // 1 week
+      maxUses: 100,
+      targetType: 2,
+      targetApplication: activityID,
+    })
     const embed = new MessageEmbed().setDescription('https://discord.gg/' + invite)
     if (invite) {
       await interaction.reply({
