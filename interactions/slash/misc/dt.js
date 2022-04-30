@@ -18,7 +18,7 @@ module.exports = {
         .setName('activity')
         .setDescription('Die App die du starten magst')
         .setRequired(true)
-        .addChoice('akword', '879863881349087252')
+        // .addChoice('akword', '879863881349087252')
         .addChoice('betrayal', '773336526917861400')
         .addChoice('checkers', '832013003968348200')
         .addChoice('chess', '832012774040141894')
@@ -32,7 +32,8 @@ module.exports = {
         .addChoice('sketchheads', '902271654783242291')
         .addChoice('spellcast', 'spellcast')
         .addChoice('wordsnack', '879863976006127627')
-        .addChoice('youtube', '880218394199220334'),
+        .addChoice('youtube', '880218394199220334')
+        .addChoice('land-io', '903769130790969345'),
     ),
   /**
    * @description Executes when the interaction is called by interaction handler.
