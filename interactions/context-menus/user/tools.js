@@ -41,7 +41,7 @@ module.exports = {
     if (interaction.member.roles.cache.some((role) => role.name === 'Einwohnermeldeamt') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekräter:in')) {
       addthis.push(row2)
     }
-    if (interaction.member.roles.cache.some((role) => role.name === 'Developer')) {
+    if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
       addthis.push(row3)
     }
     await interaction.reply({

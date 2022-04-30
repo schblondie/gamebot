@@ -12,7 +12,7 @@ module.exports = {
    */
 
   async execute(interaction, client) {
-    if (interaction.member.roles.cache.some((role) => role.name === 'Developer')) {
+    if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
       interaction.targetMessage.delete()
       interaction.reply({
         content: 'Done',
