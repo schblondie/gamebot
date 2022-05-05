@@ -15,10 +15,7 @@ module.exports = {
 
   async execute(interaction, client) {
     async function run() {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageButton().setLabel('Nicht Anonym').setCustomId('beichte').setStyle('PRIMARY'),
-        new MessageButton().setLabel('Anonym').setCustomId('beichteanonym').setStyle('SECONDARY'),
-      )
+      const row1 = new MessageActionRow().addComponents(new MessageButton().setLabel('Einreichen').setCustomId('beichteanonym').setStyle('SECONDARY'))
       const fetch = await interaction.channel.messages.fetch({ limit: 10 })
       var fetchfiltered = fetch.filter(function (list) {
         return list.content == 'Drücke hier um einen Frage oder eine Beichte einzureichen'

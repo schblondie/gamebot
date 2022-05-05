@@ -11,7 +11,7 @@ module.exports = {
 
   async execute(interaction) {
     if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
-      const row1 = new MessageActionRow().addComponents(new MessageButton().setLabel('Anonym').setCustomId('beichteanonym').setStyle('PRIMARY'))
+      const row1 = new MessageActionRow().addComponents(new MessageButton().setLabel('Einreichen').setCustomId('beichteanonym').setStyle('PRIMARY'))
       interaction.channel.send({
         content: 'Drücke hier um einen Frage oder eine Beichte einzureichen',
         components: [row1],
