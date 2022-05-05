@@ -107,7 +107,7 @@ module.exports = {
             content: `${desc}`,
           })
           thread.send({
-            content: `***Anonym antworten***`,
+            content: `Anonym antworten`,
             components: [row3],
           })
         }

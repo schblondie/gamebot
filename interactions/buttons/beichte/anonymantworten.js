@@ -32,7 +32,7 @@ module.exports = {
           .catch({})
       }
       interaction.channel.send({
-        content: `***Anonym antworten***`,
+        content: `Anonym antworten`,
         components: [row3],
       })
     }
