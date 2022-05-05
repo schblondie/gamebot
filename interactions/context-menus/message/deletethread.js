@@ -1,7 +1,7 @@
 const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js')
 module.exports = {
   data: {
-    name: 'Vorschlag löschen',
+    name: 'Thread löschen',
     type: 3, // 3 is for message context menus
   },
 
