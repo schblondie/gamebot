@@ -10,7 +10,7 @@ module.exports = {
    */
 
   async execute(interaction) {
-    if (interaction.member.roles.cache.some((role) => role.name === 'Developer')) {
+    if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
       const row1 = new MessageActionRow().addComponents(
         new MessageButton().setLabel('Vorschlag').setCustomId('vorschlag').setStyle('PRIMARY'),
         new MessageButton().setLabel('Anonym').setCustomId('anonym').setStyle('SECONDARY'),
