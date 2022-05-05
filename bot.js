@@ -215,5 +215,7 @@ for (const folder of triggerFolders) {
 }
 
 // Login into your client application with bot's token.
-module.exports = client
+module.exports = {
+  client,
+}
 client.login(token)
