@@ -124,7 +124,7 @@ module.exports = {
           .catch(function (error) {
             console.log('error', error)
           })
-        run()
+        run().then().catch(console.error)
       }
     })
   },
