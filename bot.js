@@ -54,6 +54,7 @@ for (const file of eventFiles) {
 client.commands = new Collection()
 client.slashCommands = new Collection()
 client.buttonCommands = new Collection()
+client.modalCommands = new Collection()
 client.selectCommands = new Collection()
 client.contextCommands = new Collection()
 client.cooldowns = new Collection()
@@ -141,7 +142,17 @@ for (const module of buttonCommands) {
     client.buttonCommands.set(command.id, command)
   }
 }
+const modalCommands = fs.readdirSync('./interactions/modals')
 
+// Loop through all files and store modal-commands in ModalCommands collection.
+for (const module of modalCommands) {
+  const commandFiles = fs.readdirSync(`./interactions/modals/${module}`).filter((file) => file.endsWith('.js'))
+
+  for (const commandFile of commandFiles) {
+    const command = require(`./interactions/modals/${module}/${commandFile}`)
+    client.modalCommands.set(command.id, command)
+  }
+}
 /**********************************************************************/
 // Registration of select-menus Interactions
 

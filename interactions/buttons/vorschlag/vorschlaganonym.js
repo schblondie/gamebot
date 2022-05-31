@@ -3,7 +3,7 @@
  * @author Felix
  * @since 1.0.0
  */
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { MessageEmbed, MessageActionRow, MessageButton, Modal, TextInputComponent } = require('discord.js')
 module.exports = {
   id: 'anonym',
 
@@ -40,92 +40,31 @@ module.exports = {
         components: [row1],
       })
     }
-    const row2 = new MessageActionRow().addComponents(new MessageButton().setLabel('Abbrechen').setCustomId('cancelvorschlag').setStyle('DANGER'))
-    const embed = new MessageEmbed().setTitle(`None`).setDescription(`None`)
-    var v = 1
-    interaction.reply({
-      content: "**Schau in deine DM's**\nWenn du keine Nachricht erhalte hast überprüfe ob du Nachrichten von Servermitgliedern erlaubst",
-      ephemeral: true,
-    })
-    let channel = interaction.user.dmChannel
-    if (!channel) channel = await interaction.user.createDM()
-    var embedmsg = await channel.send({
-      content: 'Bitte sende zunächst einen Titel für deinen Vorschlag!\nDanach kannst du noch eine Beschreibung senden!',
-      embeds: [embed],
-    })
-    let filter = (m) => m.author.id === interaction.user.id
-    const collector = channel.createMessageCollector({ filter, time: 300000, max: 2 })
-    var title = []
-    title.push('Stop')
-    var desc = []
-    desc.push('Stop')
-    collector.on('collect', (m) => {
-      if (v === 1) {
-        embed.setTitle(m.content)
-        title.pop()
-        title.push(m.content)
-        v += 1
-        embedmsg.edit({
-          embeds: [embed],
-        })
-      } else {
-        embed.setDescription(m.content)
-        desc.pop()
-        desc.push(m.content)
-        embedmsg.edit({
-          embeds: [embed],
-        })
-      }
-    })
-    collector.on('end', (collected) => {
-      if (title.includes('Stop') || desc.includes('Stop')) {
-        embedmsg.edit({
-          content: 'Timeout',
-          embeds: [],
-          components: [],
-        })
-      } else {
-        channel.send({
-          content: 'Done',
-        })
-        interaction.editReply({
-          content: 'Done',
-          ephemeral: true,
-        })
-        var title1 = title.toString()
-        const desc1 = desc.toString()
-        interaction.channel
-          .send({
-            embeds: [embed],
-            components: [],
-          })
-          .then(function (message) {
-            message.react('👍')
-            message.react('👎')
-            message.startThread({
-              name: `${title}`,
-              autoArchiveDuration: 1440 * 7,
-              type: 'GUILD_PUBLIC_THREAD',
-            })
-          })
-        require('dotenv').config()
-        var api = process.env.trello_api
-        var token = process.env.trello_token
-        var Trello = require('trello-node-api')(api, token)
-        var data = {
-          name: title1,
-          desc: desc1,
-          pos: 'top',
-          idList: '62016b6b6686ac1c549a0ed6',
-        }
-        Trello.card
-          .create(data)
-          .then(function (response) {})
-          .catch(function (error) {
-            console.log('error', error)
-          })
-        run().then().catch(console.error)
-      }
-    })
+    const modal = new Modal()
+			.setCustomId('anonymer_vorschlag')
+			.setTitle('Anonymer Vorschlag')
+		// Add components to modal
+		// Create the text input components
+		const titel = new TextInputComponent()
+			.setCustomId('titel')
+		    // The label is the prompt the user sees for this input
+			.setLabel("Titel deines Vorschlags")
+		    // Short means only a single line of text
+			.setStyle('SHORT');
+		const beschreibung = new TextInputComponent()
+			.setCustomId('beschreibung')
+			.setLabel("Beschreibung deines Vorschlags")
+		    // Paragraph means multiple lines of text.
+			.setStyle('PARAGRAPH');
+		// An action row only holds one text input,
+		// so you need one action row per text input.
+		const firstActionRow = new MessageActionRow().addComponents(titel);
+		const secondActionRow = new MessageActionRow().addComponents(beschreibung);
+		// Add inputs to the modal
+		modal.addComponents(firstActionRow, secondActionRow);
+		// Show the modal to the user
+		await interaction.showModal(modal);
+    
+    run().then().catch(console.error)
   },
 }
