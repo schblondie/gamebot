@@ -1,5 +1,5 @@
 .eslintignore
-.eslintrc
+.eslintrc.json
 .prettierrc
 .env
 node_modules
@@ -8,4 +8,4 @@ node_modules
 config.json
 .gitignore
 .prettierignore
-.package-lock.json
+package-lock.json
