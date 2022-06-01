@@ -6,3 +6,6 @@ node_modules
 .github
 .vscode
 config.json
+.gitignore
+.prettierignore
+.package-lock.json
