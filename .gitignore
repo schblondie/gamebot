@@ -9,4 +9,3 @@ config.json
 .gitignore
 .prettierignore
 package-lock.json
-.jshintrc
