@@ -19,7 +19,11 @@ module.exports = {
     if (titel == '' || beschreibung == '') {
       return interaction.reply({ content: '**Vorschlag unvollständig!**', ephemeral: true });
     }
-    embed = new MessageEmbed().setTitle(titel).setDescription(beschreibung).setColor('#6fe4c7');
+    embed = new MessageEmbed()
+      .setTitle(titel)
+      .setDescription(beschreibung)
+      .setColor('#6fe4c7')
+      .setAuthor({ name: 'Event' });
     interaction.channel
       .send({
         embeds: [embed],

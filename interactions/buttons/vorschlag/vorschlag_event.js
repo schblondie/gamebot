@@ -14,7 +14,7 @@ module.exports = {
    */
 
   async execute(interaction, client) {
-    const modal = new Modal().setCustomId('vorschlag_event').setTitle('Anonymer Vorschlag');
+    const modal = new Modal().setCustomId('vorschlag_event').setTitle('Event Vorschlag');
     // Add components to modal
     // Create the text input components
     const titel = new TextInputComponent()

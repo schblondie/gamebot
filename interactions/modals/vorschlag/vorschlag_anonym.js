@@ -19,7 +19,7 @@ module.exports = {
     if (titel == '' || beschreibung == '') {
       return interaction.reply({ content: '**Vorschlag unvollständig!**', ephemeral: true });
     }
-    embed = new MessageEmbed().setTitle(titel).setDescription(beschreibung);
+    embed = new MessageEmbed().setTitle(titel).setDescription(beschreibung).setAuthor({ name: 'Vorschlag' });
     interaction.channel
       .send({
         embeds: [embed],
