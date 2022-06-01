@@ -5,8 +5,8 @@
  */
 
 // https://gist.github.com/GeneralSadaf/42d91a2b6a93a7db7a39208f2d8b53ad
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { Permissions, MessageEmbed } = require('discord.js')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions, MessageEmbed } = require('discord.js');
 
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -43,33 +43,38 @@ module.exports = {
 
   async execute(interaction) {
     if (!interaction.guild) {
-      await interaction.reply({ content: 'Sorry, but this command only works in servers!', ephemeral: true })
-      return
+      await interaction.reply({ content: 'Sorry, but this command only works in servers!', ephemeral: true });
+      return;
     }
 
     // Identify voice channel
     if (
-      !interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice.channel ||
-      interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice.channel.type == 'GUILD_STAGE_VOICE'
+      !interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice
+        .channel ||
+      interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice
+        .channel.type == 'GUILD_STAGE_VOICE'
     ) {
-      await interaction.reply({ content: "You're not in a voice channel!", ephemeral: true })
-      return
+      await interaction.reply({ content: "You're not in a voice channel!", ephemeral: true });
+      return;
     }
 
     // Get ID of activity
-    const activityID = interaction.options.getString('activity')
+    const activityID = interaction.options.getString('activity');
     // Create invite for activity
-    const invite = await interaction.client.guilds.cache.get(interaction.guildId).members.cache.get(interaction.member.user.id).voice.channel.createInvite({
-      maxAge: 604799, // 1 week
-      maxUses: 100,
-      targetType: 2,
-      targetApplication: activityID,
-    })
-    const embed = new MessageEmbed().setDescription('https://discord.gg/' + invite)
+    const invite = await interaction.client.guilds.cache
+      .get(interaction.guildId)
+      .members.cache.get(interaction.member.user.id)
+      .voice.channel.createInvite({
+        maxAge: 604799, // 1 week
+        maxUses: 100,
+        targetType: 2,
+        targetApplication: activityID,
+      });
+    const embed = new MessageEmbed().setDescription('https://discord.gg/' + invite);
     if (invite) {
       await interaction.reply({
         embeds: [embed],
-      })
+      });
     }
   },
-}
+};

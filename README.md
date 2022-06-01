@@ -16,7 +16,7 @@ Discord interactions
 
 ## Messages
 
-Default messages 
+Default messages
 
 ## Triggers
 

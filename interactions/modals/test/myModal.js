@@ -3,7 +3,7 @@
  * @author Felix
  * @since 1.0.0
  */
-const { MessageEmbed, MessageActionRow, MessageButton, Interaction } = require('discord.js')
+const { MessageEmbed, MessageActionRow, MessageButton, Interaction } = require('discord.js');
 module.exports = {
   id: 'myModal',
 
@@ -15,7 +15,7 @@ module.exports = {
 
   async execute(interaction, client) {
     const favoriteColor = interaction.fields.getTextInputValue('favoriteColorInput');
-	  const hobbies = interaction.fields.getTextInputValue('hobbiesInput');
-	  interaction.reply({content: favoriteColor, hobbies });
+    const hobbies = interaction.fields.getTextInputValue('hobbiesInput');
+    interaction.reply({ content: favoriteColor, hobbies });
   },
-}
+};

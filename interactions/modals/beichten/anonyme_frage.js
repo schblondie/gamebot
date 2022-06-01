@@ -5,10 +5,10 @@
  */
 const { MessageEmbed, MessageActionRow, MessageButton, Interaction } = require('discord.js');
 module.exports = {
-  id: 'anonyme_beichte',
+  id: 'anonyme_frage',
 
   /**
-   * @description Executes when the modal with ID "anonyme_beichte" is called.
+   * @description Executes when the modal with ID "anonyme_frage" is called.
    * @author Felix
    * @param {Object} interaction The Interaction Object of the command.
    */
@@ -19,8 +19,8 @@ module.exports = {
     embed = new MessageEmbed()
       .setTitle(titel)
       .setDescription(beschreibung)
-      .setColor('DARK_RED')
-      .setAuthor({ name: 'Beichte' });
+      .setColor('DARK_AQUA')
+      .setAuthor({ name: 'Frage' });
     interaction.channel
       .send({
         content: '*Schau in die angepinnten Nachrichten oder an den Anfang des Threads um anonym zu antworten!*',
@@ -71,7 +71,7 @@ module.exports = {
     }
     run().then().catch(console.error);
     interaction.reply({
-      content: '**Beichte eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
+      content: '**Frage eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
       ephemeral: true,
     });
   },

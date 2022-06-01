@@ -3,8 +3,8 @@
  * @author Felix
  * @since 1.0.0
  */
-const imp = require('../../context-menus/user/tools')
-const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js')
+const imp = require('../../context-menus/user/tools');
+const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
 module.exports = {
   id: 'empfangtools',
 
@@ -15,9 +15,9 @@ module.exports = {
    */
 
   async execute(interaction) {
-    interaction.update({})
-    const target = imp.prev.targetMember
-    const prev = imp.prev
+    interaction.update({});
+    const target = imp.prev.targetMember;
+    const prev = imp.prev;
     const row1 = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('empfangselect')
@@ -39,25 +39,27 @@ module.exports = {
         ])
         .setMinValues(1)
         .setMaxValues(1),
-    )
-    addthis = []
+    );
+    addthis = [];
     if (target.roles.cache.some((role) => role.name === 'Tourist')) {
-      addthis.push('Tourist')
+      addthis.push('Tourist');
     }
     if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
-      addthis.push('Einwohner:in')
+      addthis.push('Einwohner:in');
     }
     if (target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')) {
-      addthis.push('Verifizierungsebene 2')
+      addthis.push('Verifizierungsebene 2');
     }
     await prev.editReply({
-      content: `**${target.user.tag}** hat folgende Rollen: \n\`${addthis.join(' | ')}\`\n\nWähle eine Rolle aus um sie zu ändern:`,
+      content: `**${target.user.tag}** hat folgende Rollen: \n\`${addthis.join(
+        ' | ',
+      )}\`\n\nWähle eine Rolle aus um sie zu ändern:`,
       components: [row1],
       ephemeral: true,
-    })
-    const prev2 = interaction
-    module.exports.prev2 = prev2
-    module.exports.prev = prev
-    return
+    });
+    const prev2 = interaction;
+    module.exports.prev2 = prev2;
+    module.exports.prev = prev;
+    return;
   },
-}
+};

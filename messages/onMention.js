@@ -3,8 +3,8 @@
  * @author Felix
  * @since 1.0.0
  */
-require('dotenv').config()
-const { prefix } = process.env.prefix
+require('dotenv').config();
+const { prefix } = process.env.prefix;
 
 module.exports = {
   /**
@@ -14,6 +14,6 @@ module.exports = {
    */
 
   async execute(message) {
-    return message.channel.send(`Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`)
+    return message.channel.send(`Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`);
   },
-}
+};

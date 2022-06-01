@@ -1,4 +1,4 @@
-const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js')
+const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
 module.exports = {
   data: {
     name: 'Thread löschen',
@@ -12,24 +12,29 @@ module.exports = {
    */
 
   async execute(interaction, client) {
-    if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekretär:in')) {
+    if (
+      interaction.member.roles.cache.some((role) => role.name === 'Technikchef') ||
+      interaction.member.roles.cache.some((role) => role.name === 'Stadtsekretär:in')
+    ) {
       for (var i = 0; i < interaction.targetMessage.embeds.length; i++) {
-        const thread = interaction.channel.threads.cache.find((x) => x.name === interaction.targetMessage.embeds[i].title)
-        await thread.delete()
+        const thread = interaction.channel.threads.cache.find(
+          (x) => x.name === interaction.targetMessage.embeds[i].title,
+        );
+        await thread.delete();
       }
-      interaction.targetMessage.delete()
+      interaction.targetMessage.delete();
       interaction.reply({
         content: 'Done',
         ephemeral: true,
-      })
-      var api = 'b7af176c29b971b2cf562f52701857c4'
-      var token = '7d7a789207289c66adcb02407cb42c8a8608e0a3f8c5e8f5b194afb5c2f65b7a'
-      var Trello = require('trello-node-api')(api, token)
+      });
+      var api = 'b7af176c29b971b2cf562f52701857c4';
+      var token = '7d7a789207289c66adcb02407cb42c8a8608e0a3f8c5e8f5b194afb5c2f65b7a';
+      var Trello = require('trello-node-api')(api, token);
     } else {
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true,
-      })
+      });
     }
   },
-}
+};

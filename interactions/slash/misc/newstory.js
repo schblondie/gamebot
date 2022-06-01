@@ -6,8 +6,8 @@
 
 // Deconstructed the constants we need in this file.
 
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { Permissions, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -20,16 +20,18 @@ module.exports = {
 
   async execute(interaction) {
     if (interaction.member.roles.cache.some((role) => role.name === 'Developer')) {
-      const row = new MessageActionRow().addComponents(new MessageButton().setLabel('Satz hinzufügen').setCustomId('story').setStyle('PRIMARY'))
+      const row = new MessageActionRow().addComponents(
+        new MessageButton().setLabel('Satz hinzufügen').setCustomId('story').setStyle('PRIMARY'),
+      );
       interaction.reply({
         content: 'Beginne eine neue Story!',
         components: [row],
-      })
+      });
     } else {
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true,
-      })
+      });
     }
   },
-}
+};

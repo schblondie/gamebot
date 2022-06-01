@@ -3,7 +3,7 @@
  * @author Naman Vrati
  * @since 1.0.0
  */
-const { MessageActionRow, MessageSelectMenu, MessageButton, MessageEmbed } = require('discord.js')
+const { MessageActionRow, MessageSelectMenu, MessageButton, MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'cancelvorschlag',
 
@@ -21,24 +21,24 @@ module.exports = {
    */
 
   execute: async (message, args) => {
-    message.delete()
+    message.delete();
     const row1 = new MessageActionRow().addComponents(
       new MessageButton().setLabel('Vorschlag').setCustomId('vorschlag').setStyle('PRIMARY'),
       new MessageButton().setLabel('Anonym').setCustomId('anonym').setStyle('SECONDARY'),
-    )
-    const fetch = await message.channel.messages.fetch({ limit: 10 })
+    );
+    const fetch = await message.channel.messages.fetch({ limit: 10 });
     var fetchfiltered = fetch.filter(function (list) {
-      return list.content == 'Drücke hier um einen Vorschlag einzureichen'
-    })
+      return list.content == 'Drücke hier um einen Vorschlag einzureichen';
+    });
     var id = fetchfiltered.map(function (list) {
-      return list.id
-    })
+      return list.id;
+    });
     const delthis = message.channel.messages.fetch(id.toString()).then((message) => {
-      message.delete()
-    })
+      message.delete();
+    });
     message.channel.send({
       content: 'Drücke hier um einen Vorschlag einzureichen',
       components: [row1],
-    })
+    });
   },
-}
+};

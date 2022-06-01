@@ -16,7 +16,7 @@ module.exports = {
         new MessageButton().setLabel('Beichte').setCustomId('anonyme_beichte').setStyle('SECONDARY'),
       );
       interaction.channel.send({
-        content: 'Drücke hier um einen Frage oder eine Beichte einzureichen',
+        content: 'Drücke hier um einen Beichte oder Frage einzureichen',
         components: [row1],
       });
     } else {

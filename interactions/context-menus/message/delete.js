@@ -1,4 +1,4 @@
-const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js')
+const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
 module.exports = {
   data: {
     name: 'Delete Message',
@@ -13,16 +13,16 @@ module.exports = {
 
   async execute(interaction, client) {
     if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
-      interaction.targetMessage.delete()
+      interaction.targetMessage.delete();
       interaction.reply({
         content: 'Done',
         ephemeral: true,
-      })
+      });
     } else {
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true,
-      })
+      });
     }
   },
-}
+};

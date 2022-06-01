@@ -6,8 +6,8 @@
 
 // Deconstructed the constants we need in this file.
 
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { Permissions, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -22,17 +22,20 @@ module.exports = {
    */
 
   async execute(interaction) {
-    if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef') || interaction.member.roles.cache.some((role) => role.name === 'Stadtsekretär:in')) {
-      let member = interaction.options.getUser('user')
+    if (
+      interaction.member.roles.cache.some((role) => role.name === 'Technikchef') ||
+      interaction.member.roles.cache.some((role) => role.name === 'Stadtsekretär:in')
+    ) {
+      let member = interaction.options.getUser('user');
       interaction.reply({
         content: member.toString(),
         ephemeral: true,
-      })
+      });
     } else {
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true,
-      })
+      });
     }
   },
-}
+};

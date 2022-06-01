@@ -1,5 +1,5 @@
-const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
+const { MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
   // The data needed to register slash commands to Discord.
   data: new SlashCommandBuilder().setName('vorschlag').setDescription('Placeholder'),
@@ -15,18 +15,16 @@ module.exports = {
         new MessageButton().setLabel('Vorschlag').setCustomId('vorschlag_normal').setStyle('PRIMARY'),
         new MessageButton().setLabel('Anonym').setCustomId('vorschlag_anonym').setStyle('SECONDARY'),
         new MessageButton().setLabel('Event').setCustomId('vorschlag_event').setStyle('SECONDARY'),
-      )
+      );
       interaction.channel.send({
         content: 'Drücke hier um einen Vorschlag einzureichen',
         components: [row1],
-      })
-} 
-else {
-  return interaction.reply({
-    content: 'No permissions',
-    ephemeral: true,
-    
-      })
+      });
+    } else {
+      return interaction.reply({
+        content: 'No permissions',
+        ephemeral: true,
+      });
     }
   },
-}
+};

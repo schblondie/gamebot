@@ -3,7 +3,7 @@
  * @author Felix
  * @since 1.0.0
  */
-const client = require('../bot.js')
+const client = require('../bot.js');
 // const Dashboard = require('../dashboard/dashboard')
 // const dashboard = new Dashboard(client, {
 //     port: 4000,
@@ -20,10 +20,10 @@ module.exports = {
    */
 
   execute(client) {
-    console.log(`Ready! Logged in as ${client.user.tag}`)
+    console.log(`Ready! Logged in as ${client.user.tag}`);
     client.user.setPresence({
       activities: [{ name: '/activity', type: 'PLAYING' }],
-    })
+    });
     // dashboard.run()
   },
-}
+};
