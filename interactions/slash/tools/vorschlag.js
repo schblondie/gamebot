@@ -12,18 +12,20 @@ module.exports = {
   async execute(interaction) {
     if (interaction.member.roles.cache.some((role) => role.name === 'Technikchef')) {
       const row1 = new MessageActionRow().addComponents(
-        new MessageButton().setLabel('Vorschlag').setCustomId('vorschlag').setStyle('PRIMARY'),
-        new MessageButton().setLabel('Anonym').setCustomId('anonym').setStyle('SECONDARY'),
-        new MessageButton().setLabel('Event').setCustomId('event').setStyle('SECONDARY'),
+        new MessageButton().setLabel('Vorschlag').setCustomId('vorschlag_normal').setStyle('PRIMARY'),
+        new MessageButton().setLabel('Anonym').setCustomId('vorschlag_anonym').setStyle('SECONDARY'),
+        new MessageButton().setLabel('Event').setCustomId('vorschlag_event').setStyle('SECONDARY'),
       )
       interaction.channel.send({
         content: 'Drücke hier um einen Vorschlag einzureichen',
         components: [row1],
       })
-    } else {
-      return interaction.reply({
-        content: 'No permissions',
-        ephemeral: true,
+} 
+else {
+  return interaction.reply({
+    content: 'No permissions',
+    ephemeral: true,
+    
       })
     }
   },
