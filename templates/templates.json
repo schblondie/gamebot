@@ -4,8 +4,45 @@
   // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
   // same ids are connected.
   // Example:
+  "Slash interaction template": {
+    "prefix": "slash_interaction",
+    "body": [
+      "/**",
+      "* @file Slash interaction: ${1:label}",
+      "* @author Felix",
+      "* @since 1.0.0",
+      "*/",
+
+      "module.exports = {",
+      "data: new SlashCommandBuilder()",
+      ".setName('${1:label}')",
+      ".setDescription('${2:description}')",
+      "// .addSubcommand((subcommand) => subcommand.setName().setDescription().add...)",
+      "// .addStringOption((option) => option.setName().setDescription().setRequired())",
+      "// .addIntegerOption((option) => option.setName().setDescription().setRequired())",
+      "// .addBooleanption((option) => option.setName().setDescription().setRequired())",
+      "// .addUserOption((option) => option.setName().setDescription().setRequired())",
+      "// .addChannelOption((option) => option.setName().setDescription().setRequired())",
+      "// .addRoleOption((option) => option.setName().setDescription().setRequired())",
+      "// .addMentionableOption((option) => option.setName().setDescription().setRequired())",
+      "// .addNumberOption((option) => option.setName().setDescription().setRequired())",
+      "// .addAttachmentOption((option) => option.setName().setDescription().setRequired())",
+      ",",
+      "/**",
+      "* @description Executes when the slash command with ID ${1:label} is called.",
+      "* @author Felix",
+      "* @param {Object} interaction The Interaction Object of the command.",
+      "*/",
+
+      "async execute(interaction) {",
+      "return;",
+      "},",
+      "}"
+    ],
+    "description": "Sample slash interaction"
+  },
   "Button interaction template": {
-    "prefix": "button",
+    "prefix": "button_interaction",
     "body": [
       "/**",
       "* @file Button interaction: ${1:label}",
@@ -30,7 +67,7 @@
     "description": "Sample button interaction"
   },
   "Context menu template": {
-    "prefix": "context_menu",
+    "prefix": "context_menu_interaction",
     "body": [
       "/**",
       "* @file Context menu (type:${2:type}) interaction: ${1:label}",
@@ -84,11 +121,11 @@
     ],
     "description": "Sample select menu interaction"
   },
-  "Slash interaction template": {
-    "prefix": "button",
+  "Modal interaction template": {
+    "prefix": "modal_interaction",
     "body": [
       "/**",
-      "* @file Button interaction: ${1:label}",
+      "* @file Modal interaction: ${1:label}",
       "* @author Felix",
       "* @since 1.0.0",
       "*/",
@@ -97,7 +134,7 @@
       "id: '${1:label}',",
 
       "/**",
-      "* @description Executes when the button with ID ${1:label} is clicked.",
+      "* @description Executes when the modal with ID ${1:label} is called.",
       "* @author Felix",
       "* @param {Object} interaction The Interaction Object of the command.",
       "*/",
@@ -107,6 +144,57 @@
       "},",
       "}"
     ],
-    "description": "Sample button interaction"
+    "description": "Sample modal interaction"
+  },
+  "Modal builder template": {
+    "prefix": "modal_builder",
+    "body": [
+      "    const ${1:modal}_modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
+      "    // Add components to modal",
+      "    // Create the text input components",
+      "    const ${4:input_short} = new TextInputComponent()",
+      "    .setCustomId('${4:input_short}')",
+      "    // The label is the prompt the user sees for this input",
+      "    .setLabel('${5:label}')",
+      "    // Short means only a single line of text",
+      "    .setStyle('SHORT');",
+      "    // An action row only holds one text input,",
+      "    const ${6:input_paragraph} = new TextInputComponent()",
+      "    .setCustomId('${6:input_paragraph}')",
+      "    // The label is the prompt the user sees for this input",
+      "    .setLabel('${7:label}')",
+      "    // Paragraph means multiple lines of text",
+      "    .setStyle('PARAGRAPH');",
+      "    // An action row only holds one text input,",
+      "    // so you need one action row per text input.",
+      "    const ${4:input_short}_row = new MessageActionRow().addComponents(text);",
+      "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(text);",
+      "    // Add inputs to the modal",
+      "    modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
+      "    // Show the modal to the user",
+      "    await interaction.showModal(${1:modal}_modal);"
+    ],
+    "description": "Sample modal builder"
+  },
+  "Button builder template": {
+    "prefix": "button_builder",
+    "body": [
+      "    const ${1:row}_row = new MessageActionRow()",
+      "    .addComponents(",
+      "    new MessageButton()",
+      "    .setCustomId('${2:ID}')",
+      "    .setLabel('${3:label}')",
+      "    .setStyle('${4:STYLE}') // PRIMARY, SECONDARY, SUCCESS, DANGER, LINK",
+      "    // .setEmoji('${5:EMOJI}') // If you want to use an emoji",
+      "    );",
+      "    // Add the row to the message",
+      "    interaction.reply({",
+      "content: None,",
+      "components: [${1:row}_row],",
+      "ephemeral: None,",
+      "attachments: []",
+      "});"
+    ],
+    "description": "Sample button builder"
   }
 }
