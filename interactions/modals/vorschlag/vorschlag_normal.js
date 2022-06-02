@@ -23,7 +23,7 @@ module.exports = {
       .setTitle(titel)
       .setDescription(beschreibung)
       .setAuthor({
-        name: interaction.member.displayName,
+        name: `${interaction.member.displayName}'s Vorschlag`,
         icon_url: interaction.member.displayAvatarURL({ dynamic: true }),
       });
     interaction.channel
