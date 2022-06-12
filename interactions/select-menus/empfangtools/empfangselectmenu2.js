@@ -22,7 +22,7 @@ module.exports = {
     const target = interaction.guild.members.cache.get(member.id);
     const empfangslog =
       prev.member.guild.channels.cache.find((channel) => channel.name === 'e-log') ||
-      prev.member.guild.channels.cache.get('265121467421818881');
+      prev.member.guild.channels.cache.get('982358868095021106');
     if (interaction.values.includes('tourist')) {
       var role = prev.member.guild.roles.cache.find((role) => role.name === 'Tourist');
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
@@ -73,7 +73,7 @@ module.exports = {
     if (interaction.values.includes('ve2')) {
       const ve2log =
         prev.member.guild.channels.cache.find((channel) => channel.name === 've2-log') ||
-        prev.member.guild.channels.cache.get('982358868095021106');
+        prev.member.guild.channels.cache.get('927308551569932289');
       var role = prev.member.guild.roles.cache.find((role) => role.name === 'Verifizierungsebene 2');
       if (target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')) {
         target.roles.remove(role);
