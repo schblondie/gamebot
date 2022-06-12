@@ -17,7 +17,7 @@ module.exports = {
   async execute(interaction, client) {
     const botlog =
       interaction.guild.channels.cache.find((channel) => channel.name === 'e-log') ||
-      interaction.guild.channels.cache.get('265121467421818881');
+      interaction.guild.channels.cache.get('982358868095021106');
     imp.prev.channel.send({ content: interaction.fields.getTextInputValue('text') }).then(function (message) {
       console.log(message);
       botlog.send({ content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}` });
