@@ -24,6 +24,7 @@
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
     "@discordjs/voice": "^0.8.0",
+    "@mapbox/node-pre-gyp": "^1.0.9",
     "discord-api-types": "^0.22.0",
     "discord-xp": "^1.1.16",
     "discord.js": "^13.6.0",
