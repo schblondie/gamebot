@@ -1,46 +1,46 @@
 module.exports = {
-  name: 'interactionCreate',
+    name: 'interactionCreate',
 
-  /**
-   * @description Executes when an interaction is created and handle it.
-   * @author Felix
-   * @param {Object} interaction The interaction which was created
-   */
-
-  async execute(interaction) {
-    // Deconstructed client from interaction object.
-    const { client } = interaction;
-
-    // Checks if the interaction is a button interaction (to prevent weird bugs)
-
-    if (!interaction.isButton()) return;
     /**
-     * @description The Interaction command object
-     * @type {Object}
+     * @description Executes when an interaction is created and handle it.
+     * @author Felix
+     * @param {Object} interaction The interaction which was created
      */
 
-    const command = client.buttonCommands.get(interaction.customId);
+    async execute(interaction) {
+        // Deconstructed client from interaction object.
+        const { client } = interaction
 
-    // If the interaction is not a command in cache, return error message.
-    // You can modify the error message at ./messages/defaultButtonError.js file!
+        // Checks if the interaction is a button interaction (to prevent weird bugs)
 
-    if (!command) {
-      await require('../messages/defaultButtonError').execute(interaction);
-      return;
-    }
+        if (!interaction.isButton()) return
+        /**
+         * @description The Interaction command object
+         * @type {Object}
+         */
 
-    // A try to execute the interaction.
+        const command = client.buttonCommands.get(interaction.customId)
 
-    try {
-      await command.execute(interaction);
-      return;
-    } catch (err) {
-      console.error(err);
-      await interaction.reply({
-        content: 'There was an issue while executing that button!',
-        ephemeral: true,
-      });
-      return;
-    }
-  },
-};
+        // If the interaction is not a command in cache, return error message.
+        // You can modify the error message at ./messages/defaultButtonError.js file!
+
+        if (!command) {
+            await require('../messages/defaultButtonError').execute(interaction)
+            return
+        }
+
+        // A try to execute the interaction.
+
+        try {
+            await command.execute(interaction)
+            return
+        } catch (err) {
+            console.error(err)
+            await interaction.reply({
+                content: 'There was an issue while executing that button!',
+                ephemeral: true,
+            })
+            return
+        }
+    },
+}

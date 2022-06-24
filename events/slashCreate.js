@@ -1,40 +1,40 @@
 module.exports = {
-  name: 'interactionCreate',
+    name: 'interactionCreate',
 
-  /**
-   * @description Executes when an interaction is created and handle it.
-   * @author Felix
-   * @param {Object} interaction The interaction which was created
-   */
-
-  async execute(interaction) {
-    // Deconstructed client from interaction object.
-    const { client } = interaction;
-
-    // Checks if the interaction is a command (to prevent weird bugs)
-
-    if (!interaction.isCommand()) return;
     /**
-     * @description The Interaction command object
-     * @type {Object}
+     * @description Executes when an interaction is created and handle it.
+     * @author Felix
+     * @param {Object} interaction The interaction which was created
      */
 
-    const command = client.slashCommands.get(interaction.commandName);
+    async execute(interaction) {
+        // Deconstructed client from interaction object.
+        const { client } = interaction
 
-    // If the interaction is not a command in cache.
+        // Checks if the interaction is a command (to prevent weird bugs)
 
-    if (!command) return;
+        if (!interaction.isCommand()) return
+        /**
+         * @description The Interaction command object
+         * @type {Object}
+         */
 
-    // A try to executes the interaction.
+        const command = client.slashCommands.get(interaction.commandName)
 
-    try {
-      await command.execute(interaction);
-    } catch (err) {
-      console.error(err);
-      await interaction.reply({
-        content: 'There was an issue while executing that command!',
-        ephemeral: true,
-      });
-    }
-  },
-};
+        // If the interaction is not a command in cache.
+
+        if (!command) return
+
+        // A try to executes the interaction.
+
+        try {
+            await command.execute(interaction)
+        } catch (err) {
+            console.error(err)
+            await interaction.reply({
+                content: 'There was an issue while executing that command!',
+                ephemeral: true,
+            })
+        }
+    },
+}

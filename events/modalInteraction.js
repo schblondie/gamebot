@@ -1,47 +1,47 @@
 module.exports = {
-  name: 'interactionCreate',
+    name: 'interactionCreate',
 
-  /**
-   * @description Executes when an interaction is created and handle it.
-   * @author Felix
-   * @param {Object} interaction The interaction which was created
-   */
-
-  async execute(interaction) {
-    // Deconstructed client from interaction object.
-    const { client } = interaction;
-
-    // Checks if the interaction is a button interaction (to prevent weird bugs)
-
-    if (!interaction.isModalSubmit()) return;
     /**
-     * @description The Interaction command object
-     * @type {Object}
+     * @description Executes when an interaction is created and handle it.
+     * @author Felix
+     * @param {Object} interaction The interaction which was created
      */
 
-    const command = client.modalCommands.get(interaction.customId);
+    async execute(interaction) {
+        // Deconstructed client from interaction object.
+        const { client } = interaction
 
-    // If the interaction is not a command in cache, return error message.
-    // You can modify the error message at ./messages/defaultButtonError.js file!
+        // Checks if the interaction is a button interaction (to prevent weird bugs)
 
-    if (!command) {
-      console.log(command, interaction.customId);
-      await require('../messages/defaultModalError').execute(interaction);
-      return;
-    }
+        if (!interaction.isModalSubmit()) return
+        /**
+         * @description The Interaction command object
+         * @type {Object}
+         */
 
-    // A try to execute the interaction.
+        const command = client.modalCommands.get(interaction.customId)
 
-    try {
-      await command.execute(interaction);
-      return;
-    } catch (err) {
-      console.error(err);
-      await interaction.reply({
-        content: 'There was an issue while executing that modal!',
-        ephemeral: true,
-      });
-      return;
-    }
-  },
-};
+        // If the interaction is not a command in cache, return error message.
+        // You can modify the error message at ./messages/defaultButtonError.js file!
+
+        if (!command) {
+            console.log(command, interaction.customId)
+            await require('../messages/defaultModalError').execute(interaction)
+            return
+        }
+
+        // A try to execute the interaction.
+
+        try {
+            await command.execute(interaction)
+            return
+        } catch (err) {
+            console.error(err)
+            await interaction.reply({
+                content: 'There was an issue while executing that modal!',
+                ephemeral: true,
+            })
+            return
+        }
+    },
+}
