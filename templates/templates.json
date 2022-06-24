@@ -115,6 +115,9 @@
       "*/",
 
       "async execute(interaction) {",
+      "if (interaction.values.includes('${2:value}')) {",
+      "return;",
+      "}",
       "return;",
       "},",
       "}"
@@ -167,10 +170,10 @@
       "    .setStyle('PARAGRAPH');",
       "    // An action row only holds one text input,",
       "    // so you need one action row per text input.",
-      "    const ${4:input_short}_row = new MessageActionRow().addComponents(text);",
-      "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(text);",
+      "    const ${4:input_short}_row = new MessageActionRow().addComponents(${4:input_short});",
+      "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(${6:input_paragraph});",
       "    // Add inputs to the modal",
-      "    modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
+      "    ${1:modal}_modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
       "    // Show the modal to the user",
       "    await interaction.showModal(${1:modal}_modal);"
     ],
@@ -196,5 +199,33 @@
       "});"
     ],
     "description": "Sample button builder"
+  },
+  "Select menu builder template": {
+    "prefix": "select_menu_builder",
+    "body": [
+      "    const ${1:row}_row = new MessageActionRow()",
+      "    .addComponents(",
+      "    new MessageSelectMenu()",
+      "    .setCustomId('${2:ID}')",
+      "    .setPlaceholder('${3:Nothing selected}')",
+      "    .addOptions([",
+      "    {",
+      "    label: '${4:label}',",
+      "    description: '${5:description}',",
+      "    value: '${6:value}',",
+      "    }",
+      0,
+      3,
+      "    ]);",
+      "    ),",
+      "    // Add the row to the message",
+      "    interaction.reply({",
+      "content: None,",
+      "components: [${1:row}_row],",
+      "ephemeral: None,",
+      "attachments: []",
+      "});"
+    ],
+    "description": "Sample select menu builder"
   }
 }
