@@ -34,7 +34,7 @@ module.exports = {
             .setDescription(beschreibung)
             .setAuthor({
                 name: `${interaction.member.displayName}'s Vorschlag`,
-                icon_url: interaction.member.displayAvatarURL({
+                iconURL: interaction.member.displayAvatarURL({
                     dynamic: true
                 })
             })

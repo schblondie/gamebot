@@ -15,7 +15,7 @@ module.exports = {
 
     async execute (interaction) {
 
-        const devtools_row = new MessageActionRow().addComponents(
+        const devtoolsrow = new MessageActionRow().addComponents(
             new MessageSelectMenu()
                 .setCustomId('devtools_select')
                 .setPlaceholder('Nothing selected')
@@ -30,7 +30,7 @@ module.exports = {
         // Add the row to the message
         interaction.reply({
             content: 'Select option',
-            components: [devtools_row],
+            components: [devtoolsrow],
             ephemeral: [],
             attachments: []
         })
