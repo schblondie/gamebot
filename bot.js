@@ -233,3 +233,10 @@ module.exports = {
   client,
 };
 client.login(token);
+
+// Login to firebase
+import { initializeApp } from 'firebase/app';
+const firebaseConfig ={
+
+}
+cpnst app = initializeApp(firebaseConfig)
