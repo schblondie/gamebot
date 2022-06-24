@@ -1,25 +1,25 @@
 const fs = require('fs');
 function jsonReader (filePath, cb) {
 
-  fs.readFile(filePath, (err, fileData) => {
+    fs.readFile(filePath, (err, fileData) => {
 
-    if (err) {
+        if (err) {
 
-      return cb && cb(err)
+            return cb && cb(err)
 
-}
-    try {
+        }
+        try {
 
-      const object = JSON.parse(fileData)
-      return cb && cb(null, object)
+            const object = JSON.parse(fileData)
+            return cb && cb(null, object)
 
-} catch (err) {
+        } catch (err) {
 
-      return cb && cb(err)
+            return cb && cb(err)
 
-}
+        }
 
-})
+    })
 
 }
 module.exports = jsonReader

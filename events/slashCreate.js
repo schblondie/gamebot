@@ -1,45 +1,45 @@
 module.exports = {
-  name: 'interactionCreate',
+    name: 'interactionCreate',
 
-  /**
+    /**
    * @description Executes when an interaction is created and handle it.
    * @author Felix
    * @param {Object} interaction The interaction which was created
    */
 
-  async execute (interaction) {
+    async execute (interaction) {
 
-    // Deconstructed client from interaction object.
-    const { client } = interaction
+        // Deconstructed client from interaction object.
+        const { client } = interaction
 
-    // Checks if the interaction is a command (to prevent weird bugs)
+        // Checks if the interaction is a command (to prevent weird bugs)
 
-    if (!interaction.isCommand()) return
-    /**
+        if (!interaction.isCommand()) return
+        /**
      * @description The Interaction command object
      * @type {Object}
      */
 
-    const command = client.slashCommands.get(interaction.commandName)
+        const command = client.slashCommands.get(interaction.commandName)
 
-    // If the interaction is not a command in cache.
+        // If the interaction is not a command in cache.
 
-    if (!command) return
+        if (!command) return
 
-    // A try to executes the interaction.
+        // A try to executes the interaction.
 
-    try {
+        try {
 
-      await command.execute(interaction)
+            await command.execute(interaction)
 
-} catch (err) {
+        } catch (err) {
 
-      await interaction.reply({
-        content: 'There was an issue while executing that command!',
-        ephemeral: true
-      })
+            await interaction.reply({
+                content: 'There was an issue while executing that command!',
+                ephemeral: true
+            })
 
-}
+        }
 
-}
+    }
 }

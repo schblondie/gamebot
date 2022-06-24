@@ -24,6 +24,8 @@
             "no-tabs": "error",
             "eqeqeq": "error",
             "padded-blocks": "error",
-            "brace-style": "error"
+            "brace-style": "error",
+            "indent": "error",
+            "camelcase": "error"
     }
 }
