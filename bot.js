@@ -235,8 +235,27 @@ module.exports = {
 client.login(token);
 
 // Login to firebase
-import { initializeApp } from 'firebase/app';
-const firebaseConfig ={
+// const { initializeApp } = require('firebase/app');
+// const { getFirestore, collection, getDocs } = require('firebase/firestore/lite');
+// const firebaseConfig = {
+//   apiKey: process.env.apiKey,
+//   authDomain: process.env.authDomain,
+//   databaseURL: process.env.databaseURL,
+//   projectId: process.env.projectId,
+//   storageBucket: process.env.storageBucket,
+//   messagingSenderId: process.env.messagingSenderId,
+//   appId: process.env.appId,
+//   measurementId: process.env.measurementId,
+// };
+// const app = initializeApp(firebaseConfig);
+// const database = getFirestore(app);
 
-}
-cpnst app = initializeApp(firebaseConfig)
+// database.ref('customPath').set(obj, function (error) {
+//   if (error) {
+//     // The write failed...
+//     console.log('Failed with error: ' + error);
+//   } else {
+//     // The write was successful...
+//     console.log('success');
+//   }
+// });
