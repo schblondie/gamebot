@@ -23,10 +23,9 @@
             "comma-dangle": "error",
             "no-tabs": "error",
             "eqeqeq": "error",
-            "padded-blocks": "error",
+            "padded-blocks": ["error", "always", {"allowSingleLineBlocks": true}],
             "brace-style": "error",
-            "indent": "error",
-            "camelcase": "error",
-            "allowSingleLineBlocks": true
+            "indent": ["error",2],
+            "camelcase": "error"
     }
 }

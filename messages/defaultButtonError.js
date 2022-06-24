@@ -5,18 +5,18 @@
  */
 
 module.exports = {
-    /**
+  /**
    * @description Executes when the button interaction could not be fetched.
    * @author Felix
    * @param {Object} interaction The Interaction Object of the command.
    */
 
-    async execute (interaction) {
+  async execute (interaction) {
 
-        await interaction.reply({
-            content: 'There was an issue while fetching this button!',
-            ephemeral: true
-        })
+    await interaction.reply({
+      content: 'There was an issue while fetching this button!',
+      ephemeral: true
+    })
 
-    }
+  }
 }

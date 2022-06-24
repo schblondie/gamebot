@@ -6,17 +6,17 @@
 require('dotenv').config()
 
 module.exports = {
-    /**
+  /**
    * @description Executes when the bot is pinged.
    * @author Felix
    * @param {Object} message The Message Object of the command.
    */
 
-    async execute (message) {
+  async execute (message) {
 
-        return message.channel.send(
-            `Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`
-        )
+    return message.channel.send(
+      `Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`
+    )
 
-    }
+  }
 }

@@ -6,34 +6,34 @@
 
 const imp = require('../../buttons/beichte/anonymantworten.js')
 module.exports = {
-    id: 'anonym_antworten',
+  id: 'anonym_antworten',
 
-    /**
+  /**
    * @description Executes when the modal with ID "anonym_antworten" is called.
    * @author Felix
    * @param {Object} interaction The Interaction Object of the command.
    */
 
-    async execute (interaction) {
+  async execute (interaction) {
 
-        const botlog =
+    const botlog =
       interaction.guild.channels.cache.find(
-          (channel) => channel.name === 'e-log'
+        (channel) => channel.name === 'e-log'
       ) || interaction.guild.channels.cache.get('982358868095021106')
-        imp.prev.channel
-            .send({ content: interaction.fields.getTextInputValue('text') })
-            .then(function (message) {
+    imp.prev.channel
+      .send({ content: interaction.fields.getTextInputValue('text') })
+      .then(function (message) {
 
-                botlog.send({
-                    content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}`
-                })
-
-            })
-        interaction.reply({
-            content:
-        '**Antwort eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
-            ephemeral: true
+        botlog.send({
+          content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}`
         })
 
-    }
+      })
+    interaction.reply({
+      content:
+        '**Antwort eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
+      ephemeral: true
+    })
+
+  }
 }
