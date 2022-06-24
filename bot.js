@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-console */
 /**
  * @file Main File of the bot, responsible for registering events, commands, interactions etc.
  * @author Felix Limbach
@@ -7,10 +9,9 @@
 // Declare constants which will be used throughout the bot.
 
 const fs = require('fs')
-const { Client, Collection, Intents } = require('discord.js')
+const { Client, Collection } = require('discord.js')
 const { REST } = require('@discordjs/rest')
 const { Routes } = require('discord-api-types/v9')
-const chalk = require('chalk')
 require('dotenv').config()
 
 /**
@@ -19,7 +20,7 @@ require('dotenv').config()
  * @description Main Application Client */
 const Discord = require('discord.js')
 const client = new Client({
-    intents: new Discord.Intents(98303),
+  intents: new Discord.Intents(98303)
 })
 module.exports = client
 // const config = require('./config.json')
@@ -37,20 +38,26 @@ const test_guild_id = process.env.test_guild_id
  */
 
 const eventFiles = fs
-    .readdirSync('./events')
-    .filter((file) => file.endsWith('.js'))
+  .readdirSync('./events')
+  .filter((file) => file.endsWith('.js'))
 
 // Loop through all files and execute the event when it is actually emmited.
 for (const file of eventFiles) {
-    const event = require(`./events/${file}`)
-    if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args, client))
-    } else {
-        client.on(
-            event.name,
-            async (...args) => await event.execute(...args, client)
-        )
-    }
+
+  const event = require(`./events/${file}`)
+  if (event.once) {
+
+    client.once(event.name, (...args) => event.execute(...args, client))
+
+  } else {
+
+    client.on(
+      event.name,
+      async (...args) => await event.execute(...args, client)
+    )
+
+  }
+
 }
 
 /**********************************************************************/
@@ -78,13 +85,17 @@ const commandFolders = fs.readdirSync('./commands')
 // Loop through all files and store commands in commands collection.
 
 for (const folder of commandFolders) {
-    const commandFiles = fs
-        .readdirSync(`./commands/${folder}`)
-        .filter((file) => file.endsWith('.js'))
-    for (const file of commandFiles) {
-        const command = require(`./commands/${folder}/${file}`)
-        client.commands.set(command.name, command)
-    }
+
+  const commandFiles = fs
+    .readdirSync(`./commands/${folder}`)
+    .filter((file) => file.endsWith('.js'))
+  for (const file of commandFiles) {
+
+    const command = require(`./commands/${folder}/${file}`)
+    client.commands.set(command.name, command)
+
+  }
+
 }
 
 /**********************************************************************/
@@ -100,14 +111,18 @@ const slashCommands = fs.readdirSync('./interactions/slash')
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const module of slashCommands) {
-    const commandFiles = fs
-        .readdirSync(`./interactions/slash/${module}`)
-        .filter((file) => file.endsWith('.js'))
 
-    for (const commandFile of commandFiles) {
-        const command = require(`./interactions/slash/${module}/${commandFile}`)
-        client.slashCommands.set(command.data.name, command)
-    }
+  const commandFiles = fs
+    .readdirSync(`./interactions/slash/${module}`)
+    .filter((file) => file.endsWith('.js'))
+
+  for (const commandFile of commandFiles) {
+
+    const command = require(`./interactions/slash/${module}/${commandFile}`)
+    client.slashCommands.set(command.data.name, command)
+
+  }
+
 }
 
 /**********************************************************************/
@@ -123,14 +138,18 @@ const contextMenus = fs.readdirSync('./interactions/context-menus')
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const folder of contextMenus) {
-    const files = fs
-        .readdirSync(`./interactions/context-menus/${folder}`)
-        .filter((file) => file.endsWith('.js'))
-    for (const file of files) {
-        const menu = require(`./interactions/context-menus/${folder}/${file}`)
-        const keyName = `${folder.toUpperCase()} ${menu.data.name}`
-        client.contextCommands.set(keyName, menu)
-    }
+
+  const files = fs
+    .readdirSync(`./interactions/context-menus/${folder}`)
+    .filter((file) => file.endsWith('.js'))
+  for (const file of files) {
+
+    const menu = require(`./interactions/context-menus/${folder}/${file}`)
+    const keyName = `${folder.toUpperCase()} ${menu.data.name}`
+    client.contextCommands.set(keyName, menu)
+
+  }
+
 }
 
 /**********************************************************************/
@@ -146,27 +165,35 @@ const buttonCommands = fs.readdirSync('./interactions/buttons')
 // Loop through all files and store button-commands in buttonCommands collection.
 
 for (const module of buttonCommands) {
-    const commandFiles = fs
-        .readdirSync(`./interactions/buttons/${module}`)
-        .filter((file) => file.endsWith('.js'))
 
-    for (const commandFile of commandFiles) {
-        const command = require(`./interactions/buttons/${module}/${commandFile}`)
-        client.buttonCommands.set(command.id, command)
-    }
+  const commandFiles = fs
+    .readdirSync(`./interactions/buttons/${module}`)
+    .filter((file) => file.endsWith('.js'))
+
+  for (const commandFile of commandFiles) {
+
+    const command = require(`./interactions/buttons/${module}/${commandFile}`)
+    client.buttonCommands.set(command.id, command)
+
+  }
+
 }
 const modalCommands = fs.readdirSync('./interactions/modals')
 
 // Loop through all files and store modal-commands in ModalCommands collection.
 for (const module of modalCommands) {
-    const commandFiles = fs
-        .readdirSync(`./interactions/modals/${module}`)
-        .filter((file) => file.endsWith('.js'))
 
-    for (const commandFile of commandFiles) {
-        const command = require(`./interactions/modals/${module}/${commandFile}`)
-        client.modalCommands.set(command.id, command)
-    }
+  const commandFiles = fs
+    .readdirSync(`./interactions/modals/${module}`)
+    .filter((file) => file.endsWith('.js'))
+
+  for (const commandFile of commandFiles) {
+
+    const command = require(`./interactions/modals/${module}/${commandFile}`)
+    client.modalCommands.set(command.id, command)
+
+  }
+
 }
 /**********************************************************************/
 // Registration of select-menus Interactions
@@ -181,13 +208,17 @@ const selectMenus = fs.readdirSync('./interactions/select-menus')
 // Loop through all files and store select-menus in slashCommands collection.
 
 for (const module of selectMenus) {
-    const commandFiles = fs
-        .readdirSync(`./interactions/select-menus/${module}`)
-        .filter((file) => file.endsWith('.js'))
-    for (const commandFile of commandFiles) {
-        const command = require(`./interactions/select-menus/${module}/${commandFile}`)
-        client.selectCommands.set(command.id, command)
-    }
+
+  const commandFiles = fs
+    .readdirSync(`./interactions/select-menus/${module}`)
+    .filter((file) => file.endsWith('.js'))
+  for (const commandFile of commandFiles) {
+
+    const command = require(`./interactions/select-menus/${module}/${commandFile}`)
+    client.selectCommands.set(command.id, command)
+
+  }
+
 }
 
 /**********************************************************************/
@@ -196,33 +227,29 @@ for (const module of selectMenus) {
 const rest = new REST({ version: '9' }).setToken(token)
 
 const commandJsonData = [
-    ...Array.from(client.slashCommands.values()).map((c) => c.data.toJSON()),
-    ...Array.from(client.contextCommands.values()).map((c) => c.data),
+  ...Array.from(client.slashCommands.values()).map((c) => c.data.toJSON()),
+  ...Array.from(client.contextCommands.values()).map((c) => c.data)
 ]
 
 ;(async () => {
-    try {
-        console.log('Started refreshing application (/) commands.')
 
-        await rest.put(
-            /**
-			 * Here we are sending to discord our slash commands to be registered.
-					There are 2 types of commands, guild commands and global commands.
-					Guild commands are for specific guilds and global ones are for all.
-					In development, you should use guild commands as guild commands update
-					instantly, whereas global commands take upto 1 hour to be published. To
-					deploy commands globally, replace the line below with:
-				Routes.applicationCommands(client_id)
-			 */
+  try {
 
-            Routes.applicationGuildCommands(client_id, test_guild_id),
-            { body: commandJsonData }
-        )
+    console.log('Started refreshing application (/) commands.')
 
-        console.log('Successfully reloaded application (/) commands.')
-    } catch (error) {
-        console.error(error)
-    }
+    await rest.put(
+      Routes.applicationGuildCommands(client_id, test_guild_id),
+      { body: commandJsonData }
+    )
+
+    console.log('Successfully reloaded application (/) commands.')
+
+  } catch (error) {
+
+    console.error(error)
+
+  }
+
 })()
 
 /**********************************************************************/
@@ -238,18 +265,22 @@ const triggerFolders = fs.readdirSync('./triggers')
 // Loop through all files and store commands in commands collection.
 
 for (const folder of triggerFolders) {
-    const triggerFiles = fs
-        .readdirSync(`./triggers/${folder}`)
-        .filter((file) => file.endsWith('.js'))
-    for (const file of triggerFiles) {
-        const trigger = require(`./triggers/${folder}/${file}`)
-        client.triggers.set(trigger.name, trigger)
-    }
+
+  const triggerFiles = fs
+    .readdirSync(`./triggers/${folder}`)
+    .filter((file) => file.endsWith('.js'))
+  for (const file of triggerFiles) {
+
+    const trigger = require(`./triggers/${folder}/${file}`)
+    client.triggers.set(trigger.name, trigger)
+
+  }
+
 }
 
 // Login into your client application with bot's token.
 module.exports = {
-    client,
+  client
 }
 client.login(token)
 

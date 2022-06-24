@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 // /**
 //  * @file Sample Trigger command.
 //  * @author Naman Vrati

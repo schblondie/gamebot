@@ -194,7 +194,7 @@
             "    interaction.reply({",
             "content: None,",
             "components: [${1:row}_row],",
-            "ephemeral: None,",
+            "ephemeral: [],",
             "attachments: []",
             "});"
         ],
@@ -222,7 +222,7 @@
             "    interaction.reply({",
             "content: None,",
             "components: [${1:row}_row],",
-            "ephemeral: None,",
+            "ephemeral: [],",
             "attachments: []",
             "});"
         ],

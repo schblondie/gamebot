@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 // /**
 //  * @file Main trigger handler file.
 //  * @author Felix

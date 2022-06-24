@@ -1,14 +1,31 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "prettier"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-    ],
-    "rules": {
-        "prettier/prettier": 2
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+    "rules": { 
+            "no-console": "warn",
+            "@typescript-eslint/no-var-requires": "off",
+            "space-before-function-paren": "error",
+            "no-trailing-spaces": "error",
+            "comma-dangle": "error",
+            "no-tabs": "error",
+            "eqeqeq": "error",
+            "padded-blocks": ["error", "always", {"allowSingleLineBlocks": true}],
+            "brace-style": "error",
+            "indent": ["error",2],
+            "camelcase": "error"
     }
 }
