@@ -1,231 +1,231 @@
 {
-  // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
-  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
-  // same ids are connected.
-  // Example:
-  "Slash interaction template": {
-    "prefix": "slash_interaction",
-    "body": [
-      "/**",
-      "* @file Slash interaction: ${1:label}",
-      "* @author Felix",
-      "* @since 1.0.0",
-      "*/",
+    // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+    // same ids are connected.
+    // Example:
+    "Slash interaction template": {
+        "prefix": "slash_interaction",
+        "body": [
+            "/**",
+            "* @file Slash interaction: ${1:label}",
+            "* @author Felix",
+            "* @since 1.0.0",
+            "*/",
 
-      "module.exports = {",
-      "data: new SlashCommandBuilder()",
-      ".setName('${1:label}')",
-      ".setDescription('${2:description}')",
-      "// .addSubcommand((subcommand) => subcommand.setName().setDescription().add...)",
-      "// .addStringOption((option) => option.setName().setDescription().setRequired())",
-      "// .addIntegerOption((option) => option.setName().setDescription().setRequired())",
-      "// .addBooleanption((option) => option.setName().setDescription().setRequired())",
-      "// .addUserOption((option) => option.setName().setDescription().setRequired())",
-      "// .addChannelOption((option) => option.setName().setDescription().setRequired())",
-      "// .addRoleOption((option) => option.setName().setDescription().setRequired())",
-      "// .addMentionableOption((option) => option.setName().setDescription().setRequired())",
-      "// .addNumberOption((option) => option.setName().setDescription().setRequired())",
-      "// .addAttachmentOption((option) => option.setName().setDescription().setRequired())",
-      ",",
-      "/**",
-      "* @description Executes when the slash command with ID ${1:label} is called.",
-      "* @author Felix",
-      "* @param {Object} interaction The Interaction Object of the command.",
-      "*/",
+            "module.exports = {",
+            "data: new SlashCommandBuilder()",
+            ".setName('${1:label}')",
+            ".setDescription('${2:description}')",
+            "// .addSubcommand((subcommand) => subcommand.setName().setDescription().add...)",
+            "// .addStringOption((option) => option.setName().setDescription().setRequired())",
+            "// .addIntegerOption((option) => option.setName().setDescription().setRequired())",
+            "// .addBooleanption((option) => option.setName().setDescription().setRequired())",
+            "// .addUserOption((option) => option.setName().setDescription().setRequired())",
+            "// .addChannelOption((option) => option.setName().setDescription().setRequired())",
+            "// .addRoleOption((option) => option.setName().setDescription().setRequired())",
+            "// .addMentionableOption((option) => option.setName().setDescription().setRequired())",
+            "// .addNumberOption((option) => option.setName().setDescription().setRequired())",
+            "// .addAttachmentOption((option) => option.setName().setDescription().setRequired())",
+            ",",
+            "/**",
+            "* @description Executes when the slash command with ID ${1:label} is called.",
+            "* @author Felix",
+            "* @param {Object} interaction The Interaction Object of the command.",
+            "*/",
 
-      "async execute(interaction) {",
-      "return;",
-      "},",
-      "}"
-    ],
-    "description": "Sample slash interaction"
-  },
-  "Button interaction template": {
-    "prefix": "button_interaction",
-    "body": [
-      "/**",
-      "* @file Button interaction: ${1:label}",
-      "* @author Felix",
-      "* @since 1.0.0",
-      "*/",
+            "async execute(interaction) {",
+            "return;",
+            "},",
+            "}"
+        ],
+        "description": "Sample slash interaction"
+    },
+    "Button interaction template": {
+        "prefix": "button_interaction",
+        "body": [
+            "/**",
+            "* @file Button interaction: ${1:label}",
+            "* @author Felix",
+            "* @since 1.0.0",
+            "*/",
 
-      "module.exports = {",
-      "id: '${1:label}',",
+            "module.exports = {",
+            "id: '${1:label}',",
 
-      "/**",
-      "* @description Executes when the button with ID ${1:label} is called.",
-      "* @author Felix",
-      "* @param {Object} interaction The Interaction Object of the command.",
-      "*/",
+            "/**",
+            "* @description Executes when the button with ID ${1:label} is called.",
+            "* @author Felix",
+            "* @param {Object} interaction The Interaction Object of the command.",
+            "*/",
 
-      "async execute(interaction) {",
-      "return;",
-      "},",
-      "}"
-    ],
-    "description": "Sample button interaction"
-  },
-  "Context menu template": {
-    "prefix": "context_menu_interaction",
-    "body": [
-      "/**",
-      "* @file Context menu (type:${2:type}) interaction: ${1:label}",
-      "* @author Felix",
-      "* @since 1.0.0",
-      "*/",
+            "async execute(interaction) {",
+            "return;",
+            "},",
+            "}"
+        ],
+        "description": "Sample button interaction"
+    },
+    "Context menu template": {
+        "prefix": "context_menu_interaction",
+        "body": [
+            "/**",
+            "* @file Context menu (type:${2:type}) interaction: ${1:label}",
+            "* @author Felix",
+            "* @since 1.0.0",
+            "*/",
 
-      "module.exports = {",
-      "data: {",
-      "name: ${1:label},",
-      "type: ${2:type},",
-      "// 2 is for user context menus",
-      "// 3 is for message context menus",
-      "},",
+            "module.exports = {",
+            "data: {",
+            "name: ${1:label},",
+            "type: ${2:type},",
+            "// 2 is for user context menus",
+            "// 3 is for message context menus",
+            "},",
 
-      "/**",
-      "* @description Executes when the context menu with ID ${1:label} is called.",
-      "* @author Felix",
-      "* @param {Object} interaction The Interaction Object of the command.",
-      "*/",
+            "/**",
+            "* @description Executes when the context menu with ID ${1:label} is called.",
+            "* @author Felix",
+            "* @param {Object} interaction The Interaction Object of the command.",
+            "*/",
 
-      "async execute(interaction) {",
-      "return;",
-      "},",
-      "}"
-    ],
-    "description": "Sample context menu interaction"
-  },
-  "Select menu template": {
-    "prefix": "select_menu",
-    "body": [
-      "/**",
-      "* @file Select menu interaction: ${1:label}",
-      "* @author Felix",
-      "* @since 1.0.0",
-      "*/",
+            "async execute(interaction) {",
+            "return;",
+            "},",
+            "}"
+        ],
+        "description": "Sample context menu interaction"
+    },
+    "Select menu template": {
+        "prefix": "select_menu",
+        "body": [
+            "/**",
+            "* @file Select menu interaction: ${1:label}",
+            "* @author Felix",
+            "* @since 1.0.0",
+            "*/",
 
-      "module.exports = {",
-      "id: '${1:label}',",
+            "module.exports = {",
+            "id: '${1:label}',",
 
-      "/**",
-      "* @description Executes when the select menu with ID ${1:label} is called.",
-      "* @author Felix",
-      "* @param {Object} interaction The Interaction Object of the command.",
-      "*/",
+            "/**",
+            "* @description Executes when the select menu with ID ${1:label} is called.",
+            "* @author Felix",
+            "* @param {Object} interaction The Interaction Object of the command.",
+            "*/",
 
-      "async execute(interaction) {",
-      "if (interaction.values.includes('${2:value}')) {",
-      "return;",
-      "}",
-      "return;",
-      "},",
-      "}"
-    ],
-    "description": "Sample select menu interaction"
-  },
-  "Modal interaction template": {
-    "prefix": "modal_interaction",
-    "body": [
-      "/**",
-      "* @file Modal interaction: ${1:label}",
-      "* @author Felix",
-      "* @since 1.0.0",
-      "*/",
+            "async execute(interaction) {",
+            "if (interaction.values.includes('${2:value}')) {",
+            "return;",
+            "}",
+            "return;",
+            "},",
+            "}"
+        ],
+        "description": "Sample select menu interaction"
+    },
+    "Modal interaction template": {
+        "prefix": "modal_interaction",
+        "body": [
+            "/**",
+            "* @file Modal interaction: ${1:label}",
+            "* @author Felix",
+            "* @since 1.0.0",
+            "*/",
 
-      "module.exports = {",
-      "id: '${1:label}',",
+            "module.exports = {",
+            "id: '${1:label}',",
 
-      "/**",
-      "* @description Executes when the modal with ID ${1:label} is called.",
-      "* @author Felix",
-      "* @param {Object} interaction The Interaction Object of the command.",
-      "*/",
+            "/**",
+            "* @description Executes when the modal with ID ${1:label} is called.",
+            "* @author Felix",
+            "* @param {Object} interaction The Interaction Object of the command.",
+            "*/",
 
-      "async execute(interaction) {",
-      "return;",
-      "},",
-      "}"
-    ],
-    "description": "Sample modal interaction"
-  },
-  "Modal builder template": {
-    "prefix": "modal_builder",
-    "body": [
-      "    const ${1:modal}_modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
-      "    // Add components to modal",
-      "    // Create the text input components",
-      "    const ${4:input_short} = new TextInputComponent()",
-      "    .setCustomId('${4:input_short}')",
-      "    // The label is the prompt the user sees for this input",
-      "    .setLabel('${5:label}')",
-      "    // Short means only a single line of text",
-      "    .setStyle('SHORT');",
-      "    // An action row only holds one text input,",
-      "    const ${6:input_paragraph} = new TextInputComponent()",
-      "    .setCustomId('${6:input_paragraph}')",
-      "    // The label is the prompt the user sees for this input",
-      "    .setLabel('${7:label}')",
-      "    // Paragraph means multiple lines of text",
-      "    .setStyle('PARAGRAPH');",
-      "    // An action row only holds one text input,",
-      "    // so you need one action row per text input.",
-      "    const ${4:input_short}_row = new MessageActionRow().addComponents(${4:input_short});",
-      "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(${6:input_paragraph});",
-      "    // Add inputs to the modal",
-      "    ${1:modal}_modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
-      "    // Show the modal to the user",
-      "    await interaction.showModal(${1:modal}_modal);"
-    ],
-    "description": "Sample modal builder"
-  },
-  "Button builder template": {
-    "prefix": "button_builder",
-    "body": [
-      "    const ${1:row}_row = new MessageActionRow()",
-      "    .addComponents(",
-      "    new MessageButton()",
-      "    .setCustomId('${2:ID}')",
-      "    .setLabel('${3:label}')",
-      "    .setStyle('${4:STYLE}') // PRIMARY, SECONDARY, SUCCESS, DANGER, LINK",
-      "    // .setEmoji('${5:EMOJI}') // If you want to use an emoji",
-      "    );",
-      "    // Add the row to the message",
-      "    interaction.reply({",
-      "content: None,",
-      "components: [${1:row}_row],",
-      "ephemeral: None,",
-      "attachments: []",
-      "});"
-    ],
-    "description": "Sample button builder"
-  },
-  "Select menu builder template": {
-    "prefix": "select_menu_builder",
-    "body": [
-      "    const ${1:row}_row = new MessageActionRow()",
-      "    .addComponents(",
-      "    new MessageSelectMenu()",
-      "    .setCustomId('${2:ID}')",
-      "    .setPlaceholder('${3:Nothing selected}')",
-      "    .addOptions([",
-      "    {",
-      "    label: '${4:label}',",
-      "    description: '${5:description}',",
-      "    value: '${6:value}',",
-      "    }",
-      0,
-      3,
-      "    ]);",
-      "    ),",
-      "    // Add the row to the message",
-      "    interaction.reply({",
-      "content: None,",
-      "components: [${1:row}_row],",
-      "ephemeral: None,",
-      "attachments: []",
-      "});"
-    ],
-    "description": "Sample select menu builder"
-  }
+            "async execute(interaction) {",
+            "return;",
+            "},",
+            "}"
+        ],
+        "description": "Sample modal interaction"
+    },
+    "Modal builder template": {
+        "prefix": "modal_builder",
+        "body": [
+            "    const ${1:modal}_modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
+            "    // Add components to modal",
+            "    // Create the text input components",
+            "    const ${4:input_short} = new TextInputComponent()",
+            "    .setCustomId('${4:input_short}')",
+            "    // The label is the prompt the user sees for this input",
+            "    .setLabel('${5:label}')",
+            "    // Short means only a single line of text",
+            "    .setStyle('SHORT');",
+            "    // An action row only holds one text input,",
+            "    const ${6:input_paragraph} = new TextInputComponent()",
+            "    .setCustomId('${6:input_paragraph}')",
+            "    // The label is the prompt the user sees for this input",
+            "    .setLabel('${7:label}')",
+            "    // Paragraph means multiple lines of text",
+            "    .setStyle('PARAGRAPH');",
+            "    // An action row only holds one text input,",
+            "    // so you need one action row per text input.",
+            "    const ${4:input_short}_row = new MessageActionRow().addComponents(${4:input_short});",
+            "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(${6:input_paragraph});",
+            "    // Add inputs to the modal",
+            "    ${1:modal}_modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
+            "    // Show the modal to the user",
+            "    await interaction.showModal(${1:modal}_modal);"
+        ],
+        "description": "Sample modal builder"
+    },
+    "Button builder template": {
+        "prefix": "button_builder",
+        "body": [
+            "    const ${1:row}_row = new MessageActionRow()",
+            "    .addComponents(",
+            "    new MessageButton()",
+            "    .setCustomId('${2:ID}')",
+            "    .setLabel('${3:label}')",
+            "    .setStyle('${4:STYLE}') // PRIMARY, SECONDARY, SUCCESS, DANGER, LINK",
+            "    // .setEmoji('${5:EMOJI}') // If you want to use an emoji",
+            "    );",
+            "    // Add the row to the message",
+            "    interaction.reply({",
+            "content: None,",
+            "components: [${1:row}_row],",
+            "ephemeral: None,",
+            "attachments: []",
+            "});"
+        ],
+        "description": "Sample button builder"
+    },
+    "Select menu builder template": {
+        "prefix": "select_menu_builder",
+        "body": [
+            "    const ${1:row}_row = new MessageActionRow()",
+            "    .addComponents(",
+            "    new MessageSelectMenu()",
+            "    .setCustomId('${2:ID}')",
+            "    .setPlaceholder('${3:Nothing selected}')",
+            "    .addOptions([",
+            "    {",
+            "    label: '${4:label}',",
+            "    description: '${5:description}',",
+            "    value: '${6:value}',",
+            "    }",
+            0,
+            3,
+            "    ]);",
+            "    ),",
+            "    // Add the row to the message",
+            "    interaction.reply({",
+            "content: None,",
+            "components: [${1:row}_row],",
+            "ephemeral: None,",
+            "attachments: []",
+            "});"
+        ],
+        "description": "Sample select menu builder"
+    }
 }

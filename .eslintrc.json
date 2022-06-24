@@ -1,26 +1,26 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-  "plugins": ["@typescript-eslint", "@angular-eslint/eslint-plugin"],
-  "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "windows"],
-    "quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true,
-        "allowTemplateLiterals": true
-      }
-    ],
-    "semi": ["error", "always"],
-    "@angular-eslint/no-empty-lifecycle-method": ["warn"]
-  }
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": ["@typescript-eslint", "@angular-eslint/eslint-plugin"],
+    "rules": {
+        "indent": ["error", 2],
+        "linebreak-style": ["error", "windows"],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": ["error", "always"],
+        "@angular-eslint/no-empty-lifecycle-method": ["warn"]
+    }
 }
