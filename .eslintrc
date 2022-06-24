@@ -26,6 +26,7 @@
             "padded-blocks": "error",
             "brace-style": "error",
             "indent": "error",
-            "camelcase": "error"
+            "camelcase": "error",
+            "allowSingleLineBlocks": true
     }
 }
