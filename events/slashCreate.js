@@ -1,40 +1,39 @@
 module.exports = {
-    name: 'interactionCreate',
+  name: 'interactionCreate',
 
+  /**
+   * @description Executes when an interaction is created and handle it.
+   * @author Felix
+   * @param {Object} interaction The interaction which was created
+   */
+
+  async execute (interaction) {
+    // Deconstructed client from interaction object.
+    const { client } = interaction
+
+    // Checks if the interaction is a command (to prevent weird bugs)
+
+    if (!interaction.isCommand()) return
     /**
-     * @description Executes when an interaction is created and handle it.
-     * @author Felix
-     * @param {Object} interaction The interaction which was created
+     * @description The Interaction command object
+     * @type {Object}
      */
 
-    async execute(interaction) {
-        // Deconstructed client from interaction object.
-        const { client } = interaction
+    const command = client.slashCommands.get(interaction.commandName)
 
-        // Checks if the interaction is a command (to prevent weird bugs)
+    // If the interaction is not a command in cache.
 
-        if (!interaction.isCommand()) return
-        /**
-         * @description The Interaction command object
-         * @type {Object}
-         */
+    if (!command) return
 
-        const command = client.slashCommands.get(interaction.commandName)
+    // A try to executes the interaction.
 
-        // If the interaction is not a command in cache.
-
-        if (!command) return
-
-        // A try to executes the interaction.
-
-        try {
-            await command.execute(interaction)
-        } catch (err) {
-            console.error(err)
-            await interaction.reply({
-                content: 'There was an issue while executing that command!',
-                ephemeral: true,
-            })
-        }
-    },
+    try {
+      await command.execute(interaction)
+    } catch (err) {
+      await interaction.reply({
+        content: 'There was an issue while executing that command!',
+        ephemeral: true,
+      })
+    }
+  },
 }
