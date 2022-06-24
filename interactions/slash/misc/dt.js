@@ -4,7 +4,7 @@
  * @since 1.0.0
  */
 
-// https://gist.github.com/GeneralSadaf/42d91a2b6a93a7db7a39208f2d8b53ad
+// https://gist.github. com/GeneralSadaf/42d91a2b6a93a7db7a39208f2d8b53ad
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { Permissions, MessageEmbed } = require('discord.js');
 
