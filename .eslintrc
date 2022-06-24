@@ -26,6 +26,7 @@
             "padded-blocks": ["error", "always", {"allowSingleLineBlocks": true}],
             "brace-style": "error",
             "indent": ["error",2],
-            "camelcase": "error"
+            "camelcase": "error",
+            "eol-last": "error"
     }
 }
