@@ -15,6 +15,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const member = interaction.options.getUser('user')
     const target = interaction.guild.members.cache.get(member.id)
     if (
@@ -25,6 +26,7 @@ module.exports = {
         (role) => role.name === 'Stadtsekräter:in'
       )
     ) {
+
       const row1 = new MessageActionRow().addComponents(
         new MessageSelectMenu()
           .setCustomId('empfangselect2')
@@ -32,31 +34,37 @@ module.exports = {
           .addOptions([
             {
               label: 'Tourist',
-              value: 'tourist',
+              value: 'tourist'
             },
             {
               label: 'Einwohner:in',
               description: 'Ändert auch Tourist',
-              value: 'einwohner',
+              value: 'einwohner'
             },
             {
               label: 'Verifizierungsebene',
-              value: 've2',
-            },
+              value: 've2'
+            }
           ])
       )
       var addthis = []
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
+
         addthis.push('Tourist')
-      }
+
+}
       if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
+
         addthis.push('Einwohner:in')
-      }
+
+}
       if (
         target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')
       ) {
+
         addthis.push('Verifizierungsebene 2')
-      }
+
+}
       await interaction.reply({
         content: `**${
           target.user.tag
@@ -64,15 +72,19 @@ module.exports = {
           ' | '
         )}\`\n\nWähle eine Rolle aus um sie zu ändern:`,
         components: [row1],
-        ephemeral: true,
+        ephemeral: true
       })
       const prev = interaction
       module.exports.prev = prev
-    } else {
+
+} else {
+
       return interaction.reply({
         content: 'No permissions',
-        ephemeral: true,
+        ephemeral: true
       })
-    }
-  },
+
+}
+
+}
 }

@@ -6,7 +6,7 @@
 const {
   MessageEmbed,
   MessageActionRow,
-  MessageButton,
+  MessageButton
 } = require('discord.js')
 module.exports = {
   id: 'vorschlag_event',
@@ -18,14 +18,17 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const titel = interaction.fields.getTextInputValue('titel')
     const beschreibung = interaction.fields.getTextInputValue('beschreibung')
-    if (titel == '' || beschreibung == '') {
+    if (titel === '' || beschreibung === '') {
+
       return interaction.reply({
         content: '**Vorschlag unvollständig!**',
-        ephemeral: true,
+        ephemeral: true
       })
-    }
+
+}
     var embed = new MessageEmbed()
       .setTitle(titel)
       .setDescription(beschreibung)
@@ -34,19 +37,22 @@ module.exports = {
     interaction.channel
       .send({
         embeds: [embed],
-        components: [],
+        components: []
       })
       .then(function (message) {
+
         message.react('👍')
         message.react('👎')
         message.startThread({
           name: `${titel}`,
           autoArchiveDuration: 1440 * 7,
-          type: 'GUILD_PUBLIC_THREAD',
+          type: 'GUILD_PUBLIC_THREAD'
         })
-      })
+
+})
       .catch()
     async function run () {
+
       const row1 = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Vorschlag')
@@ -62,27 +68,36 @@ module.exports = {
           .setStyle('SECONDARY')
       )
       const fetch = await interaction.channel.messages.fetch({
-        limit: 10,
+        limit: 10
       })
       const fetchfiltered = fetch.filter(function (list) {
-        return list.content == 'Drücke hier um einen Vorschlag einzureichen'
-      })
+
+        return list.content === 'Drücke hier um einen Vorschlag einzureichen'
+
+})
       const id = fetchfiltered.map(function (list) {
+
         return list.id
-      })
-      if (id.length != 0) {
+
+})
+      if (id.length !== 0) {
+
         interaction.channel.messages
           .fetch(id.toString())
           .then((message) => {
+
             message.delete()
-          })
+
+})
           .catch({})
-      }
+
+}
       interaction.channel.send({
         content: 'Drücke hier um einen Vorschlag einzureichen',
-        components: [row1],
+        components: [row1]
       })
-    }
+
+}
     run().then().catch()
     require('dotenv').config()
     const api = process.env.trello_api
@@ -92,7 +107,7 @@ module.exports = {
       name: titel,
       desc: beschreibung,
       pos: 'top',
-      idList: '62250267d4625f0f591cd04f',
+      idList: '62250267d4625f0f591cd04f'
     }
     Trello.card
       .create(data)
@@ -101,7 +116,8 @@ module.exports = {
     interaction.reply({
       content:
         '**Vorschlag eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
-      ephemeral: true,
+      ephemeral: true
     })
-  },
+
+}
 }

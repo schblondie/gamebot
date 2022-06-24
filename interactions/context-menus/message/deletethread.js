@@ -1,7 +1,7 @@
 module.exports = {
   data: {
     name: 'Thread löschen',
-    type: 3, // 3 is for message context menus
+    type: 3 // 3 is for message context menus
   },
 
   /**
@@ -11,6 +11,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     if (
       interaction.member.roles.cache.some(
         (role) => role.name === 'Technikchef'
@@ -19,23 +20,29 @@ module.exports = {
         (role) => role.name === 'Stadtsekretär:in'
       )
     ) {
-      // eslint-disable-next-line no-loops/no-loops
+
       for (var i = 0; i < interaction.targetMessage.embeds.length; i++) {
+
         const thread = interaction.channel.threads.cache.find(
           (x) => x.name === interaction.targetMessage.embeds[i].title
         )
         await thread.delete()
-      }
+
+}
       interaction.targetMessage.delete()
       interaction.reply({
         content: 'Done',
-        ephemeral: true,
+        ephemeral: true
       })
-    } else {
+
+} else {
+
       return interaction.reply({
         content: 'No permissions',
-        ephemeral: true,
+        ephemeral: true
       })
-    }
-  },
+
+}
+
+}
 }

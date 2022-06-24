@@ -27,17 +27,21 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const member = interaction.options.getUser('user')
     const target = interaction.guild.members.cache.get(member.id)
     const run = async function () {
+
       const user = await Levels.fetch(target.id, interaction.guild.id) // Selects the target from the database.
 
       if (!user) {
+
         return interaction.reply({
           content: 'Seems like this user has not earned any xp so far.',
-          ephemeral: true,
+          ephemeral: true
         })
-      }
+
+}
       const next = Levels.xpFor(user.level + 1)
       const reqxp = next - user.xp
       const embed = new MessageEmbed()
@@ -50,9 +54,11 @@ module.exports = {
         .addField('Next level in', `${reqxp.toString()}XP`)
       interaction.reply({
         embeds: [embed],
-        ephemeral: true,
+        ephemeral: true
       })
-    }
+
+}
     run()
-  },
+
+}
 }

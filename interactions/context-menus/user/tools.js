@@ -1,12 +1,12 @@
 const {
   MessageActionRow,
   MessageSelectMenu,
-  MessageButton,
+  MessageButton
 } = require('discord.js')
 module.exports = {
   data: {
     name: 'Tools',
-    type: 2, // 2 is for user context menus
+    type: 2 // 2 is for user context menus
   },
 
   /**
@@ -16,6 +16,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const row1 = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('usertools')
@@ -24,18 +25,18 @@ module.exports = {
           {
             label: 'User avatar',
             description: 'This is a description',
-            value: 'user_avatar',
+            value: 'user_avatar'
           },
           {
             label: 'User Info',
             description: 'This is also a description',
-            value: 'user_info',
+            value: 'user_info'
           },
           {
             label: 'Ban user',
             description: 'This is also a description',
-            value: 'troll',
-          },
+            value: 'troll'
+          }
         ])
     )
     const row2 = new MessageActionRow().addComponents(
@@ -60,19 +61,24 @@ module.exports = {
         (role) => role.name === 'Stadtsekräter:in'
       )
     ) {
+
       addthis.push(row2)
-    }
+
+}
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
+
       addthis.push(row3)
-    }
+
+}
     await interaction.reply({
       content: `${interaction.targetMember.user}'s user tools`,
       components: addthis,
-      ephemeral: true,
+      ephemeral: true
     })
     const prev = interaction
     module.exports.prev = prev
-  },
+
+}
 }

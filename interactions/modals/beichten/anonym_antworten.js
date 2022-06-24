@@ -15,6 +15,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const botlog =
       interaction.guild.channels.cache.find(
         (channel) => channel.name === 'e-log'
@@ -22,14 +23,17 @@ module.exports = {
     imp.prev.channel
       .send({ content: interaction.fields.getTextInputValue('text') })
       .then(function (message) {
+
         botlog.send({
-          content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}`,
+          content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}`
         })
-      })
+
+})
     interaction.reply({
       content:
         '**Antwort eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
-      ephemeral: true,
+      ephemeral: true
     })
-  },
+
+}
 }

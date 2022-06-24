@@ -14,6 +14,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const devtools_row = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('devtools_select')
@@ -22,8 +23,8 @@ module.exports = {
           {
             label: 'Change roles',
             description: 'Dev Tools',
-            value: 'devtools_changeroles',
-          },
+            value: 'devtools_changeroles'
+          }
         ])
     )
     // Add the row to the message
@@ -31,7 +32,8 @@ module.exports = {
       content: 'Select option',
       components: [devtools_row],
       ephemeral: [],
-      attachments: [],
+      attachments: []
     })
-  },
+
+}
 }

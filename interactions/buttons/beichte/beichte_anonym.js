@@ -6,7 +6,7 @@
 const {
   MessageActionRow,
   Modal,
-  TextInputComponent,
+  TextInputComponent
 } = require('discord.js')
 module.exports = {
   id: 'anonyme_beichte',
@@ -18,6 +18,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const modal = new Modal()
       .setCustomId('anonyme_beichte')
       .setTitle('Anonyme Beichte')
@@ -42,5 +43,6 @@ module.exports = {
     modal.addComponents(firstActionRow, secondActionRow)
     // Show the modal to the user
     await interaction.showModal(modal)
-  },
+
+}
 }

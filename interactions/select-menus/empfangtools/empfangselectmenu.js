@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 /**
  * @file Usertools Select-Menu interaction
  * @author Felix
@@ -5,7 +6,7 @@
  */
 
 const {
-  MessageEmbed,
+  MessageEmbed
 } = require('discord.js')
 
 const imp = require('../../buttons/tools/empfangtools')
@@ -19,6 +20,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const target = imp.prev.targetMember
     const prev = imp.prev
     const empfangslog =
@@ -26,30 +28,37 @@ module.exports = {
         (channel) => channel.name === 'e-log'
       ) || prev.member.guild.channels.cache.get('982358868095021106')
     if (interaction.values.includes('tourist')) {
+
       var role = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Tourist'
       )
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
+
         target.roles.remove(role)
         interaction.reply({
           content: '`Tourist` entfernt',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` entfernt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` entfernt`
         })
-      } else {
+
+} else {
+
         target.roles.add(role)
         interaction.reply({
           content: '`Tourist` hinzugefügt',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` hinzugefügt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` hinzugefügt`
         })
-      }
-    }
+
+}
+
+}
     if (interaction.values.includes('einwohner')) {
+
       var role1 = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Tourist'
       )
@@ -57,28 +66,34 @@ module.exports = {
         (role) => role.name === 'Einwohner:in'
       )
       if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
+
         target.roles.remove(role1)
         target.roles.remove(role2)
         interaction.reply({
           content: '`Tourist & Einwohner:in` entfernt',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` entfernt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` entfernt`
         })
-      } else {
+
+} else {
+
         target.roles.add(role1)
         target.roles.add(role2)
         interaction.reply({
           content: '`Tourist & Einwohner:in` hinzugefügt',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` hinzugefügt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` hinzugefügt`
         })
-      }
-    }
+
+}
+
+}
     if (interaction.values.includes('ve2')) {
+
       const ve2log =
         prev.member.guild.channels.cache.find(
           (channel) => channel.name === 've2-log'
@@ -89,35 +104,42 @@ module.exports = {
       if (
         target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')
       ) {
+
         target.roles.remove(role3)
         interaction.reply({
           content: '`Verifizierungsebene 2` entfernt',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Verifizierungsebene 2\` entfernt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Verifizierungsebene 2\` entfernt`
         })
-      } else {
+
+} else {
+
         target.roles.add(role3)
         interaction.reply({
           content:
             '`Verifizierungsebene 2` hinzugefügt\n\nBitte denke daran in ' +
             ve2log.toString() +
             ' zu dokumentieren!',
-          ephemeral: true,
+          ephemeral: true
         })
         empfangslog.send({
-          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Verifizierungsebene 2\` hinzugefügt`,
+          content: `${interaction.user.tag} hat ${target.user} die Rolle \`Verifizierungsebene 2\` hinzugefügt`
         })
         const fetch = await interaction.channel.messages.fetch({
-          limit: 10,
+          limit: 10
         })
         const fetchfiltered = fetch.filter(function (list) {
+
           return list.author.id === target.id
-        })
+
+})
         var lastmsgs = fetchfiltered.map(function (list) {
+
           return list.content
-        })
+
+})
         var lastmsg = lastmsgs.reverse()
         const embed = new MessageEmbed()
           .setAuthor({name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL()})
@@ -125,7 +147,7 @@ module.exports = {
           .setFooter({name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
         ve2log.send({
           content: target.toString(),
-          embeds: [embed],
+          embeds: [embed]
         })
         const wartezimmer =
           prev.member.guild.channels.cache.find(
@@ -148,9 +170,12 @@ module.exports = {
 					Sobald wir einen passenden Termin gefunden haben werden wir uns bei dir erneut melden.
 
 					Liebe Grüße
-					Dein QueerCity Serverteam ${ServerIcon2021} ${QCocktail}`,
+					Dein QueerCity Serverteam ${ServerIcon2021} ${QCocktail}`
         })
-      }
-    }
-  },
+
+}
+
+}
+
+}
 }

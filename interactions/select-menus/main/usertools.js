@@ -17,24 +17,31 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const target = imp.prev.targetMember
     if (interaction.values.includes('user_info')) {
+
       const activities = []
       let customStatus
-      // eslint-disable-next-line no-loops/no-loops
       for (const activity of target.presence.activities.values()) {
+
         switch (activity.type) {
+
           case 'PLAYING':
             activities.push(`Playing **${activity.name}**`)
             break
           case 'LISTENING':
             if (target.user.bot) {
+
               activities.push(`Listening to **${activity.name}**`)
-            } else {
+
+} else {
+
               activities.push(
                 `Listening to **${activity.details}** by **${activity.state}**`
               )
-            }
+
+}
             break
           case 'WATCHING':
             activities.push(`Watching **${activity.name}**`)
@@ -45,8 +52,10 @@ module.exports = {
           case 'CUSTOM_STATUS':
             customStatus = activity.state
             break
-        }
-      }
+
+}
+
+}
       const uiembed = new MessageEmbed()
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
@@ -72,27 +81,35 @@ module.exports = {
         .setTimestamp()
         .setColor(target.user.accentColor)
       if (activities.length > 0) {
+
         uiembed.setDescription(activities.join('\n'))
-      }
+
+}
       if (customStatus) {
+
         uiembed.spliceFields(0, 0, {
           name: 'Custom Status',
-          value: customStatus,
+          value: customStatus
         })
-      }
+
+}
       interaction.reply({
         embeds: [uiembed],
-        ephemeral: true,
+        ephemeral: true
       })
-    }
+
+}
     if (interaction.values.includes('user_avatar')) {
+
       const embed = new MessageEmbed()
         .setTitle(target.user.username + '#' + target.user.discriminator)
         .setImage(target.avatarURL({ dynamic: true }))
       interaction.reply({
         embeds: [embed],
-        ephemeral: true,
+        ephemeral: true
       })
-    }
-  },
+
+}
+
+}
 }

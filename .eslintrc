@@ -2,10 +2,7 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "prettier",
-    "@typescript-eslint",
-    "no-loops"
-    
+    "@typescript-eslint"
   ],
   "env": {
     "browser": true,
@@ -20,11 +17,13 @@
   ],
     "rules": { 
             "no-console": "warn",
-            "no-loops/no-loops": "warn",
             "@typescript-eslint/no-var-requires": "off",
-            "prettier/prettier": "off",
             "space-before-function-paren": "error",
-            "no-trailing-spaces": "error"
-
+            "no-trailing-spaces": "error",
+            "comma-dangle": "error",
+            "no-tabs": "error",
+            "eqeqeq": "error",
+            "padded-blocks": "error",
+            "brace-style": "error"
     }
 }

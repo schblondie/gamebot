@@ -20,11 +20,13 @@ module.exports = {
    */
 
   execute (client) {
+
     // eslint-disable-next-line no-console
     console.log(`Ready! Logged in as ${client.user.tag}`)
     client.user.setPresence({
-      activities: [{ name: '/activity', type: 'PLAYING' }],
+      activities: [{ name: '/activity', type: 'PLAYING' }]
     })
     // dashboard.run()
-  },
+
+}
 }

@@ -24,18 +24,22 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const run = async function () {
+
       const rawLeaderboard = await Levels.fetchLeaderboard(
         interaction.guild.id,
         10
       ) // We grab top 10 users with most xp in the current server.
 
       if (rawLeaderboard.length < 1) {
+
         return interaction.reply({
           content: "Nobody's in leaderboard yet.",
-          ephemeral: true,
+          ephemeral: true
         })
-      }
+
+}
 
       const leaderboard = await Levels.computeLeaderboard(
         interaction.client,
@@ -55,9 +59,11 @@ module.exports = {
         .setDescription(`${lb.join('\n\n')}`)
       interaction.reply({
         embeds: [embed],
-        ephemeral: true,
+        ephemeral: true
       })
-    }
+
+}
     run()
-  },
+
+}
 }

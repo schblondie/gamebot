@@ -1,3 +1,4 @@
+/* eslint-disable brace-style */
 module.exports = {
   name: 'interactionCreate',
 
@@ -8,6 +9,7 @@ module.exports = {
    */
 
   execute: async (interaction) => {
+
     // Deconstructed client from interaction object.
     const { client } = interaction
 
@@ -19,7 +21,8 @@ module.exports = {
 
     // Checks if the interaction target was a user
 
-    if (interaction.targetType === 'USER') {
+      if (interaction.targetType === 'USER') {
+
       /**
        * @description The Interaction command object
        * @type {Object}
@@ -32,17 +35,23 @@ module.exports = {
       // A try to execute the interaction.
 
       try {
+
         await command.execute(interaction)
         return
-      } catch (err) {
+
+        } catch (err) {
+
         await interaction.reply({
           content: 'There was an issue while executing that context command!',
-          ephemeral: true,
+          ephemeral: true
         })
+
       }
+
     }
     // Checks if the interaction target was a user
     else if (interaction.targetType === 'MESSAGE') {
+
       /**
        * @description The Interaction command object
        * @type {Object}
@@ -55,23 +64,31 @@ module.exports = {
       // A try to execute the interaction.
 
       try {
+
         await command.execute(interaction)
         return
+
       } catch (err) {
+
         await interaction.reply({
           content: 'There was an issue while executing that context command!',
-          ephemeral: true,
+          ephemeral: true
         })
+
       }
+
     }
 
     // Practically not possible, but we are still caching the bug.
     // Possible Fix is a restart!
     else {
+
       // eslint-disable-next-line no-console
       return console.log(
         'Something weird happening in context menu. Received a context menu of unknown type.'
       )
+
     }
-  },
+
+  }
 }

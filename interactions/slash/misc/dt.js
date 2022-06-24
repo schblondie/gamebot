@@ -45,13 +45,16 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     if (!interaction.guild) {
+
       await interaction.reply({
         content: 'Sorry, but this command only works in servers!',
-        ephemeral: true,
+        ephemeral: true
       })
       return
-    }
+
+}
 
     // Identify voice channel
     if (
@@ -60,15 +63,17 @@ module.exports = {
         .members.cache.get(interaction.member.user.id).voice.channel ||
       interaction.client.guilds.cache
         .get(interaction.guildId)
-        .members.cache.get(interaction.member.user.id).voice.channel.type ==
+        .members.cache.get(interaction.member.user.id).voice.channel.type ===
         'GUILD_STAGE_VOICE'
     ) {
+
       await interaction.reply({
         content: "You're not in a voice channel!",
-        ephemeral: true,
+        ephemeral: true
       })
       return
-    }
+
+}
 
     // Get ID of activity
     const activityID = interaction.options.getString('activity')
@@ -80,15 +85,18 @@ module.exports = {
         maxAge: 604799, // 1 week
         maxUses: 100,
         targetType: 2,
-        targetApplication: activityID,
+        targetApplication: activityID
       })
     const embed = new MessageEmbed().setDescription(
       'https://discord.gg/' + invite
     )
     if (invite) {
+
       await interaction.reply({
-        embeds: [embed],
+        embeds: [embed]
       })
-    }
-  },
+
+}
+
+}
 }

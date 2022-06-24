@@ -6,7 +6,7 @@
 const {
   MessageActionRow,
   Modal,
-  TextInputComponent,
+  TextInputComponent
 } = require('discord.js')
 module.exports = {
   id: 'anonymantworten',
@@ -18,6 +18,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const modal = new Modal()
       .setCustomId('anonym_antworten')
       .setTitle('Anonym antworten')
@@ -38,5 +39,6 @@ module.exports = {
     module.exports.prev = prev
     // Show the modal to the user
     await interaction.showModal(modal)
-  },
+
+}
 }

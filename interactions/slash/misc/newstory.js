@@ -21,9 +21,11 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Developer')
     ) {
+
       const row = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Satz hinzufügen')
@@ -32,13 +34,17 @@ module.exports = {
       )
       interaction.reply({
         content: 'Beginne eine neue Story!',
-        components: [row],
+        components: [row]
       })
-    } else {
+
+} else {
+
       return interaction.reply({
         content: 'No permissions',
-        ephemeral: true,
+        ephemeral: true
       })
-    }
-  },
+
+}
+
+}
 }

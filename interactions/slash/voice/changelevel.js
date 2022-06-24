@@ -11,11 +11,17 @@ Levels.setURL(process.env.mongo)
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 function delay (milisec) {
+
   return new Promise((resolve) => {
+
     setTimeout(() => {
+
       resolve('')
-    }, milisec)
-  })
+
+}, milisec)
+
+})
+
 }
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -44,7 +50,9 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const run2 = async function () {
+
       await delay(2000)
       const user2 = await Levels.fetch(target.id, interaction.guild.id)
       const log =
@@ -74,14 +82,18 @@ module.exports = {
         (role) => role.name === 'Grandmaster (Vc)'
       )
       if (user2.level > 1 && user2.level < 5) {
+
         if (target.roles.cache.some((r) => r.name === role2.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor(
               {
                 name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-                iconURL: member.displayAvatarURL(),
+                iconURL: member.displayAvatarURL()
               }
             )
             .setDescription(`${role2}`);
@@ -95,19 +107,25 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 4 && user2.level < 10) {
+
         if (target.roles.cache.some((r) => r.name === role5.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor(
               {
                 name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-                iconURL: member.displayAvatarURL(),
+                iconURL: member.displayAvatarURL()
               }
             )
             .setDescription(`${role5}`)
@@ -121,18 +139,24 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 9 && user2.level < 20) {
+
         if (target.roles.cache.some((r) => r.name === role10.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor({
               name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-              iconURL: member.displayAvatarURL(),
+              iconURL: member.displayAvatarURL()
             })
             .setDescription(`${role10}`);
 
@@ -145,18 +169,24 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 19 && user2.level < 30) {
+
         if (target.roles.cache.some((r) => r.name === role20.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor({
               name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-              iconURL: member.displayAvatarURL(),
+              iconURL: member.displayAvatarURL()
             })
             .setDescription(`${role20}`);
 
@@ -169,18 +199,24 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 29 && user2.level < 40) {
+
         if (target.roles.cache.some((r) => r.name === role30.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor({
               name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-              iconURL: member.displayAvatarURL(),
+              iconURL: member.displayAvatarURL()
             })
             .setDescription(`${role30}`);
 
@@ -193,18 +229,24 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 39 && user2.level < 50) {
+
         if (target.roles.cache.some((r) => r.name === role40.toString())) {
+
           return
-        } else {
+
+} else {
+
           const embed = new MessageEmbed()
             .setAuthor({
               name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-              iconURL: member.displayAvatarURL(),
+              iconURL: member.displayAvatarURL()
             })
             .setDescription(`${role40}`);
 
@@ -217,16 +259,20 @@ module.exports = {
           target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      }
+
+}
+
+}
       if (user2.level > 49) {
+
         if (target.roles.cache.some((r) => r.name !== role50.toString())) {
+
           const embed = new MessageEmbed()
             .setAuthor({
               name: `${target.user.tag} hat eine neue Rolle bekommen!`,
-              iconURL: member.displayAvatarURL(),
+              iconURL: member.displayAvatarURL()
             })
             .setDescription(`${role50}`);
 
@@ -239,70 +285,98 @@ module.exports = {
           // target.roles.remove(role50)
           log.send({
             content: `${target.user}`,
-            embeds: [embed],
+            embeds: [embed]
           })
-        }
-      } else {
+
+}
+
+} else {
+
         target.roles.remove(role5)
         target.roles.remove(role10)
         target.roles.remove(role20)
         target.roles.remove(role30)
         target.roles.remove(role40)
         target.roles.remove(role50)
-      }
-    }
+
+}
+
+}
     const member = interaction.options.getUser('user')
     const target = interaction.guild.members.cache.get(member.id)
     const option = interaction.options.getString('option')
     const amount = interaction.options.getNumber('amount')
     const run = async function () {
+
       const user = await Levels.fetch(target.id, interaction.guild.id) // Selects the target from the database.
       if (!user) {
+
         Levels.createUser(target.id, interaction.guild.id)
-      }
+
+}
       if (option === 'add') {
+
         Levels.appendLevel(target.id, interaction.guild.id, amount)
         interaction.reply({
           content: `Added ${amount} levels`,
-          ephemeral: true,
+          ephemeral: true
         })
-      }
+
+}
       if (option === 'remove') {
+
         if (amount > parseInt(user.xp.toString())) {
+
           const amount = parseInt(user.xp.toString())
           if (amount === 0) {
+
             interaction.reply({
               content: 'Removed no levels, due to missing levels',
-              ephemeral: true,
+              ephemeral: true
             })
-          } else {
+
+} else {
+
             Levels.subtractLevel(target.id, interaction.guild.id, amount)
             interaction.reply({
               content: `Removed ${amount} levels, due to missing levels`,
-              ephemeral: true,
+              ephemeral: true
             })
-          }
-        } else {
+
+}
+
+} else {
+
           Levels.subtractLevel(target.id, interaction.guild.id, amount)
           interaction.reply({
             content: `Removed ${amount} levels`,
-            ephemeral: true,
+            ephemeral: true
           })
-        }
-      }
+
+}
+
+}
       if (option === 'set') {
+
         if (amount === 0) {
+
           Levels.setXp(target.id, interaction.guild.id, 1)
-        } else {
+
+} else {
+
           Levels.setLevel(target.id, interaction.guild.id, amount)
-        }
+
+}
         interaction.reply({
           content: `Set Level to ${amount}`,
-          ephemeral: true,
+          ephemeral: true
         })
-      }
+
+}
       run2()
-    }
+
+}
     run()
-  },
+
+}
 }

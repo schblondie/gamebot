@@ -14,6 +14,7 @@ module.exports = {
    */
 
   async execute (interaction) {
+
     const row = new MessageActionRow().addComponents(
       new MessageButton()
         .setLabel('Satz hinzufügen')
@@ -22,7 +23,7 @@ module.exports = {
     )
     row.components[0].setDisabled(true)
     interaction.message.edit({
-      components: [row],
+      components: [row]
     })
     const story =
       interaction.member.guild.channels.cache.find(
@@ -37,45 +38,54 @@ module.exports = {
     interaction.reply({
       content:
         'Bitte sende einen Satz für die Story!\n\nDu hast 60s Zeit dafür.',
-      ephemeral: true,
+      ephemeral: true
     })
     const channel = interaction.channel
     const filter = (m) => m.author.id === interaction.user.id
     const collector = channel.createMessageCollector({
       filter,
       time: 60000,
-      max: 1,
+      max: 1
     })
     const stopit = []
     stopit.push('Stop')
     collector.on('collect', (m) => {
+
       channel.send({
         content: m.content,
-        components: [row1],
+        components: [row1]
       })
       m.delete()
       story.send({
-        content: m.content,
+        content: m.content
       })
       interaction.message.delete()
       stopit.pop()
-    })
+
+})
     collector.on('end', () => {
+
       if (stopit.includes('Stop')) {
+
         interaction.editReply({
           content: 'Timeout',
           embeds: [],
-          components: [],
+          components: []
         })
         interaction.message.edit({
-          components: [row1],
+          components: [row1]
         })
-      } else {
+
+} else {
+
         interaction.editReply({
           content: 'Done',
-          ephemeral: true,
+          ephemeral: true
         })
-      }
-    })
-  },
+
+}
+
+})
+
+}
 }
