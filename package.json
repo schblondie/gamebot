@@ -1,7 +1,7 @@
 {
-    "name": "discordbot-template",
-    "version": "3.0.1",
-    "description": "A modified template based on discordjs.guide to create your own discord-js based bot!",
+    "name": "gamebot",
+    "version": "1.0.0",
+    "description": "A bot for playing games",
     "main": "bot.js",
     "scripts": {
         "start": "node bot.js",
@@ -12,17 +12,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/NamVr/DiscordBot-Template.git"
+        "url": "git+https://github.com/schblondie/gamebot.git"
     },
     "keywords": [
         "discord-js"
     ],
-    "author": "Naman Vrati",
-    "license": "ISC",
+    "author": "Felix Limbach",
+    "license": "MIT",
     "bugs": {
-        "url": "https://github.com/NamVr/DiscordBot-Template/issues"
+        "url": "https://github.com/schblondie/gamebot/issues"
     },
-    "homepage": "https://github.com/NamVr/DiscordBot-Template#readme",
+    "homepage": "https://github.com/schblondie/gamebot#readme",
     "dependencies": {
         "@discordjs/builders": "^0.6.0",
         "@discordjs/rest": "^0.1.0-canary.0",
