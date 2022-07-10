@@ -142,7 +142,7 @@ module.exports = {
         const embed = new MessageEmbed()
           .setAuthor({name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL()})
           .setDescription(lastmsg.join('\n\n'))
-          .setFooter({name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
+          .setFooter({text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
         ve2log.send({
           content: target.toString(),
           embeds: [embed]

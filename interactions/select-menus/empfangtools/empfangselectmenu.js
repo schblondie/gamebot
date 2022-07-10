@@ -21,6 +21,7 @@ module.exports = {
 
   async execute (interaction) {
 
+    await interaction.deferReply({ ephemeral: true})
     const target = imp.prev.targetMember
     const prev = imp.prev
     const empfangslog =
@@ -35,7 +36,7 @@ module.exports = {
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
 
         target.roles.remove(role)
-        interaction.reply({
+        interaction.editReply({
           content: '`Tourist` entfernt',
           ephemeral: true
         })
@@ -46,7 +47,7 @@ module.exports = {
       } else {
 
         target.roles.add(role)
-        interaction.reply({
+        interaction.editReply({
           content: '`Tourist` hinzugefügt',
           ephemeral: true
         })
@@ -69,7 +70,7 @@ module.exports = {
 
         target.roles.remove(role1)
         target.roles.remove(role2)
-        interaction.reply({
+        interaction.editReply({
           content: '`Tourist & Einwohner:in` entfernt',
           ephemeral: true
         })
@@ -81,7 +82,7 @@ module.exports = {
 
         target.roles.add(role1)
         target.roles.add(role2)
-        interaction.reply({
+        interaction.editReply({
           content: '`Tourist & Einwohner:in` hinzugefügt',
           ephemeral: true
         })
@@ -106,7 +107,7 @@ module.exports = {
       ) {
 
         target.roles.remove(role3)
-        interaction.reply({
+        interaction.editReply({
           content: '`Verifizierungsebene 2` entfernt',
           ephemeral: true
         })
@@ -117,7 +118,7 @@ module.exports = {
       } else {
 
         target.roles.add(role3)
-        interaction.reply({
+        interaction.editReply({
           content:
             '`Verifizierungsebene 2` hinzugefügt\n\nBitte denke daran in ' +
             ve2log.toString() +
@@ -144,7 +145,7 @@ module.exports = {
         const embed = new MessageEmbed()
           .setAuthor({name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL()})
           .setDescription(lastmsg.join('\n\n'))
-          .setFooter({name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
+          .setFooter({text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
         ve2log.send({
           content: target.toString(),
           embeds: [embed]
