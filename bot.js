@@ -20,7 +20,7 @@ require('dotenv').config()
  * @description Main Application Client */
 const Discord = require('discord.js')
 const client = new Client({
-  intents: new Discord.Intents(98303)
+  intents: new Discord.Intents(1179647)
 })
 module.exports = client
 // const config = require('./config.json')
