@@ -3,8 +3,8 @@
 * @author Felix
 * @since 1.0.0
 */
-const imp = require("../../select-menus/empfangtools/empfangselectmenu")
-const { MessageEmbed } = require("discord.js")
+const imp = require('../../select-menus/empfangtools/empfangselectmenu')
+const { MessageEmbed } = require('discord.js')
 module.exports = {
   id: 've2Reason',
   /**
@@ -13,7 +13,6 @@ module.exports = {
       * @param {Object} interaction The Interaction Object of the command.
       */
   async execute (interaction) {
-
     const empfangslog =
           interaction.member.guild.channels.cache.find(
             (channel) => channel.name === 'e-log'
@@ -22,7 +21,7 @@ module.exports = {
           interaction.member.guild.channels.cache.find(
             (channel) => channel.name === 've2-log'
           ) || interaction.member.guild.channels.cache.get('927308551569932289')
-    var role = interaction.member.guild.roles.cache.find(
+    const role = interaction.member.guild.roles.cache.find(
       (role) => role.name === 'Verifizierungsebene 2'
     )
     const target = imp.prev.prev4
@@ -34,22 +33,18 @@ module.exports = {
       limit: 10
     })
     const fetchfiltered = fetch.filter(function (list) {
-
       return list.author.id === target.id
-
     })
-    var lastmsgs = fetchfiltered.map(function (list) {
-
+    const lastmsgs = fetchfiltered.map(function (list) {
       return list.content
-
     })
-    var lastmsg = lastmsgs.reverse()
+    const lastmsg = lastmsgs.reverse()
     const embed = new MessageEmbed()
       .setAuthor({ name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL() })
       .setDescription(lastmsg.join('\n\n'))
       .setFooter({ text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL() })
     ve2log.send({
-      content: target.toString()+'\n\n'+interaction.fields.getTextInputValue('ve2Grund'),
+      content: target.toString() + '\n\n' + interaction.fields.getTextInputValue('ve2Grund'),
       embeds: [embed]
     })
     const wartezimmer =
@@ -76,6 +71,5 @@ module.exports = {
       content: '`Verifizierungsebene 2` hinzugefügt',
       ephemeral: true
     })
-
   }
 }
