@@ -63,6 +63,8 @@ module.exports = {
           content: 'There was an issue while executing that context command!',
           ephemeral: true
         })
+        // eslint-disable-next-line no-console
+        console.log(err)
       }
     }
 
