@@ -23,7 +23,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (
       interaction.member.roles.cache.some(
         (role) => role.name === 'Technikchef'
@@ -32,21 +31,16 @@ module.exports = {
         (role) => role.name === 'Stadtsekretär:in'
       )
     ) {
-
       const member = interaction.options.getUser('user')
       interaction.reply({
         content: member.toString(),
         ephemeral: true
       })
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

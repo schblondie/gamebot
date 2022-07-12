@@ -14,7 +14,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const devtoolsrow = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('devtools_select')
@@ -34,6 +33,5 @@ module.exports = {
       ephemeral: [],
       attachments: []
     })
-
   }
 }

@@ -11,25 +11,19 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-
       interaction.targetMessage.delete()
       interaction.reply({
         content: 'Done',
         ephemeral: true
       })
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

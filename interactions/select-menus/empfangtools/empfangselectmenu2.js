@@ -19,7 +19,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const member = imp.prev.options.getUser('user')
     const prev = imp.prev
     const target = interaction.guild.members.cache.get(member.id)
@@ -28,12 +27,10 @@ module.exports = {
         (channel) => channel.name === 'e-log'
       ) || prev.member.guild.channels.cache.get('982358868095021106')
     if (interaction.values.includes('tourist')) {
-
-      var role = prev.member.guild.roles.cache.find(
+      const role = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Tourist'
       )
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
-
         target.roles.remove(role)
         interaction.reply({
           content: '`Tourist` entfernt',
@@ -42,9 +39,7 @@ module.exports = {
         empfangslog.send({
           content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` entfernt`
         })
-
       } else {
-
         target.roles.add(role)
         interaction.reply({
           content: '`Tourist` hinzugefügt',
@@ -53,19 +48,15 @@ module.exports = {
         empfangslog.send({
           content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist\` hinzugefügt`
         })
-
       }
-
     } else if (interaction.values.includes('einwohner')) {
-
-      var role1 = prev.member.guild.roles.cache.find(
+      const role1 = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Tourist'
       )
       const role2 = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Einwohner:in'
       )
       if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
-
         target.roles.remove(role1)
         target.roles.remove(role2)
         interaction.reply({
@@ -75,9 +66,7 @@ module.exports = {
         empfangslog.send({
           content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` entfernt`
         })
-
       } else {
-
         target.roles.add(role1)
         target.roles.add(role2)
         interaction.reply({
@@ -87,22 +76,18 @@ module.exports = {
         empfangslog.send({
           content: `${interaction.user.tag} hat ${target.user} die Rolle \`Tourist & Einwohner:in\` hinzugefügt`
         })
-
       }
-
     } else if (interaction.values.includes('ve2')) {
-
       const ve2log =
         prev.member.guild.channels.cache.find(
           (channel) => channel.name === 've2-log'
         ) || prev.member.guild.channels.cache.get('927308551569932289')
-      var role3 = prev.member.guild.roles.cache.find(
+      const role3 = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Verifizierungsebene 2'
       )
       if (
         target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')
       ) {
-
         target.roles.remove(role3)
         interaction.reply({
           content: '`Verifizierungsebene 2` entfernt',
@@ -111,9 +96,7 @@ module.exports = {
         empfangslog.send({
           content: `${interaction.user.tag} hat ${target.user} die Rolle \`Verifizierungsebene 2\` entfernt`
         })
-
       } else {
-
         target.roles.add(role3)
         interaction.reply({
           content:
@@ -129,20 +112,16 @@ module.exports = {
           limit: 10
         })
         const fetchfiltered = fetch.filter(function (list) {
-
           return list.author.id === target.id
-
         })
-        var lastmsgs = fetchfiltered.map(function (list) {
-
+        const lastmsgs = fetchfiltered.map(function (list) {
           return list.content
-
         })
-        var lastmsg = lastmsgs.reverse()
+        const lastmsg = lastmsgs.reverse()
         const embed = new MessageEmbed()
-          .setAuthor({name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL()})
+          .setAuthor({ name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL() })
           .setDescription(lastmsg.join('\n\n'))
-          .setFooter({text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL()})
+          .setFooter({ text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL() })
         ve2log.send({
           content: target.toString(),
           embeds: [embed]
@@ -170,10 +149,7 @@ module.exports = {
 					Liebe Grüße
 					Dein QueerCity Serverteam ${ServerIcon2021} ${QCocktail}`
         })
-
       }
-
     }
-
   }
 }

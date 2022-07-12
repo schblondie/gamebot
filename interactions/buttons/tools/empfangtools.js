@@ -15,7 +15,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     interaction.update({})
     const target = imp.prev.targetMember
     const prev = imp.prev
@@ -41,23 +40,17 @@ module.exports = {
         .setMinValues(1)
         .setMaxValues(1)
     )
-    var addthis = []
+    const addthis = []
     if (target.roles.cache.some((role) => role.name === 'Tourist')) {
-
       addthis.push('Tourist')
-
     }
     if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
-
       addthis.push('Einwohner:in')
-
     }
     if (
       target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')
     ) {
-
       addthis.push('Verifizierungsebene 2')
-
     }
     await prev.editReply({
       content: `**${target.user.tag}** hat folgende Rollen: \n\`${addthis.join(
@@ -69,6 +62,5 @@ module.exports = {
     const prev2 = interaction
     module.exports.prev2 = prev2
     module.exports.prev = prev
-
   }
 }

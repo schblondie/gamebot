@@ -16,7 +16,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const row1 = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('usertools')
@@ -61,16 +60,12 @@ module.exports = {
         (role) => role.name === 'Stadtsekräter:in'
       )
     ) {
-
       addthis.push(row2)
-
     }
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-
       addthis.push(row3)
-
     }
     await interaction.reply({
       content: `${interaction.targetMember.user}'s user tools`,
@@ -79,6 +74,5 @@ module.exports = {
     })
     const prev = interaction
     module.exports.prev = prev
-
   }
 }

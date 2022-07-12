@@ -45,15 +45,12 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (!interaction.guild) {
-
       await interaction.reply({
         content: 'Sorry, but this command only works in servers!',
         ephemeral: true
       })
       return
-
     }
 
     // Identify voice channel
@@ -66,13 +63,11 @@ module.exports = {
         .members.cache.get(interaction.member.user.id).voice.channel.type ===
         'GUILD_STAGE_VOICE'
     ) {
-
       await interaction.reply({
         content: "You're not in a voice channel!",
         ephemeral: true
       })
       return
-
     }
 
     // Get ID of activity
@@ -91,12 +86,9 @@ module.exports = {
       'https://discord.gg/' + invite
     )
     if (invite) {
-
       await interaction.reply({
         embeds: [embed]
       })
-
     }
-
   }
 }

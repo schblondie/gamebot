@@ -18,18 +18,15 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const titel = interaction.fields.getTextInputValue('titel')
     const beschreibung = interaction.fields.getTextInputValue('beschreibung')
     if (titel === '' || beschreibung === '') {
-
       return interaction.reply({
         content: '**Vorschlag unvollständig!**',
         ephemeral: true
       })
-
     }
-    var embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle(titel)
       .setDescription(beschreibung)
       .setAuthor({ name: 'Vorschlag' })
@@ -39,7 +36,6 @@ module.exports = {
         components: []
       })
       .then(function (message) {
-
         message.react('👍')
         message.react('👎')
         message.startThread({
@@ -47,11 +43,9 @@ module.exports = {
           autoArchiveDuration: 1440 * 7,
           type: 'GUILD_PUBLIC_THREAD'
         })
-
       })
       .catch()
     async function run () {
-
       const row1 = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Vorschlag')
@@ -70,32 +64,23 @@ module.exports = {
         limit: 10
       })
       const fetchfiltered = fetch.filter(function (list) {
-
         return list.content === 'Drücke hier um einen Vorschlag einzureichen'
-
       })
       const id = fetchfiltered.map(function (list) {
-
         return list.id
-
       })
       if (id.length !== 0) {
-
         interaction.channel.messages
           .fetch(id.toString())
           .then((message) => {
-
             message.delete()
-
           })
           .catch({})
-
       }
       interaction.channel.send({
         content: 'Drücke hier um einen Vorschlag einzureichen',
         components: [row1]
       })
-
     }
     run().then().catch()
     require('dotenv').config()
@@ -117,6 +102,5 @@ module.exports = {
         '**Vorschlag eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
       ephemeral: true
     })
-
   }
 }

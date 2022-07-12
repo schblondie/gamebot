@@ -15,11 +15,9 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-
       const row1 = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Frage')
@@ -34,15 +32,11 @@ module.exports = {
         content: 'Drücke hier um einen Beichte oder Frage einzureichen',
         components: [row1]
       })
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

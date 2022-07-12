@@ -15,7 +15,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const member = interaction.options.getUser('user')
     const target = interaction.guild.members.cache.get(member.id)
     if (
@@ -26,7 +25,6 @@ module.exports = {
         (role) => role.name === 'Stadtsekräter:in'
       )
     ) {
-
       const row1 = new MessageActionRow().addComponents(
         new MessageSelectMenu()
           .setCustomId('empfangselect2')
@@ -47,23 +45,17 @@ module.exports = {
             }
           ])
       )
-      var addthis = []
+      const addthis = []
       if (target.roles.cache.some((role) => role.name === 'Tourist')) {
-
         addthis.push('Tourist')
-
       }
       if (target.roles.cache.some((role) => role.name === 'Einwohner:in')) {
-
         addthis.push('Einwohner:in')
-
       }
       if (
         target.roles.cache.some((role) => role.name === 'Verifizierungsebene 2')
       ) {
-
         addthis.push('Verifizierungsebene 2')
-
       }
       await interaction.reply({
         content: `**${
@@ -76,15 +68,11 @@ module.exports = {
       })
       const prev = interaction
       module.exports.prev = prev
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

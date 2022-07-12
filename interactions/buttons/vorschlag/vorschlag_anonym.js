@@ -18,7 +18,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const modal = new Modal()
       .setCustomId('vorschlag_anonym')
       .setTitle('Anonymer Vorschlag')
@@ -43,6 +42,5 @@ module.exports = {
     modal.addComponents(firstActionRow, secondActionRow)
     // Show the modal to the user
     await interaction.showModal(modal)
-
   }
 }
