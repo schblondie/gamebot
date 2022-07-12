@@ -13,10 +13,8 @@ module.exports = {
    */
 
   async execute (message) {
-
     return message.channel.send(
       `Hi ${message.author}! Bitte benutze Slash Commands oder Apps!`
     )
-
   }
 }

@@ -8,7 +8,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     // Deconstructed client from interaction object.
     const { client } = interaction
 
@@ -26,27 +25,20 @@ module.exports = {
     // You can modify the error message at ./messages/defaultButtonError.js file!
 
     if (!command) {
-
       await require('../messages/defaultModalError').execute(interaction)
       return
-
     }
 
     // A try to execute the interaction.
 
     try {
-
       await command.execute(interaction)
       return
-
     } catch (err) {
-
       await interaction.reply({
         content: 'There was an issue while executing that modal!',
         ephemeral: true
       })
-
     }
-
   }
 }

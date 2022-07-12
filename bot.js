@@ -43,21 +43,15 @@ const eventFiles = fs
 
 // Loop through all files and execute the event when it is actually emmited.
 for (const file of eventFiles) {
-
   const event = require(`./events/${file}`)
   if (event.once) {
-
     client.once(event.name, (...args) => event.execute(...args, client))
-
   } else {
-
     client.on(
       event.name,
       async (...args) => await event.execute(...args, client)
     )
-
   }
-
 }
 
 /**********************************************************************/
@@ -85,17 +79,13 @@ const commandFolders = fs.readdirSync('./commands')
 // Loop through all files and store commands in commands collection.
 
 for (const folder of commandFolders) {
-
   const commandFiles = fs
     .readdirSync(`./commands/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of commandFiles) {
-
     const command = require(`./commands/${folder}/${file}`)
     client.commands.set(command.name, command)
-
   }
-
 }
 
 /**********************************************************************/
@@ -111,18 +101,14 @@ const slashCommands = fs.readdirSync('./interactions/slash')
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const module of slashCommands) {
-
   const commandFiles = fs
     .readdirSync(`./interactions/slash/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
-
     const command = require(`./interactions/slash/${module}/${commandFile}`)
     client.slashCommands.set(command.data.name, command)
-
   }
-
 }
 
 /**********************************************************************/
@@ -138,18 +124,14 @@ const contextMenus = fs.readdirSync('./interactions/context-menus')
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const folder of contextMenus) {
-
   const files = fs
     .readdirSync(`./interactions/context-menus/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of files) {
-
     const menu = require(`./interactions/context-menus/${folder}/${file}`)
     const keyName = `${folder.toUpperCase()} ${menu.data.name}`
     client.contextCommands.set(keyName, menu)
-
   }
-
 }
 
 /**********************************************************************/
@@ -165,35 +147,27 @@ const buttonCommands = fs.readdirSync('./interactions/buttons')
 // Loop through all files and store button-commands in buttonCommands collection.
 
 for (const module of buttonCommands) {
-
   const commandFiles = fs
     .readdirSync(`./interactions/buttons/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
-
     const command = require(`./interactions/buttons/${module}/${commandFile}`)
     client.buttonCommands.set(command.id, command)
-
   }
-
 }
 const modalCommands = fs.readdirSync('./interactions/modals')
 
 // Loop through all files and store modal-commands in ModalCommands collection.
 for (const module of modalCommands) {
-
   const commandFiles = fs
     .readdirSync(`./interactions/modals/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
-
     const command = require(`./interactions/modals/${module}/${commandFile}`)
     client.modalCommands.set(command.id, command)
-
   }
-
 }
 /**********************************************************************/
 // Registration of select-menus Interactions
@@ -208,17 +182,13 @@ const selectMenus = fs.readdirSync('./interactions/select-menus')
 // Loop through all files and store select-menus in slashCommands collection.
 
 for (const module of selectMenus) {
-
   const commandFiles = fs
     .readdirSync(`./interactions/select-menus/${module}`)
     .filter((file) => file.endsWith('.js'))
   for (const commandFile of commandFiles) {
-
     const command = require(`./interactions/select-menus/${module}/${commandFile}`)
     client.selectCommands.set(command.id, command)
-
   }
-
 }
 
 /**********************************************************************/
@@ -232,9 +202,7 @@ const commandJsonData = [
 ]
 
 ;(async () => {
-
   try {
-
     console.log('Started refreshing application (/) commands.')
 
     await rest.put(
@@ -243,13 +211,9 @@ const commandJsonData = [
     )
 
     console.log('Successfully reloaded application (/) commands.')
-
   } catch (error) {
-
     console.error(error)
-
   }
-
 })()
 
 /**********************************************************************/
@@ -265,17 +229,13 @@ const triggerFolders = fs.readdirSync('./triggers')
 // Loop through all files and store commands in commands collection.
 
 for (const folder of triggerFolders) {
-
   const triggerFiles = fs
     .readdirSync(`./triggers/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of triggerFiles) {
-
     const trigger = require(`./triggers/${folder}/${file}`)
     client.triggers.set(trigger.name, trigger)
-
   }
-
 }
 
 // Login into your client application with bot's token.

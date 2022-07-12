@@ -8,7 +8,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     // Deconstructed client from interaction object.
     const { client } = interaction
 
@@ -29,17 +28,12 @@ module.exports = {
     // A try to executes the interaction.
 
     try {
-
       await command.execute(interaction)
-
     } catch (err) {
-
       await interaction.reply({
         content: 'There was an issue while executing that command!',
         ephemeral: true
       })
-
     }
-
   }
 }

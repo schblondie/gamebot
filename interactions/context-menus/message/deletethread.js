@@ -11,7 +11,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (
       interaction.member.roles.cache.some(
         (role) => role.name === 'Technikchef'
@@ -20,29 +19,22 @@ module.exports = {
         (role) => role.name === 'Stadtsekretär:in'
       )
     ) {
-
-      for (var i = 0; i < interaction.targetMessage.embeds.length; i++) {
-
+      for (let i = 0; i < interaction.targetMessage.embeds.length; i++) {
         const thread = interaction.channel.threads.cache.find(
           (x) => x.name === interaction.targetMessage.embeds[i].title
         )
         await thread.delete()
-
       }
       interaction.targetMessage.delete()
       interaction.reply({
         content: 'Done',
         ephemeral: true
       })
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

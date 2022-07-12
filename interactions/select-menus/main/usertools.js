@@ -17,44 +17,34 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const target = imp.prev.targetMember
     if (interaction.values.includes('user_info')) {
-
       const activities = []
       let customStatus
       for (const activity of target.presence.activities.values()) {
-
         switch (activity.type) {
-
-        case 'PLAYING':
-          activities.push(`Playing **${activity.name}**`)
-          break
-        case 'LISTENING':
-          if (target.user.bot) {
-
-            activities.push(`Listening to **${activity.name}**`)
-
-          } else {
-
-            activities.push(
+          case 'PLAYING':
+            activities.push(`Playing **${activity.name}**`)
+            break
+          case 'LISTENING':
+            if (target.user.bot) {
+              activities.push(`Listening to **${activity.name}**`)
+            } else {
+              activities.push(
               `Listening to **${activity.details}** by **${activity.state}**`
-            )
-
-          }
-          break
-        case 'WATCHING':
-          activities.push(`Watching **${activity.name}**`)
-          break
-        case 'STREAMING':
-          activities.push(`Streaming **${activity.name}**`)
-          break
-        case 'CUSTOM_STATUS':
-          customStatus = activity.state
-          break
-
+              )
+            }
+            break
+          case 'WATCHING':
+            activities.push(`Watching **${activity.name}**`)
+            break
+          case 'STREAMING':
+            activities.push(`Streaming **${activity.name}**`)
+            break
+          case 'CUSTOM_STATUS':
+            customStatus = activity.state
+            break
         }
-
       }
       const uiembed = new MessageEmbed()
         .setTitle(`${target.displayName}'s Information`)
@@ -77,30 +67,24 @@ module.exports = {
           `\`${moment(target.user.createdAt).format('MMM DD YYYY')}\``,
           true
         )
-        .setFooter({name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL({ dynamic: true })})
+        .setFooter({ name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .setColor(target.user.accentColor)
       if (activities.length > 0) {
-
         uiembed.setDescription(activities.join('\n'))
-
       }
       if (customStatus) {
-
         uiembed.spliceFields(0, 0, {
           name: 'Custom Status',
           value: customStatus
         })
-
       }
       interaction.reply({
         embeds: [uiembed],
         ephemeral: true
       })
-
     }
     if (interaction.values.includes('user_avatar')) {
-
       const embed = new MessageEmbed()
         .setTitle(target.user.username + '#' + target.user.discriminator)
         .setImage(target.avatarURL({ dynamic: true }))
@@ -108,8 +92,6 @@ module.exports = {
         embeds: [embed],
         ephemeral: true
       })
-
     }
-
   }
 }

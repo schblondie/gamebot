@@ -15,11 +15,9 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-
       const row1 = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Vorschlag')
@@ -38,15 +36,11 @@ module.exports = {
         content: 'Drücke hier um einen Vorschlag einzureichen',
         components: [row1]
       })
-
     } else {
-
       return interaction.reply({
         content: 'No permissions',
         ephemeral: true
       })
-
     }
-
   }
 }

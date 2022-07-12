@@ -14,7 +14,6 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const row = new MessageActionRow().addComponents(
       new MessageButton()
         .setLabel('Satz hinzufügen')
@@ -50,7 +49,6 @@ module.exports = {
     const stopit = []
     stopit.push('Stop')
     collector.on('collect', (m) => {
-
       channel.send({
         content: m.content,
         components: [row1]
@@ -61,12 +59,9 @@ module.exports = {
       })
       interaction.message.delete()
       stopit.pop()
-
     })
     collector.on('end', () => {
-
       if (stopit.includes('Stop')) {
-
         interaction.editReply({
           content: 'Timeout',
           embeds: [],
@@ -75,17 +70,12 @@ module.exports = {
         interaction.message.edit({
           components: [row1]
         })
-
       } else {
-
         interaction.editReply({
           content: 'Done',
           ephemeral: true
         })
-
       }
-
     })
-
   }
 }

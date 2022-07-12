@@ -23,10 +23,12 @@
             "comma-dangle": "error",
             "no-tabs": "error",
             "eqeqeq": "error",
-            "padded-blocks": ["error", "always", {"allowSingleLineBlocks": true}],
+            "padded-blocks": ["error", "never", {"allowSingleLineBlocks": true}],
             "brace-style": "error",
             "indent": ["error",2],
             "camelcase": "error",
-            "eol-last": "error"
+            "eol-last": "error",
+            "no-extra-semi": "error",
+            "object-curly-spacing": ["error", "always"]
     }
 }

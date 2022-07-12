@@ -18,10 +18,9 @@ module.exports = {
    */
 
   async execute (interaction) {
-
     const titel = interaction.fields.getTextInputValue('titel')
     const beschreibung = interaction.fields.getTextInputValue('beschreibung')
-    var embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle(titel)
       .setDescription(beschreibung)
       .setColor('DARK_AQUA')
@@ -34,10 +33,8 @@ module.exports = {
         components: []
       })
       .then(function (message) {
-
         async function run () {
-
-          var thread = await message.startThread({
+          const thread = await message.startThread({
             name: `${titel}`,
             autoArchiveDuration: 1440 * 7,
             type: 'GUILD_PUBLIC_THREAD'
@@ -54,18 +51,13 @@ module.exports = {
               components: [row3]
             })
             .then(function (message) {
-
               message.pin()
-
             })
-
         }
         run()
-
       })
       .catch()
     async function run () {
-
       const row1 = new MessageActionRow().addComponents(
         new MessageButton()
           .setLabel('Frage')
@@ -80,34 +72,25 @@ module.exports = {
         limit: 10
       })
       const fetchfiltered = fetch.filter(function (list) {
-
         return (
           list.content === 'Drücke hier um einen Beichte oder Frage einzureichen'
         )
-
       })
       const id = fetchfiltered.map(function (list) {
-
         return list.id
-
       })
       if (id.length !== 0) {
-
         interaction.channel.messages
           .fetch(id.toString())
           .then((message) => {
-
             message.delete()
-
           })
           .catch({})
-
       }
       interaction.channel.send({
         content: 'Drücke hier um einen Beichte oder Frage einzureichen',
         components: [row1]
       })
-
     }
     run().then().catch()
     interaction.reply({
@@ -115,6 +98,5 @@ module.exports = {
         '**Frage eingereicht!**\nDu kannst diese Nachricht jetzt verwerfen',
       ephemeral: true
     })
-
   }
 }
