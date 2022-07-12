@@ -15,7 +15,7 @@
             "// .addSubcommand((subcommand) => subcommand.setName().setDescription().add...)",
             "// .addStringOption((option) => option.setName().setDescription().setRequired())",
             "// .addIntegerOption((option) => option.setName().setDescription().setRequired())",
-            "// .addBooleanption((option) => option.setName().setDescription().setRequired())",
+            "// .addBooleanOption((option) => option.setName().setDescription().setRequired())",
             "// .addUserOption((option) => option.setName().setDescription().setRequired())",
             "// .addChannelOption((option) => option.setName().setDescription().setRequired())",
             "// .addRoleOption((option) => option.setName().setDescription().setRequired())",

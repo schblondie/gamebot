@@ -41,7 +41,7 @@
         "fs": "^0.0.1-security",
         "moment": "^2.29.1",
         "mongoose": "^6.2.0",
-        "passport": "^0.5.2",
+        "passport": "^0.6.0",
         "passport-discord.js": "^0.0.6",
         "pm2": "^5.2.0",
         "sequelize": "^6.15.0",
