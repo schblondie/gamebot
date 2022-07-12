@@ -1,9 +1,4 @@
 {
-    // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
-    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
-    // same ids are connected.
-    // Example:
     "Slash interaction template": {
         "prefix": "slash_interaction",
         "body": [
@@ -152,7 +147,7 @@
     "Modal builder template": {
         "prefix": "modal_builder",
         "body": [
-            "    const ${1:modal}_modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
+            "    const ${1:modal}Modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
             "    // Add components to modal",
             "    // Create the text input components",
             "    const ${4:input_short} = new TextInputComponent()",
@@ -170,10 +165,10 @@
             "    .setStyle('PARAGRAPH');",
             "    // An action row only holds one text input,",
             "    // so you need one action row per text input.",
-            "    const ${4:input_short}_row = new MessageActionRow().addComponents(${4:input_short});",
-            "    const ${6:input_paragraph}_row = new MessageActionRow().addComponents(${6:input_paragraph});",
+            "    const ${4:input_short}Row = new MessageActionRow().addComponents(${4:input_short});",
+            "    const ${6:input_paragraph}Row = new MessageActionRow().addComponents(${6:input_paragraph});",
             "    // Add inputs to the modal",
-            "    ${1:modal}_modal.addComponents(${4:input_short}_row,${6:input_paragraph}_row);",
+            "    ${1:modal}_modal.addComponents(${4:input_short}Row,${6:input_paragraph}Row);",
             "    // Show the modal to the user",
             "    await interaction.showModal(${1:modal}_modal);"
         ],
@@ -182,7 +177,7 @@
     "Button builder template": {
         "prefix": "button_builder",
         "body": [
-            "    const ${1:row}_row = new MessageActionRow()",
+            "    const ${1:row}Row = new MessageActionRow()",
             "    .addComponents(",
             "    new MessageButton()",
             "    .setCustomId('${2:ID}')",
@@ -193,7 +188,7 @@
             "    // Add the row to the message",
             "    interaction.reply({",
             "content: None,",
-            "components: [${1:row}_row],",
+            "components: [${1:row}Row],",
             "ephemeral: [],",
             "attachments: []",
             "});"
@@ -203,7 +198,7 @@
     "Select menu builder template": {
         "prefix": "select_menu_builder",
         "body": [
-            "    const ${1:row}_row = new MessageActionRow()",
+            "    const ${1:row}Row = new MessageActionRow()",
             "    .addComponents(",
             "    new MessageSelectMenu()",
             "    .setCustomId('${2:ID}')",
@@ -221,7 +216,7 @@
             "    // Add the row to the message",
             "    interaction.reply({",
             "content: None,",
-            "components: [${1:row}_row],",
+            "components: [${1:row}Row],",
             "ephemeral: [],",
             "attachments: []",
             "});"
