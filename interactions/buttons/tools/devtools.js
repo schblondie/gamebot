@@ -14,24 +14,11 @@ module.exports = {
    */
 
   async execute (interaction) {
-    const devtoolsrow = new MessageActionRow().addComponents(
-      new MessageSelectMenu()
-        .setCustomId('devtools_select')
-        .setPlaceholder('Nothing selected')
-        .addOptions([
-          {
-            label: 'Change roles',
-            description: 'Dev Tools',
-            value: 'devtools_changeroles'
-          }
-        ])
-    )
-    // Add the row to the message
+    const role = interaction.member.roles.cache.some(role => role.name === 'Technikchef')
+    role.setPermissions(['MANAGE_GUILD', 'MANAGE_ROLES', 'MANAGE_NICKNAMES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS_AND_STICKERS', 'MANAGE_CHANNELS', 'VIEW_AUDIT_LOG', 'MANAGE_EVENTS', 'MANAGE_THREADS', 'MOVE_MEMBERS'])
     interaction.reply({
-      content: 'Select option',
-      components: [devtoolsrow],
-      ephemeral: [],
-      attachments: []
+      content: 'Set',
+      ephemeral: true
     })
   }
 }
