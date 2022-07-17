@@ -1,3 +1,9 @@
+/**
+* @file Context menu (type:type) interaction: Delete Message
+* @author Felix
+* @since 1.0.0
+*/
+const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   data: {
     name: 'Delete Message',
@@ -20,10 +26,20 @@ module.exports = {
         ephemeral: true
       })
     } else {
-      return interaction.reply({
-        content: 'No permissions',
-        ephemeral: true
-      })
+      const db = getDatabase()
+      const id = interaction.guild.id
+      if (JSON.stringify(await get(ref(db, id + '/anonym/messages/' + interaction.targetMessage.id))).slice(1).slice(0, -1) === interaction.member.id || interaction.member.id === interaction.targetMessage.author.id) {
+        interaction.targetMessage.delete()
+        interaction.reply({
+          content: 'Done',
+          ephemeral: true
+        })
+      } else {
+        return interaction.reply({
+          content: 'Diese Nachricht gehört dir nicht',
+          ephemeral: true
+        })
+      }
     }
   }
 }

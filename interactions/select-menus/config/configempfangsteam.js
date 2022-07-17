@@ -16,6 +16,11 @@ module.exports = {
   async execute (interaction) {
     const db = getDatabase()
     const id = interaction.guild.id
+    function collect () {
+      const msgFilter = (m) => m.author.id === interaction.member.id
+      const msg = interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
+      return msg
+    }
     prev.prev.interaction.editReply({
       components: [prev.prev.configRow]
     })
@@ -34,24 +39,24 @@ module.exports = {
         content: 'Please mention the channel where the E-logs should be sent to.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
-      await set(ref(db, id + '/einwohnermeldeamt/config/eLog'), collected.first().content.slice(2).slice(0, -1))
-      const eLog = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/eLog'))).slice(1).slice(0, -1))
-      interaction.editReply({ content: `Logs will be sent to ${eLog}` })
-      collected.first().delete()
+      collect().then(async (m) => {
+        await set(ref(db, id + '/einwohnermeldeamt/config/eLog'), m.first().content.slice(2).slice(0, -1))
+        const eLog = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/eLog'))).slice(1).slice(0, -1))
+        interaction.editReply({ content: `Logs will be sent to ${eLog}` })
+        m.first().delete()
+      })
     }
     if (interaction.values.includes('ve2log')) {
       interaction.reply({
         content: 'Please mention the channel where the VE2-logs should be sent to.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
-      await set(ref(db, id + '/einwohnermeldeamt/config/ve2Log'), collected.first().content.slice(2).slice(0, -1))
-      const ve2Log = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/ve2Log'))).slice(1).slice(0, -1))
-      interaction.editReply({ content: `Logs will be sent to ${ve2Log}` })
-      collected.first().delete()
+      collect().then(async (m) => {
+        await set(ref(db, id + '/einwohnermeldeamt/config/ve2Log'), m.first().content.slice(2).slice(0, -1))
+        const ve2Log = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/ve2Log'))).slice(1).slice(0, -1))
+        interaction.editReply({ content: `Logs will be sent to ${ve2Log}` })
+        m.first().delete()
+      })
     }
     if (interaction.values.includes('ve2msgenabled')) {
       if (JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'))).slice(1).slice(0, -1) === 'true') {
@@ -70,11 +75,11 @@ module.exports = {
         content: 'Please send the VE2-message.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
-      await set(ref(db, id + '/einwohnermeldeamt/config/VE2Msg'), collected.first().content)
-      interaction.editReply({ content: `**VE2-Message is set to:**\n${collected.first().content}` })
-      collected.first().delete()
+      collect().then(async (m) => {
+        await set(ref(db, id + '/einwohnermeldeamt/config/VE2Msg'), m.first().content)
+        interaction.editReply({ content: `**VE2-Message is set to:**\n${m.first().content}` })
+        m.first().delete()
+      })
     }
 
     //* ###########################################

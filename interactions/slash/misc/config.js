@@ -28,9 +28,9 @@ module.exports = {
               value: 'einwohnermeldeamt'
             },
             {
-              label: 'Beichten',
-              description: 'Beichten Einstellungen',
-              value: 'beichten'
+              label: 'Anonymisierung',
+              description: 'Anonymisierung Einstellungen',
+              value: 'anonym'
             }
           ])
       )

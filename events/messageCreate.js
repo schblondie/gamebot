@@ -21,7 +21,7 @@ module.exports = {
 
   /**
    * @description Executes when a message is created and handle it.
-   * @author Naman Vrati
+   * @author Felix
    * @param {Object} message The message which was created.
    */
   async execute (message) {

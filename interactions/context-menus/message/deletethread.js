@@ -1,3 +1,9 @@
+/**
+* @file Context menu (type:type) interaction: Delete Thread
+* @author Felix
+* @since 1.0.0
+*/
+const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   data: {
     name: 'Thread löschen',
@@ -11,14 +17,7 @@ module.exports = {
    */
 
   async execute (interaction) {
-    if (
-      interaction.member.roles.cache.some(
-        (role) => role.name === 'Technikchef'
-      ) ||
-      interaction.member.roles.cache.some(
-        (role) => role.name === 'Stadtsekretär:in'
-      )
-    ) {
+    async function deleteThread () {
       for (let i = 0; i < interaction.targetMessage.embeds.length; i++) {
         const thread = interaction.channel.threads.cache.find(
           (x) => x.name === interaction.targetMessage.embeds[i].title
@@ -30,11 +29,27 @@ module.exports = {
         content: 'Done',
         ephemeral: true
       })
+    }
+    if (
+      interaction.member.roles.cache.some(
+        (role) => role.name === 'Technikchef'
+      ) ||
+      interaction.member.roles.cache.some(
+        (role) => role.name === 'Stadtsekretär:in'
+      )
+    ) {
+      deleteThread()
     } else {
-      return interaction.reply({
-        content: 'No permissions',
-        ephemeral: true
-      })
+      const db = getDatabase()
+      const id = interaction.guild.id
+      if (JSON.stringify(await get(ref(db, id + '/anonym/messages/' + interaction.targetMessage.id))).slice(1).slice(0, -1) === interaction.member.id) {
+        deleteThread()
+      } else {
+        return interaction.reply({
+          content: 'Dieser Thread gehört dir nicht',
+          ephemeral: true
+        })
+      }
     }
   }
 }
