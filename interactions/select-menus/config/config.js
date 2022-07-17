@@ -16,6 +16,7 @@ module.exports = {
   async execute (interaction) {
     const db = getDatabase()
     const id = interaction.guild.id
+    let configRow
     if (interaction.values.includes('einwohnermeldeamt')) {
       //* ###########################################
       let enabled = JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1)
@@ -58,7 +59,7 @@ module.exports = {
           { name: 'VE2-Nachricht', value: VE2Msg }
         )
       //! ###########################################
-      const configRow = new MessageActionRow()
+      configRow = new MessageActionRow()
         .addComponents(
           new MessageSelectMenu()
             .setCustomId('configempfangsteam')
@@ -99,7 +100,49 @@ module.exports = {
         ephemeral: true,
         attachments: []
       })
-      module.exports.prev = { interaction, configRow }
     }
+    if (interaction.values.includes('anonym')) {
+      //* ###########################################
+      let enabled = JSON.stringify(await get(ref(db, id + '/anonym/config/enabled'))).slice(1).slice(0, -1)
+      if (enabled === 'ul') {
+        await set(ref(db, id + '/anonym/config/enabled'), 'false')
+        enabled = 'false'
+      }
+      const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
+      // ###########################################
+      const anonymEmbed = new MessageEmbed()
+        .setTitle('Einwohnermeldeamt Einstellungen')
+        .addFields(
+          { name: 'Modul aktiviert', value: enabled },
+          { name: 'Admin Rolle', value: String(adminRole) }
+        )
+      //! ###########################################
+      configRow = new MessageActionRow()
+        .addComponents(
+          new MessageSelectMenu()
+            .setCustomId('configanonym')
+            .setPlaceholder('Nothing selected')
+            .addOptions([
+              {
+                label: 'Enable',
+                description: 'Aktiviert das Anonym-Modul',
+                value: 'enabled'
+              },
+              {
+                label: 'Admin Rolle',
+                description: 'Ändere die Admin Rolle',
+                value: 'adminrole'
+              }
+            ])
+        )
+      interaction.reply({
+        content: 'Was magst du anpassen?',
+        components: [configRow],
+        embeds: [anonymEmbed],
+        ephemeral: true,
+        attachments: []
+      })
+    }
+    module.exports.prev = { interaction, configRow }
   }
 }

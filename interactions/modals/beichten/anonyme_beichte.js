@@ -8,6 +8,7 @@ const {
   MessageActionRow,
   MessageButton
 } = require('discord.js')
+const { getDatabase, ref, set } = require('firebase/database')
 module.exports = {
   id: 'anonyme_beichte',
 
@@ -55,6 +56,7 @@ module.exports = {
             })
         }
         run()
+        set(ref(getDatabase(), interaction.guild.id + '/anonym/messages/' + message.id), interaction.member.id)
       })
       .catch()
     async function run () {

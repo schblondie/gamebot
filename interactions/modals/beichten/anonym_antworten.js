@@ -5,6 +5,7 @@
  */
 
 const imp = require('../../buttons/beichte/anonymantworten.js')
+const { getDatabase, ref, set } = require('firebase/database')
 module.exports = {
   id: 'anonym_antworten',
 
@@ -15,16 +16,10 @@ module.exports = {
    */
 
   async execute (interaction) {
-    const botlog =
-      interaction.guild.channels.cache.find(
-        (channel) => channel.name === 'e-log'
-      ) || interaction.guild.channels.cache.get('982358868095021106')
     imp.prev.channel
       .send({ content: interaction.fields.getTextInputValue('text') })
       .then(function (message) {
-        botlog.send({
-          content: `**Message ID:** ${message.id}\n**Member ID:** ${interaction.member.id}`
-        })
+        set(ref(getDatabase(), interaction.guild.id + '/anonym/messages/' + message.id), interaction.member.id)
       })
     interaction.reply({
       content:
