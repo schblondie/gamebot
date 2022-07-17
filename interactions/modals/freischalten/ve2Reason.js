@@ -5,7 +5,7 @@
 */
 const imp = require('../../select-menus/empfangtools/empfangselectmenu')
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
-const { set, ref, get, getDatabase } = require('firebase/database')
+const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   id: 've2Reason',
   /**
@@ -49,7 +49,7 @@ module.exports = {
     const ve2MsgEmbed = new MessageEmbed()
       .setDescription(JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2Msg'))).slice(1).slice(0, -1).replaceAll('\\n', '\n') + '\n**Grund:**\n' + interaction.fields.getTextInputValue('ve2Grund'))
     if (check === 'true') {
-      try{
+      try {
         target.user.send({
           content: JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2Msg'))).slice(1).slice(0, -1) + '\n**Grund:**\n' + interaction.fields.getTextInputValue('ve2Grund'),
           embeds: [ve2MsgEmbed]
@@ -58,7 +58,7 @@ module.exports = {
           content: '`Verifizierungsebene 2` hinzugefügt',
           ephemeral: true
         })
-      } catch(e){
+      } catch (e) {
         interaction.reply({
           content: '`Verifizierungsebene 2` hinzugefügt\nUser akzeptiert keine Nachricht',
           ephemeral: true
@@ -73,7 +73,7 @@ module.exports = {
             .setStyle('PRIMARY')
         )
       interaction.reply({
-        content: `${`Verifizierungsebene 2`} hinzugefügt\n\n**Möchtest du die VE2-Nachricht an den User senden?**`,
+        content: `${'Verifizierungsebene 2'} hinzugefügt\n\n**Möchtest du die VE2-Nachricht an den User senden?**`,
         components: [optionalRow],
         embeds: [ve2MsgEmbed],
         ephemeral: true,

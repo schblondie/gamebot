@@ -3,7 +3,6 @@
  * @author Felix
  * @since 1.0.0
  */
-const imp = require('./tools')
 const { MessageActionRow, MessageSelectMenu } = require('discord.js')
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
@@ -19,7 +18,7 @@ module.exports = {
    */
 
   async execute (interaction) {
-    if (JSON.stringify(await get(ref(getDatabase(), interaction.guild.id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0,-1) === 'true') {
+    if (JSON.stringify(await get(ref(getDatabase(), interaction.guild.id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1) === 'true') {
       const target = interaction.targetMember
       const row1 = new MessageActionRow().addComponents(
         new MessageSelectMenu()

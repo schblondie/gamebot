@@ -243,7 +243,7 @@ module.exports = {
   client
 }
 client.login(token)
-const { initializeApp } = require("firebase/app");
+const { initializeApp } = require('firebase/app')
 const firebaseConfig = {
   apiKey: process.env.fb_apiKey,
   authDomain: process.env.fb_authDomain,
@@ -253,5 +253,5 @@ const firebaseConfig = {
   messagingSenderId: process.env.fb_messagingSenderId,
   appId: process.env.fb_appId,
   measurementId: process.env.fb_measurementId
-};
-initializeApp(firebaseConfig);
+}
+initializeApp(firebaseConfig)

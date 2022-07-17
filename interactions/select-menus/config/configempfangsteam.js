@@ -20,13 +20,13 @@ module.exports = {
       components: [prev.prev.configRow]
     })
     if (interaction.values.includes('enabled')) {
-      let enabled = JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1)
+      const enabled = JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1)
       if (enabled === 'false') {
         await set(ref(db, id + '/einwohnermeldeamt/config/enabled'), 'true')
-        interaction.reply({ content: `Module enabled.`, ephemeral: true })
+        interaction.reply({ content: 'Module enabled.', ephemeral: true })
       } else {
         await set(ref(db, id + '/einwohnermeldeamt/config/enabled'), 'false')
-        interaction.reply({ content: `Module disabled.`, ephemeral: true })
+        interaction.reply({ content: 'Module disabled.', ephemeral: true })
       }
     }
     if (interaction.values.includes('elog')) {
@@ -34,8 +34,8 @@ module.exports = {
         content: 'Please mention the channel where the E-logs should be sent to.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id;
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 });
+      const msgFilter = (m) => m.author.id === interaction.member.id
+      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
       await set(ref(db, id + '/einwohnermeldeamt/config/eLog'), collected.first().content.slice(2).slice(0, -1))
       const eLog = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/eLog'))).slice(1).slice(0, -1))
       interaction.editReply({ content: `Logs will be sent to ${eLog}` })
@@ -46,8 +46,8 @@ module.exports = {
         content: 'Please mention the channel where the VE2-logs should be sent to.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id;
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 });
+      const msgFilter = (m) => m.author.id === interaction.member.id
+      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
       await set(ref(db, id + '/einwohnermeldeamt/config/ve2Log'), collected.first().content.slice(2).slice(0, -1))
       const ve2Log = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/ve2Log'))).slice(1).slice(0, -1))
       interaction.editReply({ content: `Logs will be sent to ${ve2Log}` })
@@ -56,13 +56,13 @@ module.exports = {
     if (interaction.values.includes('ve2msgenabled')) {
       if (JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'))).slice(1).slice(0, -1) === 'true') {
         await set(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'), 'false')
-        interaction.reply({ content: `VE2-Messages are disabled.`, ephemeral: true })
+        interaction.reply({ content: 'VE2-Messages are disabled.', ephemeral: true })
       } else if (JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'))).slice(1).slice(0, -1) === 'false') {
         await set(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'), 'optional')
-        interaction.reply({ content: `VE2-Messages are optional.`, ephemeral: true })
+        interaction.reply({ content: 'VE2-Messages are optional.', ephemeral: true })
       } else {
         await set(ref(db, id + '/einwohnermeldeamt/config/VE2MsgEnabled'), 'true')
-        interaction.reply({ content: `VE2-Messages are enabled.`, ephemeral: true })
+        interaction.reply({ content: 'VE2-Messages are enabled.', ephemeral: true })
       }
     }
     if (interaction.values.includes('ve2msg')) {
@@ -70,8 +70,8 @@ module.exports = {
         content: 'Please send the VE2-message.',
         ephemeral: true
       })
-      const msgFilter = (m) => m.author.id === interaction.member.id;
-      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 });
+      const msgFilter = (m) => m.author.id === interaction.member.id
+      const collected = await interaction.channel.awaitMessages({ filter: msgFilter, max: 1 })
       await set(ref(db, id + '/einwohnermeldeamt/config/VE2Msg'), collected.first().content)
       interaction.editReply({ content: `**VE2-Message is set to:**\n${collected.first().content}` })
       collected.first().delete()

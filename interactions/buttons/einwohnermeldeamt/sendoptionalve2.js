@@ -4,7 +4,6 @@
 * @since 1.0.0
 */
 const prev1 = require('../../select-menus/empfangtools/empfangselectmenu')
-const { get, getDatabase, ref } = require('firebase/database')
 module.exports = {
   id: 'sendoptionalve2',
   /**
@@ -14,11 +13,11 @@ module.exports = {
 */
   async execute (interaction) {
     const target = prev1.prev.prev4
-    try{
+    try {
       target.user.send({
         embeds: interaction.message.embeds
       })
-    } catch(e){
+    } catch (e) {
       console.log(e)
       interaction.reply({
         content: 'User akzeptiert keine Nachricht',

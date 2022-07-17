@@ -10,7 +10,7 @@ const {
 } = require('discord.js')
 
 const imp = require('../../context-menus/user/empfangtools')
-const { set, ref, get, getDatabase } = require('firebase/database')
+const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   id: 'empfangselect',
 
@@ -25,7 +25,7 @@ module.exports = {
     const target = imp.prev.interaction.targetMember
     const prev = imp.prev.interaction
     prev.editReply({
-      components:[imp.prev.row1]
+      components: [imp.prev.row1]
     })
     const id = interaction.guild.id
     const empfangslog = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/eLog'))).slice(1).slice(0, -1))

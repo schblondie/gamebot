@@ -40,6 +40,6 @@ module.exports = {
       components: [configRow],
       ephemeral: [],
       attachments: []
-    });
+    })
   }
 }

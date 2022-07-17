@@ -3,8 +3,8 @@
 * @author Felix
 * @since 1.0.0
 */
-const { getDatabase, ref, set, get } = require("firebase/database")
-const { MessageActionRow, MessageSelectMenu } = require("discord.js")
+const { getDatabase, ref, set, get } = require('firebase/database')
+const { MessageActionRow, MessageSelectMenu } = require('discord.js')
 const { MessageEmbed } = require('discord.js')
 module.exports = {
   id: 'config',
@@ -14,13 +14,8 @@ module.exports = {
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
-    function jsonParser (stringValue, key) {
-      var string = JSON.stringify(stringValue);
-      var objectValue = JSON.parse(string);
-      return objectValue[key];
-    }
-    const db = getDatabase();
-    const id = interaction.guild.id;
+    const db = getDatabase()
+    const id = interaction.guild.id
     if (interaction.values.includes('einwohnermeldeamt')) {
       //* ###########################################
       let enabled = JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1)
@@ -103,7 +98,7 @@ module.exports = {
         embeds: [empfangsteamEmbed],
         ephemeral: true,
         attachments: []
-      });
+      })
       module.exports.prev = { interaction, configRow }
     }
   }
