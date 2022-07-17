@@ -30,12 +30,12 @@ module.exports = {
     try {
       await command.execute(interaction)
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err)
       await interaction.reply({
         content: 'There was an issue while executing that command!',
         ephemeral: true
       })
-      // eslint-disable-next-line no-console
-      console.log(err)
     }
   }
 }

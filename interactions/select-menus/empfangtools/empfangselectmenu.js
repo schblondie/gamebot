@@ -9,7 +9,8 @@ const {
   MessageActionRow, Modal, TextInputComponent
 } = require('discord.js')
 
-const imp = require('../../buttons/tools/empfangtools')
+const imp = require('../../context-menus/user/empfangtools')
+const { set, ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   id: 'empfangselect',
 
@@ -20,12 +21,14 @@ module.exports = {
    */
 
   async execute (interaction) {
-    const target = imp.prev.targetMember
-    const prev = imp.prev
-    const empfangslog =
-      prev.member.guild.channels.cache.find(
-        (channel) => channel.name === 'e-log'
-      ) || prev.member.guild.channels.cache.get('982358868095021106')
+    const db = getDatabase()
+    const target = imp.prev.interaction.targetMember
+    const prev = imp.prev.interaction
+    prev.editReply({
+      components:[imp.prev.row1]
+    })
+    const id = interaction.guild.id
+    const empfangslog = interaction.member.guild.channels.cache.get(JSON.stringify(await get(ref(db, id + '/einwohnermeldeamt/config/eLog'))).slice(1).slice(0, -1))
     if (interaction.values.includes('tourist')) {
       const role = prev.member.guild.roles.cache.find(
         (role) => role.name === 'Tourist'
