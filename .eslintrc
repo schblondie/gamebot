@@ -25,7 +25,10 @@
             "eqeqeq": "error",
             "padded-blocks": ["error", "never", {"allowSingleLineBlocks": true}],
             "brace-style": "error",
-            "indent": ["error",2],
+            "@typescript-eslint/indent": [
+              "error",
+              2
+            ],
             "camelcase": "error",
             "eol-last": "error",
             "no-extra-semi": "error",

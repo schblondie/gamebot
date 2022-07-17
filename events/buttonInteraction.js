@@ -35,12 +35,12 @@ module.exports = {
       await command.execute(interaction)
       return
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err)
       await interaction.reply({
         content: 'There was an issue while executing that button!',
         ephemeral: true
       })
-      // eslint-disable-next-line no-console
-      console.log(err)
     }
   }
 }

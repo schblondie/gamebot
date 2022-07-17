@@ -18,25 +18,27 @@ module.exports = {
         .setName('activity')
         .setDescription('Die App die du starten magst')
         .setRequired(true)
-      // .addChoice('akword', '879863881349087252')
-        .addChoice('betrayal', '773336526917861400')
-        .addChoice('blazing8s', '832025144389533716')
-        .addChoice('bobble-league', '947957217959759964')
-        .addChoice('checkers', '832013003968348200')
-        .addChoice('chess', '832012774040141894')
-      // .addChoice('decoders', '891001866073296967')
-        .addChoice('doodlecrew', '878067389634314250')
-        .addChoice('fishing', '814288819477020702')
-      // .addChoice('iframe', '88055924547140816')
-        .addChoice('land-io', '903769130790969345')
-        .addChoice('letterleague', '879863686565621790')
-        .addChoice('pokernight', '755827207812677713')
-        .addChoice('puttparty', '945737671223947305')
-        .addChoice('sketchheads', '902271654783242291')
-      // .addChoice('sketchyartist', '879864070101172255')
-        .addChoice('spellcast', '852509694341283871')
-        .addChoice('wordsnack', '879863976006127627')
-        .addChoice('youtube', '880218394199220334')
+        .addChoices(
+          // {name:'akword', value:'879863881349087252'},
+          { name: 'betrayal', value: '773336526917861400' },
+          { name: 'blazing8s', value: '832025144389533716' },
+          { name: 'bobble-league', value: '947957217959759964' },
+          { name: 'checkers', value: '832013003968348200' },
+          { name: 'chess', value: '832012774040141894' },
+          // {name:'decoders', value:'891001866073296967'},
+          { name: 'doodlecrew', value: '878067389634314250' },
+          { name: 'fishing', value: '814288819477020702' },
+          // {name:'iframe', value:'88055924547140816'},
+          { name: 'land-io', value: '903769130790969345' },
+          { name: 'letterleague', value: '879863686565621790' },
+          { name: 'pokernight', value: '755827207812677713' },
+          { name: 'puttparty', value: '945737671223947305' },
+          { name: 'sketchheads', value: '902271654783242291' },
+          // {name:'sketchyartist', value:'879864070101172255'},
+          { name: 'spellcast', value: '852509694341283871' },
+          { name: 'wordsnack', value: '879863976006127627' },
+          { name: 'youtube', value: '880218394199220334' }
+        )
     ),
   /**
    * @description Executes when the interaction is called by interaction handler.

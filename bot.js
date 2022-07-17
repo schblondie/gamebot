@@ -243,29 +243,15 @@ module.exports = {
   client
 }
 client.login(token)
-
-// Login to firebase
-// const { initializeApp } = require('firebase/app');
-// const { getFirestore, collection, getDocs } = require('firebase/firestore/lite');
-// const firebaseConfig = {
-//   apiKey: process.env.apiKey,
-//   authDomain: process.env.authDomain,
-//   databaseURL: process.env.databaseURL,
-//   projectId: process.env.projectId,
-//   storageBucket: process.env.storageBucket,
-//   messagingSenderId: process.env.messagingSenderId,
-//   appId: process.env.appId,
-//   measurementId: process.env.measurementId,
-// };
-// const app = initializeApp(firebaseConfig);
-// const database = getFirestore(app);
-
-// database.ref('customPath').set(obj, function (error) {
-//   if (error) {
-//     // The write failed...
-//     console.log('Failed with error: ' + error);
-//   } else {
-//     // The write was successful...
-//     console.log('success');
-//   }
-// });
+const { initializeApp } = require('firebase/app')
+const firebaseConfig = {
+  apiKey: process.env.fb_apiKey,
+  authDomain: process.env.fb_authDomain,
+  databaseURL: process.env.fb_databaseURL,
+  projectId: process.env.fb_projectId,
+  storageBucket: process.env.fb_storageBucket,
+  messagingSenderId: process.env.fb_messagingSenderId,
+  appId: process.env.fb_appId,
+  measurementId: process.env.fb_measurementId
+}
+initializeApp(firebaseConfig)
