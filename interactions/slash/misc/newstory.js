@@ -6,8 +6,7 @@
 
 // Deconstructed the constants we need in this file.
 
-const { SlashCommandBuilder } = require('@discordjs/builders')
-const { ActionRowBuilder, ButtonBuilder } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder, SlashCommandBuilder, ButtonStyle } = require('discord.js')
 
 module.exports = {
   // The data needed to register slash commands to Discord.

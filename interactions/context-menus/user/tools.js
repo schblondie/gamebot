@@ -16,6 +16,6 @@ module.exports = {
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
-    return;
+
   }
 }

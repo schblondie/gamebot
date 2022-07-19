@@ -1,8 +1,9 @@
 const {
   ActionRowBuilder,
-  ButtonBuilder
+  ButtonBuilder,
+  ButtonStyle,
+  SlashCommandBuilder
 } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
   // The data needed to register slash commands to Discord.
   data: new SlashCommandBuilder()
@@ -26,11 +27,11 @@ module.exports = {
         new ButtonBuilder()
           .setLabel('Anonym')
           .setCustomId('vorschlag_anonym')
-           .setStyle(ButtonStyle.Secondary),
+          .setStyle(ButtonStyle.Secondary),
         new ButtonBuilder()
           .setLabel('Event')
           .setCustomId('vorschlag_event')
-           .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary)
       )
       interaction.channel.send({
         content: 'Drücke hier um einen Vorschlag einzureichen',

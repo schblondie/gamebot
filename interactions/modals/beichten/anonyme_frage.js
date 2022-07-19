@@ -6,7 +6,8 @@
 const {
   EmbedBuilder,
   ActionRowBuilder,
-  ButtonBuilder
+  ButtonBuilder,
+  ButtonStyle
 } = require('discord.js')
 const { getDatabase, ref, set } = require('firebase/database')
 module.exports = {
@@ -44,7 +45,7 @@ module.exports = {
             new ButtonBuilder()
               .setLabel('Anonym antworten')
               .setCustomId('anonymantworten')
-               .setStyle(ButtonStyle.Secondary)
+              .setStyle(ButtonStyle.Secondary)
           )
           thread
             .send({
@@ -68,7 +69,7 @@ module.exports = {
         new ButtonBuilder()
           .setLabel('Beichte')
           .setCustomId('anonyme_beichte')
-           .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary)
       )
       const fetch = await interaction.channel.messages.fetch({
         limit: 10

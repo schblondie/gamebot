@@ -1,5 +1,4 @@
-const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
+const { ActionRowBuilder, SelectMenuBuilder, SlashCommandBuilder } = require('discord.js')
 module.exports = {
   // The data needed to register slash commands to Discord.
   data: new SlashCommandBuilder()

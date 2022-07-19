@@ -1,8 +1,9 @@
 const {
   ActionRowBuilder,
-  ButtonBuilder
+  ButtonBuilder,
+  ButtonStyle,
+  SlashCommandBuilder
 } = require('discord.js')
-const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
   // The data needed to register slash commands to Discord.
   data: new SlashCommandBuilder()
@@ -26,7 +27,7 @@ module.exports = {
         new ButtonBuilder()
           .setLabel('Beichte')
           .setCustomId('anonyme_beichte')
-           .setStyle(ButtonStyle.Secondary)
+          .setStyle(ButtonStyle.Secondary)
       )
       interaction.channel.send({
         content: 'Drücke hier um einen Beichte oder Frage einzureichen',

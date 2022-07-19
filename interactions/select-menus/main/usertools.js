@@ -49,7 +49,7 @@ module.exports = {
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
-        .addFields( {
+        .addFields({
           name: '> UserInfo\'s',
           value: [
             `** User:** ${target.user.username}`,
@@ -59,7 +59,8 @@ module.exports = {
             `** Bot:** ${target.user.bot}`,
             `** Joined Server on:** ${moment(target.joinedTimestamp).format('MMM DD YYYY')}`,
             `** Joined Discord on:** ${moment(target.user.createdAt).format('MMM DD YYYY')}`
-          ].joi('\n') })
+          ].joi('\n')
+        })
 
         .setFooter({ name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()

@@ -18,11 +18,11 @@ require('dotenv').config()
  * From v13, specifying the intents is compulsory.
  * @type {Object}
  * @description Main Application Client */
- const client = new Client({
+const client = new Client({
   intents: [
-    GatewayIntentBits.Guilds,
-  ],
-});
+    GatewayIntentBits.Guilds
+  ]
+})
 module.exports = client
 // const config = require('./config.json')
 // client.config = config

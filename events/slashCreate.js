@@ -13,7 +13,7 @@ module.exports = {
 
     // Checks if the interaction is a command (to prevent weird bugs)
 
-    if (!interaction.type === InteractionType.ApplicationCommand;) return
+    if (!interaction.isChatInputCommand()) return
     /**
      * @description The Interaction command object
      * @type {Object}

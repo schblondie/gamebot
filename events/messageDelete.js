@@ -24,8 +24,6 @@ module.exports = {
     const value = JSON.stringify(await get(ref(db, id + '/anonym/messages/' + message.id))).slice(1).slice(0, -1)
     if (value !== null) {
       remove(ref(db, id + '/anonym/messages/' + message.id))
-    } else{
-      return
     }
   }
 }
