@@ -1,16 +1,16 @@
 /**
 * @file Select menu interaction: configempfangsteam
-* @author Felix
+* @author Felix, Mezo
 * @since 1.0.0
 */
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const prev = require('./config')
 const { set, ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   id: 'configempfangsteam',
   /**
 * @description Executes when the select menu with ID configempfangsteam is called.
-* @author Felix
+* @author Felix, Mezo
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
@@ -113,7 +113,7 @@ module.exports = {
     }
     VE2Msg = VE2Msg.replaceAll('\\n', '\n')
     // ###########################################
-    const empfangsteamEmbed = new MessageEmbed()
+    const empfangsteamEmbed = new EmbedBuilder()
       .setTitle('Einwohnermeldeamt Einstellungen')
       .addFields(
         { name: 'Modul aktiviert', value: enabled },

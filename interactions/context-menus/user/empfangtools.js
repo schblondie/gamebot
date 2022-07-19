@@ -1,9 +1,9 @@
 /**
  * @file User menu interaction: Einwohnermeldeamt
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   data: {
@@ -13,15 +13,15 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Einwohnermeldeamt" is clicked.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 
   async execute (interaction) {
     if (JSON.stringify(await get(ref(getDatabase(), interaction.guild.id + '/einwohnermeldeamt/config/enabled'))).slice(1).slice(0, -1) === 'true') {
       const target = interaction.targetMember
-      const row1 = new MessageActionRow().addComponents(
-        new MessageSelectMenu()
+      const row1 = new ActionRowBuilder().addComponents(
+        new SelectMenuBuilder()
           .setCustomId('empfangselect')
           .setPlaceholder('Nothing selected')
           .addOptions([

@@ -1,10 +1,10 @@
 /**
  * @file Usertools Select-Menu interaction
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const moment = require('moment')
 const imp = require('../../context-menus/user/tools')
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
 
   /**
    * @description Executes when a select menu option with ID "usertools" is clicked.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -30,8 +30,7 @@ module.exports = {
             if (target.user.bot) {
               activities.push(`Listening to **${activity.name}**`)
             } else {
-              activities.push(
-              `Listening to **${activity.details}** by **${activity.state}**`
+              activities.push(`Listening to **${activity.details}** by **${activity.state}**`
               )
             }
             break
@@ -46,27 +45,27 @@ module.exports = {
             break
         }
       }
-      const uiembed = new MessageEmbed()
+      const uiembed = new EmbedBuilder()
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
-        .addField('User', target.user.username, true)
-        .addField('Discriminator', `\`#${target.user.discriminator}\``, true)
-        .addField('ID', `\`${target.user.id}\``, true)
-        .addField('Status', target.presence.status, true)
-        .addField('Bot', `\`${target.user.bot}\``, true)
+        .addFields( 'User', target.user.username, true)
+        .addFields('Discriminator', `\`#${target.user.discriminator}\``, true)
+        .addFields('ID', `\`${target.user.id}\``, true)
+        .addFields('Status', target.presence.status, true)
+        .addFields('Bot', `\`${target.user.bot}\``, true)
       // .addField('Color Role', target.roles.color || '`None`', true)
       // .addField('Highest Role', target.roles.highest, true)
-        .addField(
+        .addFields(
           'Joined server on',
           `\`${moment(target.joinedTimestamp).format('MMM DD YYYY')}\``,
           true
         )
-        .addField(
-          'Joined Discord on',
-          `\`${moment(target.user.createdAt).format('MMM DD YYYY')}\``,
-          true
-        )
+        .addFields( {
+          name: 'Joined Discord on',
+          value:
+          `\`${moment(target.user.createdAt).format('MMM DD YYYY')}\``, inline: true
+        })
         .setFooter({ name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .setColor(target.user.accentColor)
@@ -85,7 +84,7 @@ module.exports = {
       })
     }
     if (interaction.values.includes('user_avatar')) {
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setTitle(target.user.username + '#' + target.user.discriminator)
         .setImage(target.avatarURL({ dynamic: true }))
       interaction.reply({

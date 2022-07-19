@@ -1,12 +1,12 @@
 /**
  * @file Sample button interaction
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 const {
-  MessageEmbed,
-  MessageActionRow,
-  MessageButton
+  EmbedBuilder,
+  ActionRowBuilder,
+  ButtonBuilder
 } = require('discord.js')
 const { getDatabase, ref, set } = require('firebase/database')
 module.exports = {
@@ -14,14 +14,14 @@ module.exports = {
 
   /**
    * @description Executes when the modal with ID "anonyme_frage" is called.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 
   async execute (interaction) {
     const titel = interaction.fields.getTextInputValue('titel')
     const beschreibung = interaction.fields.getTextInputValue('beschreibung')
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setTitle(titel)
       .setDescription(beschreibung)
       .setColor('DARK_AQUA')
@@ -40,11 +40,11 @@ module.exports = {
             autoArchiveDuration: 1440 * 7,
             type: 'GUILD_PUBLIC_THREAD'
           })
-          const row3 = new MessageActionRow().addComponents(
-            new MessageButton()
+          const row3 = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
               .setLabel('Anonym antworten')
               .setCustomId('anonymantworten')
-              .setStyle('SECONDARY')
+               .setStyle(ButtonStyle.Secondary)
           )
           thread
             .send({
@@ -60,15 +60,15 @@ module.exports = {
       })
       .catch()
     async function run () {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageButton()
+      const row1 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
           .setLabel('Frage')
           .setCustomId('anonyme_frage')
-          .setStyle('PRIMARY'),
-        new MessageButton()
+          .setStyle(ButtonStyle.Primary),
+        new ButtonBuilder()
           .setLabel('Beichte')
           .setCustomId('anonyme_beichte')
-          .setStyle('SECONDARY')
+           .setStyle(ButtonStyle.Secondary)
       )
       const fetch = await interaction.channel.messages.fetch({
         limit: 10

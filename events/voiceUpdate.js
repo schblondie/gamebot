@@ -1,5 +1,5 @@
 // const Levels = require('discord-xp')
-// const { MessageEmbed } = require('discord.js')
+// const { EmbedBuilder } = require('discord.js')
 // require('dotenv').config()
 // Levels.setURL(process.env.mongo)
 // module.exports = {
@@ -7,7 +7,7 @@
 
 //   /**
 //    * @description Executes when an user voice state is updated.
-//    * @author Felix
+//    * @author Felix, Mezo
 //    * @param {Object} oldtstate Main Application Client
 //    * @param {Object} newstate Main Application Client
 //    */
@@ -51,7 +51,7 @@
 //             if (user2.level > 1) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'Mitglieder (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'BronzeNewbie (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({
@@ -61,7 +61,7 @@
 //             }
 //             if (user2.level > 4) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'BronzeNewbie (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               log.send({
 //                 content: `${target.user}`,
@@ -71,7 +71,7 @@
 //             if (user2.level > 9) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'SilverBaby (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'BronzeNewbie (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({
@@ -82,7 +82,7 @@
 //             if (user2.level > 19) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'GoldenDiva (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'SilverBaby (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({
@@ -93,7 +93,7 @@
 //             if (user2.level > 29) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'Diamond (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'GoldenDiva (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({
@@ -104,7 +104,7 @@
 //             if (user2.level > 39) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'Master (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'Diamond (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({
@@ -115,7 +115,7 @@
 //             if (user2.level > 49) {
 //               var role = member.guild.roles.cache.find((role) => role.name === 'Grandmaster (Vc)')
 //               var role2 = member.guild.roles.cache.find((role) => role.name === 'Master (Vc)')
-//               const embed = new MessageEmbed().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
+//               const embed = new EmbedBuilder().setAuthor(`${target.user.tag} hat eine neue Rolle bekommen!`, member.displayAvatarURL({ dynamic: true })).setDescription(`${role}`)
 //               target.roles.add(role)
 //               target.roles.remove(role2)
 //               log.send({

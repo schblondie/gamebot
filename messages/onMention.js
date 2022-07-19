@@ -1,6 +1,6 @@
 /**
  * @file Default Bot Mention Command
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 require('dotenv').config()
@@ -8,7 +8,7 @@ require('dotenv').config()
 module.exports = {
   /**
    * @description Executes when the bot is pinged.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} message The Message Object of the command.
    */
 

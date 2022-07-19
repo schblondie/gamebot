@@ -1,6 +1,6 @@
 /**
 * @file Context menu (type:type) interaction: Delete Message
-* @author Felix
+* @author Felix, Mezo
 * @since 1.0.0
 */
 const { ref, get, getDatabase } = require('firebase/database')
@@ -12,7 +12,7 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Delete Message" is clicked.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 

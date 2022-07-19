@@ -1,7 +1,7 @@
 /* eslint-disable no-tabs */
 // /**
 //  * @file Main trigger handler file.
-//  * @author Felix
+//  * @author Felix, Mezo
 //  * @since 2.0.0
 //  */
 

@@ -1,19 +1,19 @@
 /**
  * @file Sample button interaction
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 const {
-  MessageActionRow,
+  ActionRowBuilder,
   Modal,
-  TextInputComponent
+  TextInputBuilder
 } = require('discord.js')
 module.exports = {
   id: 'anonymantworten',
 
   /**
    * @description Executes when the button with ID "anonymantworten" is clicked.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -23,7 +23,7 @@ module.exports = {
       .setTitle('Anonym antworten')
     // Add components to modal
     // Create the text input components
-    const text = new TextInputComponent()
+    const text = new TextInputBuilder()
       .setCustomId('text')
     // The label is the prompt the user sees for this input
       .setLabel('Deine Nachricht')
@@ -31,7 +31,7 @@ module.exports = {
       .setStyle('PARAGRAPH')
     // An action row only holds one text input,
     // so you need one action row per text input.
-    const firstActionRow = new MessageActionRow().addComponents(text)
+    const firstActionRow = new ActionRowBuilder().addComponents(text)
     // Add inputs to the modal
     modal.addComponents(firstActionRow)
     const prev = interaction

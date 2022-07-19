@@ -1,16 +1,16 @@
 /**
 * @file Select menu interaction: configanonym
-* @author Felix
+* @author Felix, Mezo
 * @since 1.0.0
 */
 const { set, ref, get, getDatabase } = require('firebase/database')
 const prev = require('./config')
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   id: 'configanonym',
   /**
 * @description Executes when the select menu with ID configanonym is called.
-* @author Felix
+* @author Felix, Mezo
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
@@ -54,7 +54,7 @@ module.exports = {
     }
     const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
     // ###########################################
-    const anonymEmbed = new MessageEmbed()
+    const anonymEmbed = new EmbedBuilder()
       .setTitle('Einwohnermeldeamt Einstellungen')
       .addFields(
         { name: 'Modul aktiviert', value: enabled },

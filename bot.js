@@ -2,14 +2,14 @@
 /* eslint-disable no-console */
 /**
  * @file Main File of the bot, responsible for registering events, commands, interactions etc.
- * @author Felix Limbach
+ * @author Felix, Mezo Limbach
  * @version 1.0.0
  */
 
 // Declare constants which will be used throughout the bot.
 
-const fs = require('fs')
-const { Client, Collection } = require('discord.js')
+const { readdirSync } = require('fs')
+const { Client, Collection, GatewayIntentBits } = require('discord.js')
 const { REST } = require('@discordjs/rest')
 const { Routes } = require('discord-api-types/v9')
 require('dotenv').config()
@@ -18,10 +18,11 @@ require('dotenv').config()
  * From v13, specifying the intents is compulsory.
  * @type {Object}
  * @description Main Application Client */
-const Discord = require('discord.js')
-const client = new Client({
-  intents: new Discord.Intents(1179647)
-})
+ const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+  ],
+});
 module.exports = client
 // const config = require('./config.json')
 // client.config = config
@@ -37,8 +38,7 @@ const test_guild_id = process.env.test_guild_id
  * @type {String[]}
  */
 
-const eventFiles = fs
-  .readdirSync('./events')
+const eventFiles = readdirSync('./events')
   .filter((file) => file.endsWith('.js'))
 
 // Loop through all files and execute the event when it is actually emmited.
@@ -74,13 +74,12 @@ client.triggers = new Collection()
  * @description All command categories aka folders.
  */
 
-const commandFolders = fs.readdirSync('./commands')
+const commandFolders = readdirSync('./commands')
 
 // Loop through all files and store commands in commands collection.
 
 for (const folder of commandFolders) {
-  const commandFiles = fs
-    .readdirSync(`./commands/${folder}`)
+  const commandFiles = readdirSync(`./commands/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of commandFiles) {
     const command = require(`./commands/${folder}/${file}`)
@@ -96,13 +95,12 @@ for (const folder of commandFolders) {
  * @description All slash commands.
  */
 
-const slashCommands = fs.readdirSync('./interactions/slash')
+const slashCommands = readdirSync('./interactions/slash')
 
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const module of slashCommands) {
-  const commandFiles = fs
-    .readdirSync(`./interactions/slash/${module}`)
+  const commandFiles = readdirSync(`./interactions/slash/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
@@ -119,13 +117,12 @@ for (const module of slashCommands) {
  * @description All Context Menu commands.
  */
 
-const contextMenus = fs.readdirSync('./interactions/context-menus')
+const contextMenus = readdirSync('./interactions/context-menus')
 
 // Loop through all files and store slash-commands in slashCommands collection.
 
 for (const folder of contextMenus) {
-  const files = fs
-    .readdirSync(`./interactions/context-menus/${folder}`)
+  const files = readdirSync(`./interactions/context-menus/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of files) {
     const menu = require(`./interactions/context-menus/${folder}/${file}`)
@@ -142,13 +139,12 @@ for (const folder of contextMenus) {
  * @description All button commands.
  */
 
-const buttonCommands = fs.readdirSync('./interactions/buttons')
+const buttonCommands = readdirSync('./interactions/buttons')
 
 // Loop through all files and store button-commands in buttonCommands collection.
 
 for (const module of buttonCommands) {
-  const commandFiles = fs
-    .readdirSync(`./interactions/buttons/${module}`)
+  const commandFiles = readdirSync(`./interactions/buttons/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
@@ -156,12 +152,11 @@ for (const module of buttonCommands) {
     client.buttonCommands.set(command.id, command)
   }
 }
-const modalCommands = fs.readdirSync('./interactions/modals')
+const modalCommands = readdirSync('./interactions/modals')
 
 // Loop through all files and store modal-commands in ModalCommands collection.
 for (const module of modalCommands) {
-  const commandFiles = fs
-    .readdirSync(`./interactions/modals/${module}`)
+  const commandFiles = readdirSync(`./interactions/modals/${module}`)
     .filter((file) => file.endsWith('.js'))
 
   for (const commandFile of commandFiles) {
@@ -177,13 +172,12 @@ for (const module of modalCommands) {
  * @description All Select Menu commands.
  */
 
-const selectMenus = fs.readdirSync('./interactions/select-menus')
+const selectMenus = readdirSync('./interactions/select-menus')
 
 // Loop through all files and store select-menus in slashCommands collection.
 
 for (const module of selectMenus) {
-  const commandFiles = fs
-    .readdirSync(`./interactions/select-menus/${module}`)
+  const commandFiles = readdirSync(`./interactions/select-menus/${module}`)
     .filter((file) => file.endsWith('.js'))
   for (const commandFile of commandFiles) {
     const command = require(`./interactions/select-menus/${module}/${commandFile}`)
@@ -194,7 +188,7 @@ for (const module of selectMenus) {
 /**********************************************************************/
 // Registration of Slash-Commands in Discord API
 
-const rest = new REST({ version: '9' }).setToken(token)
+const rest = new REST({ version: '10' }).setToken(token)
 
 const commandJsonData = [
   ...Array.from(client.slashCommands.values()).map((c) => c.data.toJSON()),
@@ -224,13 +218,12 @@ const commandJsonData = [
  * @description All trigger categories aka folders.
  */
 
-const triggerFolders = fs.readdirSync('./triggers')
+const triggerFolders = readdirSync('./triggers')
 
 // Loop through all files and store commands in commands collection.
 
 for (const folder of triggerFolders) {
-  const triggerFiles = fs
-    .readdirSync(`./triggers/${folder}`)
+  const triggerFiles = readdirSync(`./triggers/${folder}`)
     .filter((file) => file.endsWith('.js'))
   for (const file of triggerFiles) {
     const trigger = require(`./triggers/${folder}/${file}`)

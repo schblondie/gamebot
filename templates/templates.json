@@ -4,7 +4,7 @@
         "body": [
             "/**",
             "* @file Slash interaction: ${1:label}",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @since 1.0.0",
             "*/",
 
@@ -25,7 +25,7 @@
             ",",
             "/**",
             "* @description Executes when the slash command with ID ${1:label} is called.",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @param {Object} interaction The Interaction Object of the command.",
             "*/",
 
@@ -41,7 +41,7 @@
         "body": [
             "/**",
             "* @file Button interaction: ${1:label}",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @since 1.0.0",
             "*/",
 
@@ -50,7 +50,7 @@
 
             "/**",
             "* @description Executes when the button with ID ${1:label} is called.",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @param {Object} interaction The Interaction Object of the command.",
             "*/",
 
@@ -66,7 +66,7 @@
         "body": [
             "/**",
             "* @file Context menu (type:${2:type}) interaction: ${1:label}",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @since 1.0.0",
             "*/",
 
@@ -80,7 +80,7 @@
 
             "/**",
             "* @description Executes when the context menu with ID ${1:label} is called.",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @param {Object} interaction The Interaction Object of the command.",
             "*/",
 
@@ -96,7 +96,7 @@
         "body": [
             "/**",
             "* @file Select menu interaction: ${1:label}",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @since 1.0.0",
             "*/",
 
@@ -105,7 +105,7 @@
 
             "/**",
             "* @description Executes when the select menu with ID ${1:label} is called.",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @param {Object} interaction The Interaction Object of the command.",
             "*/",
 
@@ -124,7 +124,7 @@
         "body": [
             "/**",
             "* @file Modal interaction: ${1:label}",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @since 1.0.0",
             "*/",
 
@@ -133,7 +133,7 @@
 
             "/**",
             "* @description Executes when the modal with ID ${1:label} is called.",
-            "* @author Felix",
+            "* @author Felix, Mezo",
             "* @param {Object} interaction The Interaction Object of the command.",
             "*/",
 
@@ -150,14 +150,14 @@
             "    const ${1:modal}Modal = new Modal().setCustomId('${2:ID}').setTitle('${3:title}');",
             "    // Add components to modal",
             "    // Create the text input components",
-            "    const ${4:input_short} = new TextInputComponent()",
+            "    const ${4:input_short} = new TextInputBuilder()",
             "    .setCustomId('${4:input_short}')",
             "    // The label is the prompt the user sees for this input",
             "    .setLabel('${5:label}')",
             "    // Short means only a single line of text",
             "    .setStyle('SHORT');",
             "    // An action row only holds one text input,",
-            "    const ${6:input_paragraph} = new TextInputComponent()",
+            "    const ${6:input_paragraph} = new TextInputBuilder()",
             "    .setCustomId('${6:input_paragraph}')",
             "    // The label is the prompt the user sees for this input",
             "    .setLabel('${7:label}')",
@@ -165,8 +165,8 @@
             "    .setStyle('PARAGRAPH');",
             "    // An action row only holds one text input,",
             "    // so you need one action row per text input.",
-            "    const ${4:input_short}Row = new MessageActionRow().addComponents(${4:input_short});",
-            "    const ${6:input_paragraph}Row = new MessageActionRow().addComponents(${6:input_paragraph});",
+            "    const ${4:input_short}Row = new ActionRowBuilder().addComponents(${4:input_short});",
+            "    const ${6:input_paragraph}Row = new ActionRowBuilder().addComponents(${6:input_paragraph});",
             "    // Add inputs to the modal",
             "    ${1:modal}Modal.addComponents(${4:input_short}Row,${6:input_paragraph}Row);",
             "    // Show the modal to the user",
@@ -177,9 +177,9 @@
     "Button builder template": {
         "prefix": "button_builder",
         "body": [
-            "    const ${1:row}Row = new MessageActionRow()",
+            "    const ${1:row}Row = new ActionRowBuilder()",
             "    .addComponents(",
-            "    new MessageButton()",
+            "    new ButtonBuilder()",
             "    .setCustomId('${2:ID}')",
             "    .setLabel('${3:label}')",
             "    .setStyle(ButtonStyle.${4:STYLE}') // Primary, Secondary, Success, Danger, Link",
@@ -198,9 +198,9 @@
     "Select menu builder template": {
         "prefix": "select_menu_builder",
         "body": [
-            "    const ${1:row}Row = new MessageActionRow()",
+            "    const ${1:row}Row = new ActionRowBuilder()",
             "    .addComponents(",
-            "    new MessageSelectMenu()",
+            "    new SelectMenuBuilder()",
             "    .setCustomId('${2:ID}')",
             "    .setPlaceholder('${3:Nothing selected}')",
             "    .addOptions([",
@@ -224,7 +224,7 @@
     "Embed builder template": {
         "prefix": "embed_builder",
         "body": [
-            "const ${1:embed}Embed = new MessageEmbed()",
+            "const ${1:embed}Embed = new EmbedBuilder()",
             "//.setTitle('Some title')",
             "//.setURL('')",
             "//.setAuthor({", 
@@ -239,7 +239,7 @@
             "//    { name: '', value: '' },",
             "//    { name: '', value: '' },",
             "//)",
-            "//.addField('Inline field title', 'Some value here', true)",
+            "//.addFields('Inline field title', 'Some value here', true)",
             "//.setImage('')",
             "//.setTimestamp()",
             "//.setFooter({",

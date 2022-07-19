@@ -1,6 +1,6 @@
 /**
 * @file Context menu (type:type) interaction: User avatar
-* @author Felix
+* @author Felix, Mezo
 * @since 1.0.0
 */
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
   },
   /**
 * @description Executes when the context menu with ID User avatar is called.
-* @author Felix
+* @author Felix, Mezo
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

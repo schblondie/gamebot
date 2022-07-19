@@ -1,6 +1,6 @@
 const {
-  MessageActionRow,
-  MessageButton
+  ActionRowBuilder,
+  ButtonBuilder
 } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     .setDescription('Placeholder'),
   /**
    * @description Executes when the interaction is called by interaction handler.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {*} interaction The interaction object of the command.
    */
 
@@ -18,15 +18,15 @@ module.exports = {
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageButton()
+      const row1 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
           .setLabel('Frage')
           .setCustomId('anonyme_frage')
-          .setStyle('PRIMARY'),
-        new MessageButton()
+          .setStyle(ButtonStyle.Primary),
+        new ButtonBuilder()
           .setLabel('Beichte')
           .setCustomId('anonyme_beichte')
-          .setStyle('SECONDARY')
+           .setStyle(ButtonStyle.Secondary)
       )
       interaction.channel.send({
         content: 'Drücke hier um einen Beichte oder Frage einzureichen',

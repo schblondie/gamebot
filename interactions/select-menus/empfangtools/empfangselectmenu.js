@@ -1,12 +1,12 @@
 /* eslint-disable no-tabs */
 /**
  * @file Usertools Select-Menu interaction
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
 const {
-  MessageActionRow, Modal, TextInputComponent
+  ActionRowBuilder, Modal, TextInputBuilder
 } = require('discord.js')
 
 const imp = require('../../context-menus/user/empfangtools')
@@ -16,7 +16,7 @@ module.exports = {
 
   /**
    * @description Executes when a select menu option with ID "empfangselectmenu" is clicked.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -102,11 +102,11 @@ module.exports = {
         const prev4 = target
         module.exports.prev = { prev3, prev4 }
         const ve2Modal = new Modal().setCustomId('ve2Reason').setTitle('Grund')
-        const ve2Grund = new TextInputComponent()
+        const ve2Grund = new TextInputBuilder()
           .setCustomId('ve2Grund')
           .setLabel('Grund für Verifizierungsebene 2')
           .setStyle('PARAGRAPH')
-        const ve2GrundRow = new MessageActionRow().addComponents(ve2Grund)
+        const ve2GrundRow = new ActionRowBuilder().addComponents(ve2Grund)
         // Add inputs to the modal
         ve2Modal.addComponents(ve2GrundRow)
         // Show the modal to the user

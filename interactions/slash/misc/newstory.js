@@ -1,13 +1,13 @@
 /**
  * @file Sample help command with slash command.
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
 // Deconstructed the constants we need in this file.
 
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageActionRow, MessageButton } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder } = require('discord.js')
 
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -16,7 +16,7 @@ module.exports = {
     .setDescription('Neue Story beginnen'),
   /**
    * @description Executes when the interaction is called by interaction handler.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {*} interaction The interaction object of the command.
    */
 
@@ -24,11 +24,11 @@ module.exports = {
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Developer')
     ) {
-      const row = new MessageActionRow().addComponents(
-        new MessageButton()
+      const row = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
           .setLabel('Satz hinzufügen')
           .setCustomId('story')
-          .setStyle('PRIMARY')
+          .setStyle(ButtonStyle.Primary)
       )
       interaction.reply({
         content: 'Beginne eine neue Story!',

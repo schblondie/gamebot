@@ -1,6 +1,6 @@
 /**
  * @file Sample button interaction
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
@@ -11,7 +11,7 @@ module.exports = {
 
   /**
    * @description Executes when the modal with ID "anonym_antworten" is called.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The Interaction Object of the command.
    */
 

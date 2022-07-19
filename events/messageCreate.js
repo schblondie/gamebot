@@ -1,6 +1,6 @@
 /**
  * @file Message Based Commands Handler
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
@@ -21,7 +21,7 @@ module.exports = {
 
   /**
    * @description Executes when a message is created and handle it.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} message The message which was created.
    */
   async execute (message) {

@@ -3,7 +3,7 @@ module.exports = {
 
   /**
    * @description Executes when an interaction is created and handle it.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The interaction which was created
    */
 
@@ -13,7 +13,7 @@ module.exports = {
 
     // Checks if the interaction is a command (to prevent weird bugs)
 
-    if (!interaction.isCommand()) return
+    if (!interaction.type === InteractionType.ApplicationCommand;) return
     /**
      * @description The Interaction command object
      * @type {Object}

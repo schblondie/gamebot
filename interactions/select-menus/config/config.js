@@ -1,16 +1,16 @@
 /**
 * @file Select menu interaction: config
-* @author Felix
+* @author Felix, Mezo
 * @since 1.0.0
 */
 const { getDatabase, ref, set, get } = require('firebase/database')
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
-const { MessageEmbed } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   id: 'config',
   /**
 * @description Executes when the select menu with ID config is called.
-* @author Felix
+* @author Felix, Mezo
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
@@ -49,7 +49,7 @@ module.exports = {
       }
       VE2Msg = VE2Msg.replaceAll('\\n', '\n')
       // ###########################################
-      const empfangsteamEmbed = new MessageEmbed()
+      const empfangsteamEmbed = new EmbedBuilder()
         .setTitle('Einwohnermeldeamt Einstellungen')
         .addFields(
           { name: 'Modul aktiviert', value: enabled },
@@ -59,9 +59,9 @@ module.exports = {
           { name: 'VE2-Nachricht', value: VE2Msg }
         )
       //! ###########################################
-      configRow = new MessageActionRow()
+      configRow = new ActionRowBuilder()
         .addComponents(
-          new MessageSelectMenu()
+          new SelectMenuBuilder()
             .setCustomId('configempfangsteam')
             .setPlaceholder('Nothing selected')
             .addOptions([
@@ -110,16 +110,16 @@ module.exports = {
       }
       const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
       // ###########################################
-      const anonymEmbed = new MessageEmbed()
+      const anonymEmbed = new EmbedBuilder()
         .setTitle('Einwohnermeldeamt Einstellungen')
         .addFields(
           { name: 'Modul aktiviert', value: enabled },
           { name: 'Admin Rolle', value: String(adminRole) }
         )
       //! ###########################################
-      configRow = new MessageActionRow()
+      configRow = new ActionRowBuilder()
         .addComponents(
-          new MessageSelectMenu()
+          new SelectMenuBuilder()
             .setCustomId('configanonym')
             .setPlaceholder('Nothing selected')
             .addOptions([

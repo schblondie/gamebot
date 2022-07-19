@@ -3,7 +3,7 @@ module.exports = {
 
   /**
    * @description Executes when an interaction is created and handle it.
-   * @author Felix
+   * @author Felix, Mezo
    * @param {Object} interaction The interaction which was created
    */
 

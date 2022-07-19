@@ -1,6 +1,6 @@
 /**
  * @file Ready Event File.
- * @author Felix
+ * @author Felix, Mezo
  * @since 1.0.0
  */
 
