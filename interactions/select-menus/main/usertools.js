@@ -49,23 +49,18 @@ module.exports = {
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
-        .addFields( 'User', target.user.username, true)
-        .addFields('Discriminator', `\`#${target.user.discriminator}\``, true)
-        .addFields('ID', `\`${target.user.id}\``, true)
-        .addFields('Status', target.presence.status, true)
-        .addFields('Bot', `\`${target.user.bot}\``, true)
-      // .addField('Color Role', target.roles.color || '`None`', true)
-      // .addField('Highest Role', target.roles.highest, true)
-        .addFields(
-          'Joined server on',
-          `\`${moment(target.joinedTimestamp).format('MMM DD YYYY')}\``,
-          true
-        )
         .addFields( {
-          name: 'Joined Discord on',
-          value:
-          `\`${moment(target.user.createdAt).format('MMM DD YYYY')}\``, inline: true
-        })
+          name: '> UserInfo\'s',
+          value: [
+            `** User:** ${target.user.username}`,
+            `** Discriminator:** #${target.user.discriminator}`,
+            `** ID:** ${target.user.id}`,
+            `** Status:** ${target.presence.status}`,
+            `** Bot:** ${target.user.bot}`,
+            `** Joined Server on:** ${moment(target.joinedTimestamp).format('MMM DD YYYY')}`,
+            `** Joined Discord on:** ${moment(target.user.createdAt).format('MMM DD YYYY')}`
+          ].joi('\n') })
+
         .setFooter({ name: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
         .setColor(target.user.accentColor)
