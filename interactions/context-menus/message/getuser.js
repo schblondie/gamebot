@@ -21,7 +21,6 @@ module.exports = {
     const id = interaction.guild.id
     const msgid = JSON.stringify(await get(ref(db, id + '/anonym/messages/' + interaction.targetMessage.id))).slice(1).slice(0, -1)
     const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
-    console.log(interaction.member.roles.cache.has(adminRole))
     if (
       interaction.member.roles.cache.some((role) => role.name === adminRole.name)
     ) {
