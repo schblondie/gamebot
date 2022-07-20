@@ -2,7 +2,7 @@
 
 # Gamebot
 
-This project was generated with [DiscordJS](https://github.com/discordjs/discord.js/) version 13.18.1
+This project was generated with [DiscordJS](https://github.com/discordjs/discord.js/) version 14.0.2
 
 ## Dashboard
 
