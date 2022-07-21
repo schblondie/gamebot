@@ -20,7 +20,7 @@ require('dotenv').config()
  * @description Main Application Client */
 const Discord = require('discord.js')
 const client = new Client({
-  intents: new Discord.Intents(1179647)
+  intents: new Discord.IntentsBitField(1179647)
 })
 module.exports = client
 // const config = require('./config.json')
@@ -201,7 +201,7 @@ const commandJsonData = [
   ...Array.from(client.contextCommands.values()).map((c) => c.data)
 ]
 
-;(async () => {
+  ; (async () => {
   try {
     console.log('Started refreshing application (/) commands.')
 

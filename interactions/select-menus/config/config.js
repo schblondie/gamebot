@@ -4,8 +4,8 @@
 * @since 1.0.0
 */
 const { getDatabase, ref, set, get } = require('firebase/database')
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
-const { MessageEmbed } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder, ButtonStyle, ButtonBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   id: 'config',
   /**
@@ -49,7 +49,7 @@ module.exports = {
       }
       VE2Msg = VE2Msg.replaceAll('\\n', '\n')
       // ###########################################
-      const empfangsteamEmbed = new MessageEmbed()
+      const empfangsteamEmbed = new EmbedBuilder()
         .setTitle('Einwohnermeldeamt Einstellungen')
         .addFields(
           { name: 'Modul aktiviert', value: enabled },
@@ -59,9 +59,9 @@ module.exports = {
           { name: 'VE2-Nachricht', value: VE2Msg }
         )
       //! ###########################################
-      configRow = new MessageActionRow()
+      configRow = new ActionRowBuilder()
         .addComponents(
-          new MessageSelectMenu()
+          new SelectMenuBuilder()
             .setCustomId('configempfangsteam')
             .setPlaceholder('Nothing selected')
             .addOptions([
@@ -92,10 +92,17 @@ module.exports = {
               }
             ])
         )
-      // Add the row to the message
+      const config2Row = new ActionRowBuilder()
+        .addComponents(
+          new ButtonBuilder()
+            .setCustomId('configempfangsteamrollen')
+            .setLabel('Rollen bearbeiten')
+            .setStyle(ButtonStyle.Primary) // Primary, Secondary, Success, Danger, Link
+          // .setEmoji('EMOJI') // If you want to use an emoji
+        )
       interaction.reply({
         content: 'Was magst du anpassen?',
-        components: [configRow],
+        components: [configRow, config2Row],
         embeds: [empfangsteamEmbed],
         ephemeral: true,
         attachments: []
@@ -110,16 +117,16 @@ module.exports = {
       }
       const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
       // ###########################################
-      const anonymEmbed = new MessageEmbed()
+      const anonymEmbed = new EmbedBuilder()
         .setTitle('Einwohnermeldeamt Einstellungen')
         .addFields(
           { name: 'Modul aktiviert', value: enabled },
           { name: 'Admin Rolle', value: String(adminRole) }
         )
       //! ###########################################
-      configRow = new MessageActionRow()
+      configRow = new ActionRowBuilder()
         .addComponents(
-          new MessageSelectMenu()
+          new SelectMenuBuilder()
             .setCustomId('configanonym')
             .setPlaceholder('Nothing selected')
             .addOptions([

@@ -1,6 +1,6 @@
 const {
-  MessageActionRow,
-  MessageButton
+  ActionRowBuilder,
+  ButtonBuilder
 } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
@@ -18,16 +18,16 @@ module.exports = {
     if (
       interaction.member.roles.cache.some((role) => role.name === 'Technikchef')
     ) {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageButton()
+      const row1 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
           .setLabel('Vorschlag')
           .setCustomId('vorschlag_normal')
           .setStyle('PRIMARY'),
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel('Anonym')
           .setCustomId('vorschlag_anonym')
           .setStyle('SECONDARY'),
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel('Event')
           .setCustomId('vorschlag_event')
           .setStyle('SECONDARY')

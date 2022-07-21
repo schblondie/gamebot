@@ -14,7 +14,7 @@ module.exports = {
 
     // Checks if the interaction is a button interaction (to prevent weird bugs)
 
-    if (!interaction.isContextMenu()) return
+    if (!interaction.isContextMenuCommand()) return
 
     /**********************************************************************/
 

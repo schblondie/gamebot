@@ -5,7 +5,7 @@
 */
 const { set, ref, get, getDatabase } = require('firebase/database')
 const prev = require('./config')
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   id: 'configanonym',
   /**
@@ -54,7 +54,7 @@ module.exports = {
     }
     const adminRole = interaction.guild.roles.cache.get(`${JSON.stringify(await get(ref(db, id + '/anonym/config/adminRole'))).slice(2).slice(0, -1)}`)
     // ###########################################
-    const anonymEmbed = new MessageEmbed()
+    const anonymEmbed = new EmbedBuilder()
       .setTitle('Einwohnermeldeamt Einstellungen')
       .addFields(
         { name: 'Modul aktiviert', value: enabled },

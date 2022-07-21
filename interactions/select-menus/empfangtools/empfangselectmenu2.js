@@ -6,7 +6,7 @@
  */
 
 const {
-  MessageEmbed
+  EmbedBuilder
 } = require('discord.js')
 const imp = require('../../slash/tools/pmg')
 module.exports = {
@@ -118,7 +118,7 @@ module.exports = {
           return list.content
         })
         const lastmsg = lastmsgs.reverse()
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setAuthor({ name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL() })
           .setDescription(lastmsg.join('\n\n'))
           .setFooter({ text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL() })

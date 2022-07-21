@@ -4,7 +4,7 @@
 * @since 1.0.0
 */
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -16,9 +16,9 @@ module.exports = {
  * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
-    const configRow = new MessageActionRow()
+    const configRow = new ActionRowBuilder()
       .addComponents(
-        new MessageSelectMenu()
+        new SelectMenuBuilder()
           .setCustomId('config')
           .setPlaceholder('Nothing selected')
           .addOptions([

@@ -1,4 +1,4 @@
-const { MessageActionRow, MessageSelectMenu } = require('discord.js')
+const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
 const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -25,8 +25,8 @@ module.exports = {
         (role) => role.name === 'Stadtsekräter:in'
       )
     ) {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageSelectMenu()
+      const row1 = new ActionRowBuilder().addComponents(
+        new SelectMenuBuilder()
           .setCustomId('empfangselect2')
           .setPlaceholder('Nothing selected')
           .addOptions([

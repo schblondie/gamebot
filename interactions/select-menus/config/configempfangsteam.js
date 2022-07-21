@@ -3,7 +3,7 @@
 * @author Felix
 * @since 1.0.0
 */
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const prev = require('./config')
 const { set, ref, get, getDatabase } = require('firebase/database')
 module.exports = {
@@ -113,7 +113,7 @@ module.exports = {
     }
     VE2Msg = VE2Msg.replaceAll('\\n', '\n')
     // ###########################################
-    const empfangsteamEmbed = new MessageEmbed()
+    const empfangsteamEmbed = new EmbedBuilder()
       .setTitle('Einwohnermeldeamt Einstellungen')
       .addFields(
         { name: 'Modul aktiviert', value: enabled },

@@ -4,7 +4,7 @@
  * @since 1.0.0
  */
 
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const moment = require('moment')
 const imp = require('../../context-menus/user/tools')
 module.exports = {
@@ -46,7 +46,7 @@ module.exports = {
             break
         }
       }
-      const uiembed = new MessageEmbed()
+      const uiembed = new EmbedBuilder()
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
@@ -85,7 +85,7 @@ module.exports = {
       })
     }
     if (interaction.values.includes('user_avatar')) {
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setTitle(target.user.username + '#' + target.user.discriminator)
         .setImage(target.avatarURL({ dynamic: true }))
       interaction.reply({
