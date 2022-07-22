@@ -8,7 +8,7 @@ const { Routes } = require('discord-api-types/v9')
 require('dotenv').config()
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('global')
+    .setName('server')
     .setDescription('Push command to specific servers.')
     .addIntegerOption((option) =>
       option
