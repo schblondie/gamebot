@@ -49,7 +49,7 @@ module.exports = {
       .setDescription(JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2Msg'))).slice(1).slice(0, -1).replaceAll('\\n', '\n') + '\n**Grund:**\n' + interaction.fields.getTextInputValue('ve2Grund'))
     if (check === 'true') {
       try {
-        target.user.send({
+        await target.user.send({
           content: JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2Msg'))).slice(1).slice(0, -1) + '\n**Grund:**\n' + interaction.fields.getTextInputValue('ve2Grund'),
           embeds: [ve2MsgEmbed]
         })

@@ -1,5 +1,5 @@
 /**
-* @file Slash interaction: addtoserver
+* @file Slash interaction: addglobal
 * @author Felix * @since 1.0.0
 */
 const { SlashCommandBuilder, Collection, Client } = require('discord.js')
@@ -8,14 +8,8 @@ const { Routes } = require('discord-api-types/v9')
 require('dotenv').config()
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('addtoserver')
-    .setDescription('Push command to specific servers.')
-    .addStringOption((option) =>
-      option
-        .setName('server')
-        .setDescription('Server ID')
-        .setRequired(true)
-    )
+    .setName('addglobal')
+    .setDescription('Push command to all servers.')
     .addStringOption((option) =>
       option
         .setName('category')
@@ -83,14 +77,14 @@ module.exports = {
       interaction.deferReply()
       try {
         await rest.put(
-          Routes.applicationGuildCommands(interaction.client.user.id, interaction.options.getString('server')),
+          Routes.applicationCommands(interaction.client.user.id),
           { body: commandJsonData }
         )
 
-        interaction.editReply('Successfully pushed to servers!')
+        interaction.editReply('Successfully pushed to all servers!')
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log(error)
+        interaction.editReply('Error: ' + error)
       }
     })()
   }
