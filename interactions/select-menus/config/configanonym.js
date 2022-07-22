@@ -1,6 +1,6 @@
 /**
 * @file Select menu interaction: configanonym
-* @author Felix
+
 * @since 1.0.0
 */
 const { set, ref, get, getDatabase } = require('firebase/database')
@@ -10,7 +10,7 @@ module.exports = {
   id: 'configanonym',
   /**
 * @description Executes when the select menu with ID configanonym is called.
-* @author Felix
+
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

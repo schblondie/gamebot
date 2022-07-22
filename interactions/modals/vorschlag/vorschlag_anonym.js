@@ -1,6 +1,6 @@
 /**
  * @file Sample button interaction
- * @author Felix
+
  * @since 2.0.0
  */
 const {
@@ -13,7 +13,7 @@ module.exports = {
 
   /**
    * @description Executes when the modal with ID "vorschlag_anonym" is called.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

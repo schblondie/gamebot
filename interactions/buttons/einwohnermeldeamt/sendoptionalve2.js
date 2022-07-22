@@ -1,6 +1,6 @@
 /**
 * @file Button interaction: sendoptionalve2
-* @author Felix
+
 * @since 1.0.0
 */
 const prev1 = require('../../select-menus/empfangtools/empfangselectmenu')
@@ -8,7 +8,7 @@ module.exports = {
   id: 'sendoptionalve2',
   /**
 * @description Executes when the button with ID sendoptionalve2 is called.
-* @author Felix
+
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

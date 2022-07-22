@@ -1,7 +1,7 @@
 /* eslint-disable no-tabs */
 /**
  * @file Usertools Select-Menu interaction
- * @author Felix
+
  * @since 1.0.0
  */
 
@@ -16,7 +16,7 @@ module.exports = {
 
   /**
    * @description Executes when a select menu option with ID "empfangselectmenu" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

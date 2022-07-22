@@ -1,6 +1,6 @@
 /**
  * @file Anonym button interaction
- * @author Felix
+
  * @since 1.0.0
  */
 const {
@@ -13,7 +13,7 @@ module.exports = {
 
   /**
    * @description Executes when the button with ID "orschlag_anonym" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

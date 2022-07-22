@@ -1,6 +1,6 @@
 /**
  * @file Sample button interaction
- * @author Felix
+
  * @since 2.0.0
  */
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
@@ -9,7 +9,7 @@ module.exports = {
 
   /**
    * @description Executes when the modal with ID "vorschlag_normal" is called.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

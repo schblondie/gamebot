@@ -1,6 +1,6 @@
 /**
  * @file User menu interaction: Einwohnermeldeamt
- * @author Felix
+
  * @since 1.0.0
  */
 const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
@@ -13,7 +13,7 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Einwohnermeldeamt" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

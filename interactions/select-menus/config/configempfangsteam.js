@@ -1,6 +1,6 @@
 /**
 * @file Select menu interaction: configempfangsteam
-* @author Felix
+
 * @since 1.0.0
 */
 const { EmbedBuilder } = require('discord.js')
@@ -10,7 +10,7 @@ module.exports = {
   id: 'configempfangsteam',
   /**
 * @description Executes when the select menu with ID configempfangsteam is called.
-* @author Felix
+
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

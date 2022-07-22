@@ -1,6 +1,6 @@
 /**
 * @file Modal interaction: ve2Reason
-* @author Felix
+
 * @since 1.0.0
 */
 const imp = require('../../select-menus/empfangtools/empfangselectmenu')
@@ -10,7 +10,7 @@ module.exports = {
   id: 've2Reason',
   /**
       * @description Executes when the modal with ID ve2Reason is called.
-      * @author Felix
+
       * @param {Object} interaction The Interaction Object of the command.
       */
   async execute (interaction) {

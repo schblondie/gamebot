@@ -1,6 +1,6 @@
 /**
 * @file Context menu (type:type) interaction: Delete Thread
-* @author Felix
+
 * @since 1.0.0
 */
 const { ref, get, getDatabase } = require('firebase/database')
@@ -12,18 +12,13 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Vorschlag löschen" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 
   async execute (interaction) {
     async function deleteThread () {
-      for (let i = 0; i < interaction.targetMessage.embeds.length; i++) {
-        const thread = interaction.channel.threads.cache.find(
-          (x) => x.name === interaction.targetMessage.embeds[i].title
-        )
-        await thread.delete()
-      }
+      interaction.targetMessage.thread.delete()
       interaction.targetMessage.delete()
       interaction.reply({
         content: 'Done',

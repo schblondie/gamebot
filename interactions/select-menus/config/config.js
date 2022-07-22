@@ -1,6 +1,6 @@
 /**
 * @file Select menu interaction: config
-* @author Felix
+
 * @since 1.0.0
 */
 const { getDatabase, ref, set, get } = require('firebase/database')
@@ -10,7 +10,7 @@ module.exports = {
   id: 'config',
   /**
 * @description Executes when the select menu with ID config is called.
-* @author Felix
+
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

@@ -6,7 +6,7 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Tools" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

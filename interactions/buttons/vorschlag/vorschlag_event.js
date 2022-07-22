@@ -1,6 +1,6 @@
 /**
  * @file Event button interaction
- * @author Felix
+
  * @since 1.0.0
  */
 const { ActionRowBuilder, Modal, TextInputBuilder } = require('discord.js')
@@ -9,7 +9,7 @@ module.exports = {
 
   /**
    * @description Executes when the button with ID "vorschlag_event" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

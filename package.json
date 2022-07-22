@@ -28,10 +28,9 @@
         "@discordjs/rest": "^1.0.0",
         "@discordjs/voice": "^0.11.0",
         "@mapbox/node-pre-gyp": "^1.0.9",
-        "@typescript-eslint/eslint-plugin": "^5.30.7",
-        "discord-api-types": "^0.36.2",
+        "discord-api-types": "^0.36.3",
         "discord-xp": "^1.1.16",
-        "discord.js": "^14.0.2",
+        "discord.js": "^14.0.3",
         "dotenv": "^16.0.0",
         "ejs": "^3.1.6",
         "express": "^4.17.3",
@@ -39,17 +38,18 @@
         "firebase": "^9.7.0",
         "fs": "^0.0.1-security",
         "moment": "^2.29.1",
-        "mongoose": "^6.4.5",
+        "mongoose": "^6.4.6",
         "passport": "^0.6.0",
         "passport-discord.js": "^0.0.6",
         "sequelize": "^6.15.0",
         "socket.io": "^4.4.1",
-        "sqlite": "^4.0.23",
+        "sqlite": "^4.1.2",
         "sqlite3": "^5.0.9",
-        "trello-node-api": "^0.0.9",
-        "typescript-eslint": "^0.0.1-alpha.0"
+        "trello-node-api": "^0.0.9"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
+        "@typescript-eslint/parser": "^5.30.7",
         "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-standard": "^17.0.0",
@@ -57,6 +57,7 @@
         "eslint-plugin-n": "^15.2.3",
         "eslint-plugin-no-loops": "^0.3.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-promise": "^6.0.0"
+        "eslint-plugin-promise": "^6.0.0",
+        "typescript": "^4.7.4"
     }
 }

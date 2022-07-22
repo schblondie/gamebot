@@ -10,7 +10,7 @@ module.exports = {
     ),
   /**
    * @description Executes when the interaction is called by interaction handler.
-   * @author Felix
+
    * @param {*} interaction The interaction object of the command.
    */
 

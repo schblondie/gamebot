@@ -1,6 +1,6 @@
 /**
 * @file Slash interaction: config
-* @author Felix
+
 * @since 1.0.0
 */
 const { SlashCommandBuilder } = require('@discordjs/builders')
@@ -12,7 +12,7 @@ module.exports = {
     .setDescription('Alle Einstellungen.'),
   /**
  * @description Executes when the slash command with ID config is called.
- * @author Felix
+
  * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

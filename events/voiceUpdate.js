@@ -7,7 +7,7 @@
 
 //   /**
 //    * @description Executes when an user voice state is updated.
-//    * @author Felix
+//
 //    * @param {Object} oldtstate Main Application Client
 //    * @param {Object} newstate Main Application Client
 //    */
