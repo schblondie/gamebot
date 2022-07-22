@@ -19,8 +19,7 @@ module.exports = {
     /**********************************************************************/
 
     // Checks if the interaction target was a user
-
-    if (interaction.targetType === 'USER') {
+    if (interaction.type === 2) {
       /**
        * @description The Interaction command object
        * @type {Object}
@@ -45,7 +44,7 @@ module.exports = {
       }
     }
     // Checks if the interaction target was a user
-    else if (interaction.targetType === 'MESSAGE') {
+    else if (interaction.type === 3) {
       /**
        * @description The Interaction command object
        * @type {Object}
