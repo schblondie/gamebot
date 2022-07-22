@@ -19,7 +19,7 @@ module.exports = {
 */
   async execute (interaction) {
     const guild = await interaction.client.guilds.cache.get(interaction.options.getString('server'))
-    if(!interaction.options.getString('ID')) {
+    if(!interaction.options.getString('id')) {
       guild.commands.set([])
       interaction.reply({ content: 'All commands removed' })
     } else {

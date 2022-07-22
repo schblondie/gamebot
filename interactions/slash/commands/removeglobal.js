@@ -18,7 +18,7 @@ module.exports = {
 */
   async execute (interaction) {
     const client = interaction.client.application
-    if(!interaction.options.getString('ID')) {
+    if(!interaction.options.getString('id')) {
       client.commands.set([])
       interaction.reply({ content: 'All commands removed' })
     } else {
