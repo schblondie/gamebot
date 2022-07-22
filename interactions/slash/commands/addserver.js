@@ -80,7 +80,7 @@ module.exports = {
       ...Array.from(client.contextCommands.values()).map((c) => c.data)
     ]
       ; (async () => {
-      interaction.deferReply()
+      await interaction.deferReply()
       try {
         await rest.put(
           Routes.applicationGuildCommands(interaction.client.user.id, interaction.options.getString('server')),

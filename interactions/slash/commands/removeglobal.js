@@ -20,6 +20,7 @@ module.exports = {
     const client = interaction.client.application
     if(!interaction.options.getString('ID')) {
       client.commands.set([])
+      interaction.reply({ content: 'All commands removed' })
     } else {
       const command = client.commands.get(interaction.options.getString('ID'))
       if(!command) {
