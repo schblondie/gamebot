@@ -1,7 +1,6 @@
 /**
-* @file Context menu (type:type) interaction: Delete Thread
-* @author Felix
-* @since 1.0.0
+ * @file Context menu (type:type) interaction: Delete Thread
+ * @since 1.0.0
 */
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
 
   /**
    * @description Executes when the context option with name "Vorschlag löschen" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 

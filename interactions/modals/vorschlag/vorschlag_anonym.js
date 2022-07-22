@@ -1,19 +1,19 @@
 /**
  * @file Sample button interaction
- * @author Felix
+
  * @since 2.0.0
- */
+*/
 const {
-  MessageEmbed,
-  MessageActionRow,
-  MessageButton
+  EmbedBuilder,
+  ActionRowBuilder,
+  ButtonBuilder
 } = require('discord.js')
 module.exports = {
   id: 'vorschlag_anonym',
 
   /**
    * @description Executes when the modal with ID "vorschlag_anonym" is called.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -26,7 +26,7 @@ module.exports = {
         ephemeral: true
       })
     }
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setTitle(titel)
       .setDescription(beschreibung)
       .setAuthor({ name: 'Vorschlag' })
@@ -46,16 +46,16 @@ module.exports = {
       })
       .catch()
     async function run () {
-      const row1 = new MessageActionRow().addComponents(
-        new MessageButton()
+      const row1 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
           .setLabel('Vorschlag')
           .setCustomId('vorschlag_normal')
           .setStyle('PRIMARY'),
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel('Anonym')
           .setCustomId('vorschlag_anonym')
           .setStyle('SECONDARY'),
-        new MessageButton()
+        new ButtonBuilder()
           .setLabel('Event')
           .setCustomId('vorschlag_event')
           .setStyle('SECONDARY')
@@ -84,8 +84,8 @@ module.exports = {
     }
     run().then().catch()
     require('dotenv').config()
-    const api = process.env.trello_api
-    const token = process.env.trello_token
+    const api = process.env.trelloApi
+    const token = process.env.trelloToken
     const Trello = require('trello-node-api')(api, token)
     const data = {
       name: titel,

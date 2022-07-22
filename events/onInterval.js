@@ -1,8 +1,7 @@
 /**
  * @file Ready Event File.
- * @author Felix
  * @since 1.0.0
- */
+*/
 
 module.exports = {
   name: 'ready',

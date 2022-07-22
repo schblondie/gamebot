@@ -1,12 +1,11 @@
 /* eslint-disable no-tabs */
 /**
  * @file Usertools Select-Menu interaction
- * @author Felix
  * @since 1.0.0
- */
+*/
 
 const {
-  MessageEmbed
+  EmbedBuilder
 } = require('discord.js')
 const imp = require('../../slash/tools/pmg')
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
 
   /**
    * @description Executes when a select menu option with ID "empfangselectmenu2" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -118,7 +117,7 @@ module.exports = {
           return list.content
         })
         const lastmsg = lastmsgs.reverse()
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setAuthor({ name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL() })
           .setDescription(lastmsg.join('\n\n'))
           .setFooter({ text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL() })

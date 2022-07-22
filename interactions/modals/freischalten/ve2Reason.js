@@ -1,16 +1,15 @@
 /**
-* @file Modal interaction: ve2Reason
-* @author Felix
-* @since 1.0.0
+ * @file Modal interaction: ve2Reason
+ * @since 1.0.0
 */
 const imp = require('../../select-menus/empfangtools/empfangselectmenu')
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
   id: 've2Reason',
   /**
       * @description Executes when the modal with ID ve2Reason is called.
-      * @author Felix
+
       * @param {Object} interaction The Interaction Object of the command.
       */
   async execute (interaction) {
@@ -36,7 +35,7 @@ module.exports = {
       return list.content
     })
     const lastmsg = lastmsgs.reverse()
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
       .setAuthor({ name: target.displayName + "'s letzte Nachrichten", iconURL: target.user.displayAvatarURL() })
       .setDescription(lastmsg.join('\n\n'))
       .setFooter({ text: interaction.member.displayName, iconURL: interaction.member.displayAvatarURL() })
@@ -46,7 +45,7 @@ module.exports = {
     })
     module.exports.prev = target
     const check = JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2MsgEnabled'))).slice(1).slice(0, -1)
-    const ve2MsgEmbed = new MessageEmbed()
+    const ve2MsgEmbed = new EmbedBuilder()
       .setDescription(JSON.stringify(await get(ref(db, interaction.member.guild.id + '/einwohnermeldeamt/config/VE2Msg'))).slice(1).slice(0, -1).replaceAll('\\n', '\n') + '\n**Grund:**\n' + interaction.fields.getTextInputValue('ve2Grund'))
     if (check === 'true') {
       try {
@@ -65,9 +64,9 @@ module.exports = {
         })
       }
     } else if (check === 'optional') {
-      const optionalRow = new MessageActionRow()
+      const optionalRow = new ActionRowBuilder()
         .addComponents(
-          new MessageButton()
+          new ButtonBuilder()
             .setCustomId('sendoptionalve2')
             .setLabel('Senden')
             .setStyle('PRIMARY')

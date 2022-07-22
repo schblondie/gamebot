@@ -1,7 +1,6 @@
 /**
-* @file Context menu (type:type) interaction: Get User
-* @author Felix
-* @since 1.0.0
+ * @file Context menu (type:type) interaction: Get User
+ * @since 1.0.0
 */
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
   },
   /**
 * @description Executes when the context menu with ID Get User is called.
-* @author Felix
+
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {

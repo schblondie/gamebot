@@ -1,9 +1,10 @@
+const { InteractionType } = require('discord.js')
 module.exports = {
   name: 'interactionCreate',
 
   /**
    * @description Executes when an interaction is created and handle it.
-   * @author Felix
+
    * @param {Object} interaction The interaction which was created
    */
 
@@ -13,29 +14,29 @@ module.exports = {
 
     // Checks if the interaction is a command (to prevent weird bugs)
 
-    if (!interaction.isCommand()) return
+    if (interaction.type === InteractionType.ApplicationCommand) {
     /**
      * @description The Interaction command object
      * @type {Object}
      */
+      const command = client.slashCommands.get(interaction.commandName)
 
-    const command = client.slashCommands.get(interaction.commandName)
+      // If the interaction is not a command in cache.
 
-    // If the interaction is not a command in cache.
+      if (!command) return
 
-    if (!command) return
+      // A try to executes the interaction.
 
-    // A try to executes the interaction.
-
-    try {
-      await command.execute(interaction)
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err)
-      await interaction.reply({
-        content: 'There was an issue while executing that command!',
-        ephemeral: true
-      })
+      try {
+        await command.execute(interaction)
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err)
+        await interaction.reply({
+          content: 'There was an issue while executing that command!',
+          ephemeral: true
+        })
+      }
     }
   }
 }

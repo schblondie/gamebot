@@ -4,7 +4,7 @@ module.exports = {
 
   /**
    * @description Executes when an interaction is created and handle it.
-   * @author Felix
+
    * @param {Object} interaction The interaction which was created
    */
 
@@ -14,7 +14,7 @@ module.exports = {
 
     // Checks if the interaction is a button interaction (to prevent weird bugs)
 
-    if (!interaction.isContextMenu()) return
+    if (!interaction.isContextMenuCommand()) return
 
     /**********************************************************************/
 

@@ -1,12 +1,11 @@
 /**
  * @file Sample help command with slash command.
- * @author Felix
  * @since 1.0.0
- */
+*/
 
 // https://gist.github. com/GeneralSadaf/42d91a2b6a93a7db7a39208f2d8b53ad
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
   // The data needed to register slash commands to Discord.
@@ -42,7 +41,6 @@ module.exports = {
     ),
   /**
    * @description Executes when the interaction is called by interaction handler.
-   * @author Felix
    * @param {*} interaction The interaction object of the command.
    */
 
@@ -84,7 +82,7 @@ module.exports = {
         targetType: 2,
         targetApplication: activityID
       })
-    const embed = new MessageEmbed().setDescription(
+    const embed = new EmbedBuilder().setDescription(
       'https://discord.gg/' + invite
     )
     if (invite) {

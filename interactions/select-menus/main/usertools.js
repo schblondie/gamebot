@@ -1,10 +1,9 @@
 /**
  * @file Usertools Select-Menu interaction
- * @author Felix
  * @since 1.0.0
- */
+*/
 
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 const moment = require('moment')
 const imp = require('../../context-menus/user/tools')
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
 
   /**
    * @description Executes when a select menu option with ID "usertools" is clicked.
-   * @author Felix
+
    * @param {Object} interaction The Interaction Object of the command.
    */
 
@@ -31,7 +30,7 @@ module.exports = {
               activities.push(`Listening to **${activity.name}**`)
             } else {
               activities.push(
-              `Listening to **${activity.details}** by **${activity.state}**`
+                `Listening to **${activity.details}** by **${activity.state}**`
               )
             }
             break
@@ -46,7 +45,7 @@ module.exports = {
             break
         }
       }
-      const uiembed = new MessageEmbed()
+      const uiembed = new EmbedBuilder()
         .setTitle(`${target.displayName}'s Information`)
         .setAuthor(target.user.tag)
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
@@ -85,7 +84,7 @@ module.exports = {
       })
     }
     if (interaction.values.includes('user_avatar')) {
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setTitle(target.user.username + '#' + target.user.discriminator)
         .setImage(target.avatarURL({ dynamic: true }))
       interaction.reply({
