@@ -84,8 +84,8 @@ module.exports = {
     }
     run().then().catch()
     require('dotenv').config()
-    const api = process.env.trello_api
-    const token = process.env.trello_token
+    const api = process.env.trelloApi
+    const token = process.env.trelloToken
     const Trello = require('trello-node-api')(api, token)
     const data = {
       name: titel,

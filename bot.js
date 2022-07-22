@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable no-console */
 /**
  * @file Main File of the bot, responsible for registering events, commands, interactions etc.
@@ -22,8 +21,8 @@ const client = new Client({
 })
 module.exports = client
 const token = process.env.token
-const client_id = process.env.client_id
-const test_guild_id = process.env.test_guild_id
+const clientID = process.env.clientID
+const testGuildID = process.env.testGuildID
 
 /**********************************************************************/
 // Below we will be making an event handler!
@@ -178,7 +177,7 @@ const commandJsonData = [
     console.log('Started refreshing application (/) commands.')
 
     await rest.put(
-      Routes.applicationGuildCommands(client_id, test_guild_id),
+      Routes.applicationGuildCommands(clientID, testGuildID),
       { body: commandJsonData }
     )
 
@@ -217,13 +216,13 @@ module.exports = {
 client.login(token)
 const { initializeApp } = require('firebase/app')
 const firebaseConfig = {
-  apiKey: process.env.fb_apiKey,
-  authDomain: process.env.fb_authDomain,
-  databaseURL: process.env.fb_databaseURL,
-  projectId: process.env.fb_projectId,
-  storageBucket: process.env.fb_storageBucket,
-  messagingSenderId: process.env.fb_messagingSenderId,
-  appId: process.env.fb_appId,
-  measurementId: process.env.fb_measurementId
+  apiKey: process.env.fbApiKey,
+  authDomain: process.env.fbAuthDomain,
+  databaseURL: process.env.fbDatabaseURL,
+  projectId: process.env.fbProjectID,
+  storageBucket: process.env.fbStorageBucket,
+  messagingSenderId: process.env.fbMessagingSenderID,
+  appId: process.env.fbAppID,
+  measurementId: process.env.fbmeasurementID
 }
 initializeApp(firebaseConfig)
