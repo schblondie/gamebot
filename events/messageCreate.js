@@ -1,8 +1,7 @@
 /**
  * @file Message Based Commands Handler
-
  * @since 1.0.0
- */
+*/
 
 // Declares constants (destructured) to be used in this file.
 

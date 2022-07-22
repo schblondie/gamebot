@@ -1,7 +1,6 @@
 /**
-* @file Button interaction: sendoptionalve2
-
-* @since 1.0.0
+ * @file Button interaction: sendoptionalve2
+ * @since 1.0.0
 */
 const prev1 = require('../../select-menus/empfangtools/empfangselectmenu')
 module.exports = {

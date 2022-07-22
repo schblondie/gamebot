@@ -1,7 +1,6 @@
 /**
-* @file Button interaction: configempfangsteamrollenadd
-
-* @since 1.0.0
+ * @file Button interaction: configempfangsteamrollenadd
+ * @since 1.0.0
 */
 const { getDatabase, set, ref, onValue } = require('firebase/database')
 const { EmbedBuilder } = require('discord.js')

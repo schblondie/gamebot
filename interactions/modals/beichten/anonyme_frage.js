@@ -1,8 +1,7 @@
 /**
  * @file Sample button interaction
-
  * @since 1.0.0
- */
+*/
 const {
   EmbedBuilder,
   ActionRowBuilder,

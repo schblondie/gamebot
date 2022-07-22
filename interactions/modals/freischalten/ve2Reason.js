@@ -1,7 +1,6 @@
 /**
-* @file Modal interaction: ve2Reason
-
-* @since 1.0.0
+ * @file Modal interaction: ve2Reason
+ * @since 1.0.0
 */
 const imp = require('../../select-menus/empfangtools/empfangselectmenu')
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js')

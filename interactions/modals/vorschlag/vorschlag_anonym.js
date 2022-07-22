@@ -2,7 +2,7 @@
  * @file Sample button interaction
 
  * @since 2.0.0
- */
+*/
 const {
   EmbedBuilder,
   ActionRowBuilder,

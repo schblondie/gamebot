@@ -1,8 +1,7 @@
 /**
  * @file Usertools Select-Menu interaction
-
  * @since 1.0.0
- */
+*/
 
 const { EmbedBuilder } = require('discord.js')
 const moment = require('moment')
@@ -31,7 +30,7 @@ module.exports = {
               activities.push(`Listening to **${activity.name}**`)
             } else {
               activities.push(
-              `Listening to **${activity.details}** by **${activity.state}**`
+                `Listening to **${activity.details}** by **${activity.state}**`
               )
             }
             break

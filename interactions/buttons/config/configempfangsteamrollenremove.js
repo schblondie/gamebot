@@ -1,7 +1,6 @@
 /**
-* @file Button interaction: configempfangsteamrollenremove
-
-* @since 1.0.0
+ * @file Button interaction: configempfangsteamrollenremove
+ * @since 1.0.0
 */
 const { getDatabase, onValue, ref, get, remove } = require('firebase/database')
 const { EmbedBuilder } = require('discord.js')

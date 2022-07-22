@@ -1,6 +1,6 @@
 /* eslint-disable no-tabs */
 // /**
-//  * @file Main trigger handler file.
+//   * @file Main trigger handler file.
 //
 //  * @since 2.0.0
 //  */

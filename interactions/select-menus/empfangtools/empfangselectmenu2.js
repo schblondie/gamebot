@@ -1,9 +1,8 @@
 /* eslint-disable no-tabs */
 /**
  * @file Usertools Select-Menu interaction
-
  * @since 1.0.0
- */
+*/
 
 const {
   EmbedBuilder

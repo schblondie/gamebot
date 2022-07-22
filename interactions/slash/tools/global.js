@@ -1,7 +1,6 @@
 /**
-* @file Slash interaction: label
-* @author Felix
-* @since 1.0.0
+ * @file Slash interaction: label
+* @author Felix * @since 1.0.0
 */
 const { SlashCommandBuilder, Collection, Client } = require('discord.js')
 const { REST } = require('@discordjs/rest')

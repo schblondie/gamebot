@@ -3,7 +3,7 @@
 /**
  * @file Main File of the bot, responsible for registering events, commands, interactions etc.
  * @version 1.0.0
- */
+*/
 
 // Declare constants which will be used throughout the bot.
 
@@ -52,7 +52,6 @@ for (const file of eventFiles) {
 
 /**********************************************************************/
 // Define Collection of Commands, Slash Commands and cooldowns
-
 
 client.cooldowns = new Collection()
 client.triggers = new Collection()

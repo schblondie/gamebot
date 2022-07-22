@@ -1,7 +1,6 @@
 /**
-* @file Select menu interaction: config
-
-* @since 1.0.0
+ * @file Select menu interaction: config
+ * @since 1.0.0
 */
 const { getDatabase, ref, set, get } = require('firebase/database')
 const { ActionRowBuilder, SelectMenuBuilder, ButtonStyle, ButtonBuilder } = require('discord.js')

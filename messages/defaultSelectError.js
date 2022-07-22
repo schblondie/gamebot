@@ -1,8 +1,7 @@
 /**
  * @file Default Error Message On Error Select Menu Interaction
-
  * @since 1.0.0
- */
+*/
 
 module.exports = {
   /**

@@ -1,7 +1,5 @@
 /**
-* @file Button interaction: configempfangsteamrollen
-
-* @since 1.0.0
+ * @file Button interaction: configempfangsteamrollen * @since 1.0.0
 */
 const { getDatabase, ref, onValue } = require('firebase/database')
 const {
@@ -52,7 +50,7 @@ module.exports = {
           .setCustomId('configempfangsteamrollenremove')
           .setLabel('Remove Role')
           .setStyle(ButtonStyle.Danger) // Primary, Secondary, Success, Danger, Link
-          // .setEmoji('EMOJI') // If you want to use an emoji
+        // .setEmoji('EMOJI') // If you want to use an emoji
       )
       interaction.reply({
         embeds: [roleEmbed],

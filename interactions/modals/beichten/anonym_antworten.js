@@ -1,8 +1,7 @@
 /**
  * @file Sample button interaction
-
  * @since 1.0.0
- */
+*/
 
 const imp = require('../../buttons/beichte/anonymantworten.js')
 const { getDatabase, ref, set } = require('firebase/database')

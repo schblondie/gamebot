@@ -1,7 +1,6 @@
 /**
-* @file Context menu (type:type) interaction: Get User
-
-* @since 1.0.0
+ * @file Context menu (type:type) interaction: Get User
+ * @since 1.0.0
 */
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {

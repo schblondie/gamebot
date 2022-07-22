@@ -1,7 +1,6 @@
 /**
-* @file Select menu interaction: configanonym
-
-* @since 1.0.0
+ * @file Select menu interaction: configanonym
+ * @since 1.0.0
 */
 const { set, ref, get, getDatabase } = require('firebase/database')
 const prev = require('./config')

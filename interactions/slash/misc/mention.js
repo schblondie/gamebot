@@ -1,8 +1,7 @@
 /**
  * @file Sample help command with slash command.
-
  * @since 1.0.0
- */
+*/
 
 // Deconstructed the constants we need in this file.
 

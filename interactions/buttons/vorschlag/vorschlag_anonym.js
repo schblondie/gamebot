@@ -1,8 +1,7 @@
 /**
  * @file Anonym button interaction
-
  * @since 1.0.0
- */
+*/
 const {
   ActionRowBuilder,
   Modal,

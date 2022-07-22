@@ -1,7 +1,6 @@
 /**
-* @file Slash interaction: config
-
-* @since 1.0.0
+ * @file Slash interaction: config
+ * @since 1.0.0
 */
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')

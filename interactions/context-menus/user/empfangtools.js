@@ -1,8 +1,7 @@
 /**
  * @file User menu interaction: Einwohnermeldeamt
-
  * @since 1.0.0
- */
+*/
 const { ActionRowBuilder, SelectMenuBuilder } = require('discord.js')
 const { ref, get, getDatabase } = require('firebase/database')
 module.exports = {

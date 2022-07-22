@@ -1,7 +1,6 @@
 /**
-* @file Select menu interaction: configempfangsteam
-
-* @since 1.0.0
+ * @file Select menu interaction: configempfangsteam
+ * @since 1.0.0
 */
 const { EmbedBuilder } = require('discord.js')
 const prev = require('./config')

@@ -1,8 +1,7 @@
 /**
  * @file Default Bot Mention Command
-
  * @since 1.0.0
- */
+*/
 require('dotenv').config()
 
 module.exports = {

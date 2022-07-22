@@ -1,5 +1,5 @@
 // /**
-//  * @file Sample button interaction
+//   * @file Sample button interaction
 //
 //  * @since 1.0.0
 //  */

@@ -1,8 +1,7 @@
 /**
  * @file Ready Event File.
-
  * @since 1.0.0
- */
+*/
 // const client = require('../bot.js')
 // const Dashboard = require('../dashboard/dashboard')
 // const dashboard = new Dashboard(client, {
