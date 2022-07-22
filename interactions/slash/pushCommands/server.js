@@ -10,7 +10,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('server')
     .setDescription('Push command to specific servers.')
-    .addIntegerOption((option) =>
+    .addStringOption((option) =>
       option
         .setName('server')
         .setDescription('Server ID')
@@ -83,7 +83,7 @@ module.exports = {
       try {
         interaction.deferReply()
         await rest.put(
-          Routes.applicationGuildCommands(interaction.client.user.id, interaction.options.getInteger('server')),
+          Routes.applicationGuildCommands(interaction.client.user.id, interaction.options.getString('server')),
           { body: commandJsonData }
         )
 
