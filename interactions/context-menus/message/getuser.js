@@ -30,7 +30,7 @@ module.exports = {
       })
     } else {
       let admin = adminRole.members.random()
-      while (admin !== interaction.member) {
+      while (admin === interaction.member) {
         admin = adminRole.members.random()
       }
       interaction.reply({ content: `Dein Teil lautet:\n${msgid.slice(0, Math.floor(msgid.length / 2))}\n\nBitte warte bis dir der zweite Teil der ID mitgeteilt wird`, ephemeral: true })
