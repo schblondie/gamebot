@@ -79,9 +79,9 @@ module.exports = {
       ...Array.from(client.slashCommands.values()).map((c) => c.data.toJSON()),
       ...Array.from(client.contextCommands.values()).map((c) => c.data)
     ]
-    ; (async () => {
+      ; (async () => {
+      interaction.deferReply()
       try {
-        interaction.deferReply()
         await rest.put(
           Routes.applicationGuildCommands(interaction.client.user.id, interaction.options.getString('server')),
           { body: commandJsonData }
