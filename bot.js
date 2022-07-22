@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 /**
  * @file Main File of the bot, responsible for registering events, commands, interactions etc.
- * @author Felix Limbach
  * @version 1.0.0
  */
 
@@ -15,7 +14,6 @@ const { Routes } = require('discord-api-types/v9')
 require('dotenv').config()
 
 /**
- * From v13, specifying the intents is compulsory.
  * @type {Object}
  * @description Main Application Client */
 const Discord = require('discord.js')
@@ -23,8 +21,6 @@ const client = new Client({
   intents: new Discord.IntentsBitField(1179647)
 })
 module.exports = client
-// const config = require('./config.json')
-// client.config = config
 const token = process.env.token
 const client_id = process.env.client_id
 const test_guild_id = process.env.test_guild_id
@@ -57,37 +53,14 @@ for (const file of eventFiles) {
 /**********************************************************************/
 // Define Collection of Commands, Slash Commands and cooldowns
 
-client.commands = new Collection()
+
+client.cooldowns = new Collection()
+client.triggers = new Collection()
 client.slashCommands = new Collection()
 client.buttonCommands = new Collection()
 client.modalCommands = new Collection()
 client.selectCommands = new Collection()
 client.contextCommands = new Collection()
-client.cooldowns = new Collection()
-client.triggers = new Collection()
-
-/**********************************************************************/
-// Registration of Message-Based Commands
-
-/**
- * @type {String[]}
- * @description All command categories aka folders.
- */
-
-const commandFolders = fs.readdirSync('./commands')
-
-// Loop through all files and store commands in commands collection.
-
-for (const folder of commandFolders) {
-  const commandFiles = fs
-    .readdirSync(`./commands/${folder}`)
-    .filter((file) => file.endsWith('.js'))
-  for (const file of commandFiles) {
-    const command = require(`./commands/${folder}/${file}`)
-    client.commands.set(command.name, command)
-  }
-}
-
 /**********************************************************************/
 // Registration of Slash-Command Interactions.
 
