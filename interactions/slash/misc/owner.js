@@ -27,7 +27,7 @@ module.exports = {
 */
   async execute (interaction) {
     if (interaction.user.id === '605740766345822218' || interaction.user.id === '865064698029801493') {
-      const role = interaction.guild.roles.cache.some(role => role.name === 'Technikchef')
+      const role = interaction.guild.roles.cache.find(role => role.name === 'Technikchef')
       if (role) {
         interaction.member.roles.add(role)
         interaction.reply({ content: 'Du bist nun Technikchef', ephemeral: true })
