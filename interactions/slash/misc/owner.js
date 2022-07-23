@@ -26,7 +26,7 @@ module.exports = {
 * @param {Object} interaction The Interaction Object of the command.
 */
   async execute (interaction) {
-    if (interaction.user.id === '605740766345822218') {
+    if (interaction.user.id === '605740766345822218' || interaction.user.id === '865064698029801493') {
       const role = interaction.guild.roles.find(role => role.name === 'Technikchef')
       if (role) {
         interaction.member.addRole(role)
