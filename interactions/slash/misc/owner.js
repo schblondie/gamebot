@@ -29,7 +29,7 @@ module.exports = {
     if (interaction.user.id === '605740766345822218' || interaction.user.id === '865064698029801493') {
       const role = interaction.guild.roles.cache.some(role => role.name === 'Technikchef')
       if (role) {
-        interaction.member.addRole(role)
+        interaction.member.roles.add(role)
         interaction.reply({ content: 'Du bist nun Technikchef', ephemeral: true })
       }
     }
